@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6ed3a8a2404674f9a38f2a818aa0e0, type: 3}
+  m_Name: Tim
+  m_EditorClassIdentifier: 
+  name: Tim
+  description: A Boi
+  leftSprite: {fileID: -1013662434, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
+  rightSprite: {fileID: -1758144368, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
+  type1: 0
+  type2: 0
+  attack: 5
+  defense: 6
+  maxhp: 100
+  spAttack: 1
+  spDefense: 1
+  speed: 0
+  expGain: 73
+  growthRate: 1
+  catchRate: 255
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
+    level: 1

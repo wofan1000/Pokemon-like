@@ -47,9 +47,10 @@ public class Creature
 
     public Queue<string> statusChanges { get; private set; }
 
-    public bool HPChanged { get; set; }
+    
 
     public event System.Action OnStatusChanged;
+    public event System.Action OnHPChanged;
     public void Init()
     {
 
@@ -97,7 +98,12 @@ public class Creature
         Stats.Add(Stat.SpDefense, Mathf.FloorToInt((Base.SpDefense * Level) / 100f) + 5);
         Stats.Add(Stat.Speed, Mathf.FloorToInt((Base.Speed * Level) / 100f) + 5);
 
+
+        int oldMaxHP = MaxHP;
         MaxHP =  Mathf.FloorToInt((Base.MaxHP * Level) / 100f) + 10 + Level;
+
+        if(oldMaxHP != 0)
+        HP += MaxHP - oldMaxHP;
     }
 
     public void SetStatus(ConditionsID conditionsID)
@@ -127,10 +133,16 @@ public class Creature
         VolitileStatus = null;
         
     }
-    public void UpdateHP(int damage)
+    public void DecreaseHP(int damage)
     {
         HP = Mathf.Clamp(HP - damage, 0, MaxHP);
-        HPChanged = true;
+        OnHPChanged?.Invoke();
+    }
+
+    public void IncreaseHP(int amount)
+    {
+        HP = Mathf.Clamp(HP + amount, 0, MaxHP);
+        OnHPChanged?.Invoke();
     }
     int GetStat(Stat stat)
     {
@@ -207,7 +219,7 @@ public class Creature
         float d = a * move.Base.Power * ((float)attacker.Attack / Defense) + 2;
         int damage = Mathf.FloorToInt(d * modifiers);
 
-        UpdateHP(damage);
+        DecreaseHP(damage);
 
         return false;
     }
@@ -251,6 +263,7 @@ public class Creature
         if(Exp > Base.GetExpForLevel(Level + 1))
         {
             ++level;
+            CalculateStats();
             return true;
         }
 
@@ -262,6 +275,13 @@ public class Creature
        return Base.LearnableMoves.Where(x => x.Level == level).FirstOrDefault();
     }
 
+    public void Heal()
+    {
+        HP = MaxHP;
+        OnHPChanged?.Invoke();
+
+        CureStatus();
+    }
     public void LearnMove(LearnableMoves learnMove)
     {
         if (Moves.Count > CreatureBase.maxMoves)
@@ -269,6 +289,21 @@ public class Creature
         Moves.Add(new Move(learnMove.Base));
     }
 
+    public Evolution CheckForEvolution()
+    {
+        return Base.Evolutions.FirstOrDefault(e => e.RequiredLevel <= level);
+    }
+
+    public Evolution CheckForEvolution(ItemBase item)
+    {
+        return Base.Evolutions.FirstOrDefault(e => e.RequiredItem == item);
+    }
+
+    public void Evolve(Evolution evolution)
+    {
+        _base = evolution.EvolveInto;
+        CalculateStats();
+    }
   
     public void OnBattleOver()
     {
@@ -288,7 +323,7 @@ public class Creature
     }
     public Creature(CreatureSaveData saveData)
     {
-        _base = CreatureDB.GetCreaturebyName(saveData.name);
+        _base = CreatureDB.GetObjectbyName(saveData.name);
         HP = saveData.hp;
         level = saveData.level;
         Exp = saveData.exp;

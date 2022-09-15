@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9123381927748408808}
   - component: {fileID: 9123381927748408809}
   - component: {fileID: 9123381927748408810}
-  - component: {fileID: 2137869878132593713}
+  - component: {fileID: -5531203311599383972}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -31,7 +31,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9123381927748408800}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.5, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -216,7 +216,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7131405, y: 1.1144745}
   m_EdgeRadius: 0
---- !u!114 &2137869878132593713
+--- !u!114 &-5531203311599383972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,10 +225,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 9123381927748408800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3385b3741d0f06243961c46fb409bb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueId: 
+  slots:
+  - item: {fileID: 11400000, guid: 52645057c0cfa59488a6519535fdb748, type: 2}
+    count: 3
+  - item: {fileID: 11400000, guid: 07a963004138a984984dde719a810ba6, type: 2}
+    count: 2
+  - item: {fileID: 11400000, guid: f350cdfcca757324196c1d3dcf0e4234, type: 2}
+    count: 5
 --- !u!1 &9123381929684885036
 GameObject:
   m_ObjectHideFlags: 0

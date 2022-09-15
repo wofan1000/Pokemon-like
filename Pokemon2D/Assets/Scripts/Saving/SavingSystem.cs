@@ -71,6 +71,12 @@ public class SavingSystem : MonoBehaviour
         }
     }
 
+    public void RestoreEntity(SavableEntity entity)
+    {
+        if(gameState.ContainsKey(entity.UniqueId))
+         entity.RestoreState(gameState[entity.UniqueId]);
+    }
+
     void SaveFile(string saveFile, Dictionary<string, object> state)
     {
         string path = GetPath(saveFile);
@@ -102,4 +108,6 @@ public class SavingSystem : MonoBehaviour
     {
         return Path.Combine(Application.persistentDataPath, saveFile);
     }
+
+   
 }

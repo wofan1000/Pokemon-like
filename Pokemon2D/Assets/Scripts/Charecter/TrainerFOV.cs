@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TrainerFOV : MonoBehaviour, IPlayerTriggerable
 {
+    public bool triggerRepeatedly => false;
+
     public void OnPlayerTriggered(PlayerController player)
     {
         GameController.instance.OnEnterTrainerView(GetComponentInParent<TrainerController>());

@@ -34,6 +34,8 @@ public class CreatureBase : ScriptableObject
 
     [SerializeField] List<LearnableMoves> learnableMoves;
 
+    [SerializeField] List<Evolution> evolutions;
+
     public int GetExpForLevel(int level)
     {
         if(growthRate == GrowthRate.Fast)
@@ -94,6 +96,8 @@ public class CreatureBase : ScriptableObject
         get { return learnableMoves; }
     }
 
+    public List<Evolution> Evolutions => evolutions;
+
     public int SpAttack
     {
         get { return spAttack; }
@@ -134,12 +138,20 @@ public class LearnableMoves
     {
         get { return level; }
     }
-
-  
-
 }
 
+[System.Serializable]
+public class Evolution
+{
+    [SerializeField] CreatureBase evolveInto;
+    [SerializeField] int requiredLevel;
+    [SerializeField] ItemBase requiredItem;
 
+    public CreatureBase EvolveInto => evolveInto;
+    public int RequiredLevel => requiredLevel;
+
+    public ItemBase RequiredItem => requiredItem;
+}
 public enum CreatureType
 {
     none,

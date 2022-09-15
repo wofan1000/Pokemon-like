@@ -23,20 +23,19 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
         SetFovRotation(charecter.Animator.DefultDirection);
     }
 
-    public void Interact(Transform initer)
+    public IEnumerator Interact(Transform initer)
     {
         charecter.LookTwords(initer.position);
 
         if (!battleLost)
         {
-            StartCoroutine(DialogueManager.Instance.ShowDialogue(dialogue, () =>
-            {
-                GameController.instance.StartTrainerBattle(this);
-            }));
+            yield return DialogueManager.Instance.ShowDialogue(dialogue);
+            GameController.instance.StartTrainerBattle(this);
+           
         }
         else
         {
-            StartCoroutine(DialogueManager.Instance.ShowDialogue(dialogueAfterBattle));
+            yield return DialogueManager.Instance.ShowDialogue(dialogueAfterBattle);
         }
     }
 
@@ -54,16 +53,15 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
 
         //walk twords player
         var diff = player.transform.position - transform.position;
-        var movevec =  diff - diff.normalized;
+        var movevec = diff - diff.normalized;
         movevec = new Vector2(Mathf.Round(movevec.x), Mathf.Round(movevec.y));
 
-       yield return charecter.Move(movevec);
+        yield return charecter.Move(movevec);
 
-      StartCoroutine(DialogueManager.Instance.ShowDialogue(dialogue, () =>
-        {
-            GameController.instance.StartTrainerBattle(this);
-        }));
+        yield return DialogueManager.Instance.ShowDialogue(dialogue);
+        GameController.instance.StartTrainerBattle(this);
     }
+        
     public void SetFovRotation(FacingDirection dir)
     {
         float angle = 0f;

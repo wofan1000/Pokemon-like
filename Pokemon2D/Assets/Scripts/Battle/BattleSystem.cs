@@ -12,7 +12,8 @@ public enum BattleState
     RunningTurn,
     Busy,
     PartyScreen,
-    BattleOver
+    BattleOver,
+    Inventory
 }
 public enum BattleAction
 {
@@ -29,6 +30,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] BattleDialogueBox dialogueBox;
     [SerializeField] PartyScreen partyScreen;
     [SerializeField] GameObject captureCapsuleSprite;
+    [SerializeField] InventoryUI inventoryUI;
 
     BattleState state;
     int currentAction;
@@ -79,6 +81,21 @@ public class BattleSystem : MonoBehaviour
         {
             HandlePartyScreenSelection();
         }
+        else if ( state == BattleState.Inventory)
+        {
+            Action onBack = () =>
+            {
+                inventoryUI.gameObject.SetActive(false);
+                state = BattleState.ActionSelection;
+            };
+
+            Action<ItemBase> onItemUsed = (ItemBase useditem) =>
+            {
+                StartCoroutine(OnItemUsed(useditem));
+            };
+
+            inventoryUI.HandleUpdate(onBack);
+        }
     }
     void HandlePartyScreenSelection()
     {
@@ -124,16 +141,15 @@ public class BattleSystem : MonoBehaviour
 
         partyScreen.HandleUpdate(onSelected,onBack);
       
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            ThrowCapsule();
-        }
+        
     }
 
     void BattleOver(bool won)
     {
         state = BattleState.BattleOver;
         playerParty.Creatures.ForEach(p => p.OnBattleOver());
+        playerUnit.Hud.ClearData();
+        enemyUnit.Hud.ClearData();
         OnBattleOver(won);
     }
 
@@ -157,7 +173,18 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    IEnumerator OnItemUsed(ItemBase usedItem)
+    {
+        state = BattleState.Busy;
+        inventoryUI.gameObject.SetActive(false);
 
+        if (usedItem is CapsuleItem)
+        {
+            yield return ThrowCapsule((CapsuleItem) usedItem);
+        }
+
+        StartCoroutine(RunTurns(BattleAction.UseItem));
+    }
         
 
     bool CheckIfMoveHits(Move move, Creature source, Creature target)
@@ -242,7 +269,7 @@ public class BattleSystem : MonoBehaviour
             }
             else if (currentAction == 2)
             {
-                StartCoroutine(RunTurns(BattleAction.UseItem));
+                OpenInventory();
             }
             else if (currentAction == 3)
             {
@@ -261,7 +288,6 @@ public class BattleSystem : MonoBehaviour
     {
         partyScreen.CalledFrom = state;
         state = BattleState.PartyScreen;
-        partyScreen.SetPartyData(playerParty.Creatures);
         partyScreen.gameObject.SetActive(true);
     }
 
@@ -302,6 +328,12 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.ActionSelection;
         dialogueBox.EnableActionSelector(true);
+    }
+
+    void OpenInventory()
+    {
+        state = BattleState.Inventory;
+        inventoryUI.gameObject.SetActive(true);
     }
 
     void MoveSelection()
@@ -351,7 +383,7 @@ public class BattleSystem : MonoBehaviour
             else if (playerAction == BattleAction.UseItem)
             {
                 dialogueBox.EnableActionSelector(false);
-                ThrowCapsule();
+                //ThrowCapsule();
             }
             else if (playerAction == BattleAction.Flee)
             {
@@ -390,7 +422,7 @@ public class BattleSystem : MonoBehaviour
         bool canRunMove = sourceUnit.Creature.OnBeforeMove();
         if (!canRunMove)
         {
-            yield return sourceUnit.Hud.UpdateHP();
+            yield return sourceUnit.Hud.WaitForHpUpdate();
             yield break;
         }
 
@@ -411,7 +443,7 @@ public class BattleSystem : MonoBehaviour
             else
             {
                 bool isDead = enemyUnit.Creature.TakeDamage(move, sourceUnit.Creature);
-                yield return tarUnit.Hud.UpdateHP();
+                //yield return tarUnit.Hud.UpdateHPAsync();
             }
 
             if (move.Base.Secondaries != null && move.Base.Secondaries.Count > 0 && tarUnit.Creature.HP > 0)
@@ -467,7 +499,8 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitUntil(() => state == BattleState.RunningTurn);
 
         sourceUnit.Creature.OnAfterTurn();
-        sourceUnit.Hud.UpdateHP();
+        
+        sourceUnit.Hud.WaitForHpUpdate();
 
         if (sourceUnit.Creature.HP <= 0)
         {
@@ -554,18 +587,20 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
         state = BattleState.RunningTurn;
     }
-    IEnumerator ThrowCapsule()
+    IEnumerator ThrowCapsule(CapsuleItem capsuleItem)
     {
         state = BattleState.Busy;
 
         if(isTrainerBattle)
         {
+           
             state = BattleState.RunningTurn;
             yield break;
         }
         yield return new WaitForSeconds(1f);
         var capsuleObj =  Instantiate(captureCapsuleSprite, playerUnit.transform.position - new Vector3(2, 0), Quaternion.identity);
         var capsule = capsuleObj.GetComponent<SpriteRenderer>();
+        capsule.sprite = capsuleItem.Icon;
 
         //animations
         yield return capsule.transform.DOJump(enemyUnit.transform.position + new Vector3(0, 2), 2f, 1, 1f).WaitForCompletion();
@@ -573,7 +608,7 @@ public class BattleSystem : MonoBehaviour
         yield return enemyUnit.PlayCaptureAnimation();
         capsule.transform.DOMoveY(enemyUnit.transform.position.y - 1.3f, .5f).WaitForCompletion();
 
-        int shakeCount = TryToCatchCreature(enemyUnit.Creature);
+        int shakeCount = TryToCatchCreature(enemyUnit.Creature, capsuleItem);
 
         for (int i = 0; i < shakeCount; ++i)
         {
@@ -599,9 +634,9 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    int TryToCatchCreature(Creature creature)
+    int TryToCatchCreature(Creature creature, CapsuleItem capsuleItem)
     {
-        float a = (3 * creature.MaxHP - 2 * creature.HP) * creature.Base.CatchRate 
+        float a = (3 * creature.MaxHP - 2 * creature.HP) * creature.Base.CatchRate * capsuleItem.CatchRateMod
         * ConditionDB.GetStatusBounus(creature.Status) / (3 * creature.MaxHP);
 
         if (a >= 255)

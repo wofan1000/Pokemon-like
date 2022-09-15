@@ -24,7 +24,7 @@ public class ConditionDB : MonoBehaviour
                 Name = "Poison",
                 OnAfterTurn = (Creature creature) =>
                 {
-                    creature.UpdateHP(creature.MaxHP/8);
+                    creature.DecreaseHP(creature.MaxHP/8);
                 }
             }
         },
@@ -35,7 +35,7 @@ public class ConditionDB : MonoBehaviour
                 Name = "Burn",
                 OnAfterTurn = (Creature creature) =>
                 {
-                    creature.UpdateHP(creature.MaxHP/15);
+                    creature.DecreaseHP(creature.MaxHP/15);
                 }
             }
         },

@@ -9,7 +9,7 @@ public class PartyScreen : MonoBehaviour
     Text message;
     PartyMemberUI[] memberSlots;
     List<Creature> creatures;
-
+    Party party;
     int selection = 0;
 
     public Creature SelectedCreature => creatures[selection];
@@ -18,17 +18,23 @@ public class PartyScreen : MonoBehaviour
     public void Init()
     {
         memberSlots = GetComponentsInChildren<PartyMemberUI>(true);
+
+        party = Party.GetPlayerParty();
+        SetPartyData();
+
+        party.OnUpdated += SetPartyData;
     }
 
-    public void SetPartyData (List<Creature> creatures)
+    public void SetPartyData ()
     {
-        this.creatures = creatures;
+        creatures = party.Creatures;
+
         for(int i = 0; i < memberSlots.Length; i++)
         {
             if (i < creatures.Count)
             {
                 memberSlots[i].gameObject.SetActive(true);
-                memberSlots[i].SetData(creatures[i]);
+                memberSlots[i].Init(creatures[i]);
             }
             else
                 memberSlots[i].gameObject.SetActive(false);

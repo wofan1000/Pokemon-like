@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8688848369981787912}
   - component: {fileID: 8688848369981787918}
   - component: {fileID: 8688848369981787913}
+  - component: {fileID: 1988201876}
+  - component: {fileID: 3656258953061346113}
   m_Layer: 10
   m_Name: NPC
   m_TagString: Untagged
@@ -203,3 +205,34 @@ MonoBehaviour:
   - {fileID: 21300040, guid: e0ddba6d3fcf21f49949fcc95c849aac, type: 3}
   - {fileID: 21300042, guid: e0ddba6d3fcf21f49949fcc95c849aac, type: 3}
   defaultDir: 1
+--- !u!114 &1988201876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8688848369981787927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12dafe8276eabc1469485431ae4b794a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 3d4a6c483ed4c8d4387866a09dedfb2e, type: 2}
+  count: 1
+  dialogue:
+    lines:
+    - Need capsules?
+    - Here.
+--- !u!114 &3656258953061346113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8688848369981787927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: 

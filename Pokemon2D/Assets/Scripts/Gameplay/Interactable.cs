@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface Interactable 
 {
-    void Interact(Transform initer);
+    IEnumerator Interact(Transform initer);
     
 }

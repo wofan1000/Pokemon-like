@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BattleZone : MonoBehaviour, IPlayerTriggerable
 {
+    
+
     public void OnPlayerTriggered(PlayerController player)
     {
         if (UnityEngine.Random.Range(1, 101) <= 10)
@@ -12,4 +14,6 @@ public class BattleZone : MonoBehaviour, IPlayerTriggerable
             GameController.instance.StartBattle();
         }
     }
+
+    public bool triggerRepeatedly => true;
 }

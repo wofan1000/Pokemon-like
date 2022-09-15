@@ -15,7 +15,7 @@ public class Move
 
     public Move(MoveSaveData savedata)
     {
-        Base =  MoveDB.GetMovebyName(savedata.name);
+        Base = MoveDB.GetObjectbyName(savedata.name);
         MP = savedata.mp;
     }
 
@@ -23,10 +23,15 @@ public class Move
     {
         var savedata = new MoveSaveData()
         {
-            name = Base.Name,
+            name = Base.name,
             mp = MP
         };
         return savedata;
+    }
+
+  public  void IncreaseMP(int amount)
+    {
+        MP = Mathf.Clamp(MP + amount, 0, Base.MP);
     }
 }
 

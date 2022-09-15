@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum GameState {Freeroam, Battle, Dialogue, Cutscene, Paused, Menu, partyscreen, Inventory}
+public enum GameState {Freeroam, Battle, Dialogue, Cutscene, Paused, Menu, partyscreen, Inventory, Evolution, Shop }
 public class GameController : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
@@ -16,7 +16,9 @@ public class GameController : MonoBehaviour
 
     GameState state;
 
-    GameState  stateBeforePause;
+    GameState prevState;
+
+    GameState stateBeforeEvolution;
 
     MenuController menuController;
 
@@ -28,27 +30,34 @@ public class GameController : MonoBehaviour
     {
         menuController = GetComponent<MenuController>();
         instance = this;
+
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+
         CreatureDB.init();
         ConditionDB.Init();
         MoveDB.init();
+        ItemDB.init();
+        QuestDB.init();
     }
 
 
     private void Start()
     {
         battleSystem.OnBattleOver += EndBattle;
-      
+
         partyscreen.Init();
 
         DialogueManager.Instance.OnShowDialogue += () =>
         {
+            prevState = state;
             state = GameState.Dialogue;
         };
 
         DialogueManager.Instance.OnCloseDialogue += () =>
         {
-            if( state == GameState.Dialogue)
-            state = GameState.Freeroam;
+            if (state == GameState.Dialogue)
+                state = prevState;
         };
 
         menuController.onBack += () =>
@@ -57,18 +66,32 @@ public class GameController : MonoBehaviour
         };
 
         menuController.onMenuSelected += OnMenuSelected;
+
+        EvolutionManager.i.OnStartEvolution += () =>
+        {
+            stateBeforeEvolution = state;
+            state = GameState.Evolution;
+        };
+        EvolutionManager.i.OnStartEvolution += () =>
+        {
+            partyscreen.SetPartyData();
+            state = stateBeforeEvolution;
+        };
+
+        ShopController.i.OnStart += () => state = GameState.Shop;
+        ShopController.i.OnFinish += () => state = GameState.Freeroam;
     }
 
     public void PauseGame(bool pause)
     {
-        if(pause)
+        if (pause)
         {
-            stateBeforePause = state;
-           state = GameState.Paused;
+            prevState = state;
+            state = GameState.Paused;
         }
         else
         {
-            state = stateBeforePause;
+            state = prevState;
         }
     }
 
@@ -80,17 +103,22 @@ public class GameController : MonoBehaviour
 
     void EndBattle(bool won)
     {
-        if(trainer != null && won == true)
+        if (trainer != null && won == true)
         {
             trainer.BattleLost();
             trainer = null;
         }
+        partyscreen.SetPartyData();
+
         state = GameState.Freeroam;
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
+
+        var playerparty = playerController.GetComponent<Party>();
+        StartCoroutine(playerparty.CheckForEvolutions());
     }
 
-   public void StartBattle()
+    public void StartBattle()
     {
         state = GameState.Battle;
         battleSystem.gameObject.SetActive(true);
@@ -121,7 +149,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if(state == GameState.Freeroam)
+        if (state == GameState.Freeroam)
         {
             playerController.HandleUpdate();
         }
@@ -137,12 +165,12 @@ public class GameController : MonoBehaviour
         {
             menuController.HandleUpdate();
         }
-        if(Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Return))
         {
             menuController.OpenMenu();
             state = GameState.Menu;
         }
-        if(Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             SavingSystem.i.Save("save slot 1");
         }
@@ -150,7 +178,7 @@ public class GameController : MonoBehaviour
         {
             SavingSystem.i.Load("save slot 1");
         }
-       
+
     }
 
     public void SetCurrentScene(SceneDetails currScene)
@@ -163,7 +191,6 @@ public class GameController : MonoBehaviour
         if (selectedItem == 0)
         {
             partyscreen.gameObject.SetActive(true);
-            partyscreen.SetPartyData(playerController.GetComponent<Party>().Creatures);
             state = GameState.partyscreen;
         }
         else if (selectedItem == 1)
@@ -181,7 +208,7 @@ public class GameController : MonoBehaviour
             SavingSystem.i.Load("save slot 1");
             state = GameState.Freeroam;
         }
-      else if (state == GameState.partyscreen)
+        else if (state == GameState.partyscreen)
         {
             Action onSelected = () =>
             {
@@ -193,17 +220,18 @@ public class GameController : MonoBehaviour
                 partyscreen.gameObject.SetActive(false);
                 state = GameState.Freeroam;
             };
-            partyscreen.HandleUpdate(onSelected,onBack);
+            partyscreen.HandleUpdate(onSelected, onBack);
         }
         else if (state == GameState.Inventory)
         {
-            Action onBack = () =>
-            {
-                inventoryUI.gameObject.SetActive(false);
-                state = GameState.Freeroam;
-            };
-
-            inventoryUI.HandleUpdate(onBack);
+            inventoryUI.gameObject.SetActive(false);
+            state = GameState.Freeroam;
+        }
+        else if (state == GameState.Shop)
+        {
+            ShopController.i.HandleUpdate();
         }
     }
+
+    public GameState State => state;
 }

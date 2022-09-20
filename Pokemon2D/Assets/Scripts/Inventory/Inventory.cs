@@ -29,6 +29,8 @@ public class Inventory : MonoBehaviour, ISavable
 
     };
 
+   
+
     public List<ItemSlot> GetSlotsByCatagory(int catagoryIndex)
     {
         return allSlots[catagoryIndex];
@@ -42,14 +44,14 @@ public class Inventory : MonoBehaviour, ISavable
 
     public ItemBase UseItem(int itemIndex, Creature selectedCreature, int selectedCatagory)
     {
-
-
         var item = GetItem(itemIndex, selectedCatagory);
         bool itemused = item.Use(selectedCreature); 
 
         if(itemused)
         {
+            if(!item.IsReusable)
             RemoveItem(item);
+
             return item;
         }
         return null;
@@ -78,6 +80,20 @@ public class Inventory : MonoBehaviour, ISavable
         OnUpdated?.Invoke();
     }
 
+    public int GetItemCount(ItemBase item)
+    {
+        
+            int catagory = (int)GetCatagoryFromItem(item);
+            var currSlots = GetSlotsByCatagory(catagory);
+
+            var itemslot = currSlots.FirstOrDefault(slot => slot.Item == item);
+
+        if (itemslot != null)
+           return itemslot.Count;
+        else
+            return 0;
+    }
+
     public bool HasItem( ItemBase item)
     {
         int catagory = (int)GetCatagoryFromItem(item);
@@ -88,13 +104,13 @@ public class Inventory : MonoBehaviour, ISavable
             
     
 
-    public void RemoveItem(ItemBase item)
+    public void RemoveItem(ItemBase item, int countToRemove = 1)
     {
         int catagory = (int)GetCatagoryFromItem(item);
         var currSlots = GetSlotsByCatagory(catagory);
 
         var itemSlot = currSlots.First(slots => slots.Item == item);
-        itemSlot.Count--;
+        itemSlot.Count -= countToRemove;
 
         if(itemSlot.Count == 0)
             currSlots.Remove(itemSlot);

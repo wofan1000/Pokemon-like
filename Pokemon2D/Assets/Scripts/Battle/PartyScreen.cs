@@ -42,6 +42,24 @@ public class PartyScreen : MonoBehaviour
                 UpdateMemberSelection(selection);
     }
 
+    public void ShowIfTMIsUsable(TMItems tmItem)
+    {
+        for (int i = 0; i < creatures.Count; i++)
+        {
+            string message = tmItem.CanBeTaught(creatures[i]) ? "Can Learn" : "Cant Learn";
+           // memberSlots[i].SetMessage(message);
+        }
+    }
+
+    public void ClearMemberSlotMessages()
+    {
+        for (int i = 0; i < creatures.Count; i++)
+        {
+            
+            memberSlots[i].SetMessage("");
+        }
+    }
+
     public void HandleUpdate(Action onSelected, Action onBack)
     {
         var prevSelection = selection;

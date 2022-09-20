@@ -536,7 +536,7 @@ public class BattleSystem : MonoBehaviour
                 {
                     if(playerUnit.Creature.Moves.Count < CreatureBase.maxMoves)
                     {
-                        playerUnit.Creature.LearnMove(newMove);
+                        playerUnit.Creature.LearnMove(newMove.Base);
                         dialogueBox.SetMoveNames(playerUnit.Creature.Moves);
                     } else
                     {

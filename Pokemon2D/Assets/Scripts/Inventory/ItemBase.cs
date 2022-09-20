@@ -10,7 +10,7 @@ public class ItemBase : ScriptableObject
     [SerializeField] float price;
     [SerializeField] bool canSell;
 
-    public string Name => name;
+    public virtual string Name => name;
 
     public string Description => description;
 
@@ -24,4 +24,8 @@ public class ItemBase : ScriptableObject
     {
         return false;
     }
+    public virtual bool CanUseInBattle => true;
+    public virtual bool CanUseOutsideBattle => true;
+
+    public bool IsReusable { get; internal set; }
 }

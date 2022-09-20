@@ -33,6 +33,7 @@ public class CreatureBase : ScriptableObject
     public static int maxMoves { get; set; }
 
     [SerializeField] List<LearnableMoves> learnableMoves;
+    [SerializeField] List<MoveBase> learnableByItems;
 
     [SerializeField] List<Evolution> evolutions;
 
@@ -95,6 +96,8 @@ public class CreatureBase : ScriptableObject
     {
         get { return learnableMoves; }
     }
+
+    public List<MoveBase> LearnableByItems => learnableByItems;
 
     public List<Evolution> Evolutions => evolutions;
 

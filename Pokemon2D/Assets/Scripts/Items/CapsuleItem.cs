@@ -8,11 +8,9 @@ public class CapsuleItem : ItemBase
     [SerializeField] float catchRateMod = 1;
     public override bool Use(Creature creature)
     {
-        if(GameController.instance.State == GameState.Battle)
-            return true;
-
-        return false;
+        return true;
     }
 
+    public override bool CanUseOutsideBattle => false;
     public float CatchRateMod => catchRateMod;
 }

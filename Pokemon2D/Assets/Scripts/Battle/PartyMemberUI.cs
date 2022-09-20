@@ -7,6 +7,7 @@ public class PartyMemberUI : MonoBehaviour
 {
     [SerializeField] Text nametext, levelText;
     [SerializeField] HPBar hpBar;
+    [SerializeField] Text messagetext;
 
     
     Creature _creature;
@@ -14,6 +15,7 @@ public class PartyMemberUI : MonoBehaviour
     {
         _creature = creature;
         UpdateData();
+        SetMessage("");
 
         _creature.OnHPChanged += UpdateData;
     }
@@ -32,5 +34,10 @@ public class PartyMemberUI : MonoBehaviour
             else
                 nametext.color = Color.black;
         
+    }
+
+    public void SetMessage(string message)
+    {
+        messagetext.text = message;
     }
 }

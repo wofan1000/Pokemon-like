@@ -10,6 +10,7 @@ public class ItemSlotUI : MonoBehaviour
 
     RectTransform rectTransform;
 
+
     private void Awake()
     {
        
@@ -24,5 +25,11 @@ public class ItemSlotUI : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         nameText.text = itemslot.Item.name;
         countText.text = $"X {itemslot.Count}";
+    }
+    public void SetNameAndPrice(ItemBase item)
+    {
+        rectTransform = GetComponent<RectTransform>();
+        nameText.text = item.name;
+        countText.text = $"X {item.Price}";
     }
 }

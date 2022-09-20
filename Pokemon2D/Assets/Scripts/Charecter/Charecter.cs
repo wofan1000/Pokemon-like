@@ -17,6 +17,12 @@ public class Charecter : MonoBehaviour
         SetPosToTile(transform.position);
     }
 
+    Ledge CheckForLedge(Vector3 tarPos)
+    {
+        var collider = Physics2D.OverlapCircle(tarPos, 0.15f, GameLayers.I.LedgesLayer);
+        return collider?.GetComponent<Ledge>();
+    }
+
     public void SetPosToTile(Vector2 pos)
     {
         pos.x = Mathf.Floor(pos.x) + 0.5f;
@@ -33,8 +39,20 @@ public class Charecter : MonoBehaviour
         targetPos.x += moveVec.x;
         targetPos.y += moveVec.y;
 
+        var ledge = CheckForLedge(targetPos);
+
+        if(ledge != null)
+        {
+           if(ledge.TryToJump(this,moveVec))
+                yield break;
+        }
+
         if (!IsPathClear(targetPos))
             yield break;
+
+
+        if(animator.IsSurfing && Physics2D.OverlapCircle(targetPos, 0.3f, GameLayers.I.WaterLayer) == null)
+            animator.IsSurfing = false;
 
         IsMoving = true;
 
@@ -60,8 +78,15 @@ public class Charecter : MonoBehaviour
         var diff = tarPos - transform.position;
         var dir = diff.normalized;
 
-        if (Physics2D.BoxCast(transform.position + dir, new Vector2(0.2f, 0.2f), 0f, dir, diff.magnitude - 1,
-           GameLayers.I.SolidLayer | GameLayers.I.InteractableLayer | GameLayers.I.PlayerLayer) == true)
+        var collisionLayer = GameLayers.I.SolidLayer | GameLayers.I.InteractableLayer | GameLayers.I.PlayerLayer;
+
+        if (!animator.IsSurfing)
+             collisionLayer = collisionLayer | GameLayers.I.WaterLayer;
+
+
+
+
+        if (Physics2D.BoxCast(transform.position + dir, new Vector2(0.2f, 0.2f), 0f, dir, diff.magnitude - 1, collisionLayer) == true)
             return false;
 
             return true;
@@ -70,7 +95,7 @@ public class Charecter : MonoBehaviour
 
     private bool IsWalkable(Vector3 targetPos)
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.2f,  GameLayers.I.SolidLayer | GameLayers.I.InteractableLayer | GameLayers.I.PlayerLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.2f,  GameLayers.I.SolidLayer | GameLayers.I.InteractableLayer | GameLayers.I.PlayerLayer | GameLayers.I.WaterLayer) != null)
         {
             return false;
         }

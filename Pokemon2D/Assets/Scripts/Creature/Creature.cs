@@ -282,11 +282,16 @@ public class Creature
 
         CureStatus();
     }
-    public void LearnMove(LearnableMoves learnMove)
+    public void LearnMove(MoveBase learnMove)
     {
         if (Moves.Count > CreatureBase.maxMoves)
             return;
-        Moves.Add(new Move(learnMove.Base));
+        Moves.Add(new Move(learnMove));
+    }
+
+    public bool HasMove(MoveBase moveToCheck)
+    {
+       return Moves.Count(m => m.Base == moveToCheck) > 0;
     }
 
     public Evolution CheckForEvolution()

@@ -233,5 +233,18 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public IEnumerator MoveCamera(Vector2 moveoffset, bool waitforFadeOut = false)
+    {
+        yield return Fader.i.FadeIn(0.5f);
+
+        worldCamera.transform.position += new Vector3(moveoffset.x,moveoffset.y);
+
+        if (waitforFadeOut)
+            yield return Fader.i.FadeOut(0.5f);
+
+        else
+            StartCoroutine(Fader.i.FadeOut(0.5f));
+    }
+
     public GameState State => state;
 }

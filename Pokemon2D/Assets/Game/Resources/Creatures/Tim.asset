@@ -16,7 +16,7 @@ MonoBehaviour:
   description: A Boi
   leftSprite: {fileID: -1013662434, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
   rightSprite: {fileID: -1758144368, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
-  type1: 0
+  type1: 3
   type2: 0
   attack: 5
   defense: 6
@@ -30,3 +30,7 @@ MonoBehaviour:
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
     level: 1
+  - moveBase: {fileID: 11400000, guid: 40ae033b91b9fb54bb8db19f6f76d9b4, type: 2}
+    level: 1
+  learnableByItems: []
+  evolutions: []

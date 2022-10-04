@@ -132,7 +132,7 @@ public class InventoryUI : MonoBehaviour
 
         var item = inventory.GetItem(selectedItem, selectedCatagory);
 
-        if (GameController.instance.State == GameState.Battle)
+        if (GameController.Instance.State == GameState.Battle)
         {
             // In Battle
             if (!item.CanUseInBattle)

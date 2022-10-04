@@ -4,10 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class MoveableWater : MonoBehaviour, Interactable
+public class MoveableWater : MonoBehaviour, Interactable, IPlayerTriggerable
 {
+    bool isJumpingWater = false;
+
+    public bool triggerRepeatedly => true;
+
     public IEnumerator Interact(Transform initer)
     {
+        var animator = initer.GetComponent<CharecterAnimator>();
+        if (animator.IsSurfing || isJumpingWater)
+            yield break;
+
         yield return DialogueManager.Instance.ShowDialogText("Yhe water is Deep Blue.");
 
         var creatureWithSurf = initer.GetComponent<Party>().Creatures.FirstOrDefault(p => p.Moves.Any(m => m.Base.Name == "Surf"));
@@ -25,13 +33,24 @@ public class MoveableWater : MonoBehaviour, Interactable
                 //Yes
                 yield return DialogueManager.Instance.ShowDialogText($" {creatureWithSurf.Base.name} used surf");
 
-               var animator = initer.GetComponent<CharecterAnimator>();
+               
                var dir = new Vector3(animator.MoveX, animator.MoveY);
                 var targetPos = initer.position + dir;
 
+                isJumpingWater = true;
                 initer.DOJump(targetPos, 0.3f, 1, 0.5f).WaitForCompletion();
+                isJumpingWater = false;
+
                 animator.IsSurfing = true;
             }
+        }
+    }
+
+    public void OnPlayerTriggered(PlayerController player)
+    {
+        if (UnityEngine.Random.Range(1, 101) <= 10)
+        {
+            GameController.Instance.StartBattle(BattleTrigger.Water);
         }
     }
 }

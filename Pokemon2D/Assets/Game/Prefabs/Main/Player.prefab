@@ -235,6 +235,12 @@ MonoBehaviour:
     count: 2
   - item: {fileID: 11400000, guid: f350cdfcca757324196c1d3dcf0e4234, type: 2}
     count: 5
+  - item: {fileID: 11400000, guid: a9bdb0975ec98614cba425d26a88f928, type: 2}
+    count: 5
+  capsuleSlots: []
+  tmSlots:
+  - item: {fileID: 11400000, guid: a9bdb0975ec98614cba425d26a88f928, type: 2}
+    count: 2
 --- !u!1 &9123381929684885036
 GameObject:
   m_ObjectHideFlags: 0

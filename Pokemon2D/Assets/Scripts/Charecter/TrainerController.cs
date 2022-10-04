@@ -30,7 +30,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
         if (!battleLost)
         {
             yield return DialogueManager.Instance.ShowDialogue(dialogue);
-            GameController.instance.StartTrainerBattle(this);
+            GameController.Instance.StartTrainerBattle(this);
            
         }
         else
@@ -59,7 +59,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
         yield return charecter.Move(movevec);
 
         yield return DialogueManager.Instance.ShowDialogue(dialogue);
-        GameController.instance.StartTrainerBattle(this);
+        GameController.Instance.StartTrainerBattle(this);
     }
         
     public void SetFovRotation(FacingDirection dir)

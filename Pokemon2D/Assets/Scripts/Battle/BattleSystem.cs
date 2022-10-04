@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum BattleState
 {
@@ -23,6 +24,8 @@ public enum BattleAction
     Flee
 
 }
+
+public enum BattleTrigger { Land, Water }
 public class BattleSystem : MonoBehaviour
 {
     [SerializeField] Battleunit playerUnit;
@@ -31,6 +34,9 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] PartyScreen partyScreen;
     [SerializeField] GameObject captureCapsuleSprite;
     [SerializeField] InventoryUI inventoryUI;
+
+    [SerializeField] Image battleBackround;
+    [SerializeField] Sprite grassBackround, waterBackround;
 
     BattleState state;
     int currentAction;
@@ -47,25 +53,31 @@ public class BattleSystem : MonoBehaviour
 
     PlayerController player;
     TrainerController trainer;
+
+    BattleTrigger battletrigger;
     // Start is called before the first frame update
-    public void StartBattle(Party playerParty, Creature potentialCreature)
+    public void StartBattle(Party playerParty, Creature potentialCreature, BattleTrigger trigger = BattleTrigger.Land)
     {
         this.playerParty = playerParty;
         this.potentialCreature = potentialCreature;
         player = playerParty.GetComponent<PlayerController>();
         isTrainerBattle = false;
+        battletrigger = trigger;
 
         StartCoroutine(SetUpBattle());
     }
 
-    public void StartTrainerBattle(Party playerParty, Party trainerParty)
+    public void StartTrainerBattle(Party playerParty, Party trainerParty, BattleTrigger trigger = BattleTrigger.Land)
     {
         this.playerParty = playerParty;
         this.trainerParty = trainerParty;
 
         isTrainerBattle = true;
+
         player = playerParty.GetComponent<PlayerController>();
         trainer = trainerParty.GetComponent<TrainerController>();
+
+        battletrigger = trigger;
         StartCoroutine(SetUpBattle());
     }
 
@@ -296,6 +308,8 @@ public class BattleSystem : MonoBehaviour
         playerUnit.Clear();
         enemyUnit.Clear();
 
+       battleBackround.sprite = (battletrigger == BattleTrigger.Land) ? grassBackround : waterBackround;
+
         if (!isTrainerBattle)
         {
             playerUnit.SetUp(playerParty.GetUninjuredCreature());
@@ -350,7 +364,7 @@ public class BattleSystem : MonoBehaviour
         if (playerAction == BattleAction.Move)
         {
             playerUnit.Creature.CurrentMove = playerUnit.Creature.Moves[currentMove];
-            enemyUnit.Creature.CurrentMove = playerUnit.Creature.GetRandomMove();
+            enemyUnit.Creature.CurrentMove = enemyUnit.Creature.GetRandomMove();
 
             bool playerGoesFirst = playerUnit.Creature.Speed >= enemyUnit.Creature.Speed;
 
@@ -400,28 +414,12 @@ public class BattleSystem : MonoBehaviour
             ActionSelection();
     }
 
-
-
-
-
-
-    IEnumerator EnemyAttackSelf()
-    {
-        state = BattleState.RunningTurn;
-
-        var move = enemyUnit.Creature.GetRandomMove();
-        yield return RunMove(enemyUnit, enemyUnit, move);
-
-        if (state == BattleState.RunningTurn)
-            ActionSelection();
-
-    }
-
     IEnumerator RunMove(Battleunit sourceUnit, Battleunit tarUnit, Move move)
     {
         bool canRunMove = sourceUnit.Creature.OnBeforeMove();
         if (!canRunMove)
         {
+            
             yield return sourceUnit.Hud.WaitForHpUpdate();
             yield break;
         }
@@ -442,8 +440,9 @@ public class BattleSystem : MonoBehaviour
             }
             else
             {
-                bool isDead = enemyUnit.Creature.TakeDamage(move, sourceUnit.Creature);
-                //yield return tarUnit.Hud.UpdateHPAsync();
+                var damageDetails = tarUnit.Creature.TakeDamage(move, sourceUnit.Creature);
+                yield return tarUnit.Hud.WaitForHpUpdate();
+
             }
 
             if (move.Base.Secondaries != null && move.Base.Secondaries.Count > 0 && tarUnit.Creature.HP > 0)

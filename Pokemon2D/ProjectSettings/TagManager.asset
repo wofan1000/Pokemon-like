@@ -47,7 +47,7 @@ TagManager:
   - name: BattleZone
     uniqueID: 3500584961
     locked: 0
-  - name: Player
+  - name: Objects
     uniqueID: 508338283
     locked: 0
   - name: Battle

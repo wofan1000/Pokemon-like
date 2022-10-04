@@ -23,13 +23,13 @@ public class ItemSlotUI : MonoBehaviour
     public void SetData(ItemSlot itemslot)
     {
         rectTransform = GetComponent<RectTransform>();
-        nameText.text = itemslot.Item.name;
+        nameText.text = itemslot.Item.Name;
         countText.text = $"X {itemslot.Count}";
     }
     public void SetNameAndPrice(ItemBase item)
     {
         rectTransform = GetComponent<RectTransform>();
-        nameText.text = item.name;
-        countText.text = $"X {item.Price}";
+        nameText.text = item.Name;
+        countText.text = $"$ {item.Price}";
     }
 }

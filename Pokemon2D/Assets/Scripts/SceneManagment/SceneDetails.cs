@@ -7,35 +7,52 @@ using UnityEngine.SceneManagement;
 public class SceneDetails : MonoBehaviour
 {
     [SerializeField] List<SceneDetails> connectedScenes;
+    [SerializeField] SpriteRenderer mySprite;
     public bool IsLoaded { get; private set; }
 
     List<SavableEntity> savableEntities;
+
+    private void Start()
+    {
+        if(mySprite != null)
+            Destroy(mySprite);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
-            LoadScene();
-            GameController.instance.SetCurrentScene(this);
+            Debug.Log($"Entered {gameObject.name}");
 
-            foreach(var scene in connectedScenes)
+            LoadScene();
+            GameController.Instance.SetCurrentScene(this);
+
+            // Load all connected scenes
+            foreach (var scene in connectedScenes)
             {
                 scene.LoadScene();
             }
 
-            if(GameController.instance.prevScene != null)
+            // Unload the scenes that ar no longer connected
+            var prevScene = GameController.Instance.PrevScene;
+            if (connectedScenes.Count > 0)
             {
-                var prevScene = GameController.instance.prevScene;
-                var prevLoadedScene = GameController.instance.prevScene.connectedScenes;
-                foreach(var scene in prevLoadedScene)
+
+                var previoslyLoadedScenes = prevScene.connectedScenes;
+                foreach (var scene in previoslyLoadedScenes)
                 {
-                    if(!connectedScenes.Contains(scene) && scene != this)
-                        scene.UnLoadScene();
+                    if (connectedScenes.Contains(scene) || scene == this)
+                        continue;
+
+                         scene.UnloadScene();
+
                 }
-                if(!connectedScenes.Contains(prevScene))
-                    prevScene.UnLoadScene();
+
+                //if (!connectedScenes.Contains(prevScene))
+                   // prevScene.StartCoroutine(UnloadScene());
             }
         }
     }
+
     public void LoadScene()
     {
         if (!IsLoaded)
@@ -43,30 +60,30 @@ public class SceneDetails : MonoBehaviour
             var operation = SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
             IsLoaded = true;
 
-            operation.completed += (AsyncOperation) =>
+            operation.completed += (AsyncOperation op) =>
             {
                 savableEntities = GetSavableEntitiesInScene();
                 SavingSystem.i.RestoreEntityStates(savableEntities);
             };
-
         }
     }
 
-    public void UnLoadScene()
+    public void UnloadScene()
     {
-        if (!IsLoaded)
+        Debug.Log($"{gameObject.name} is being Unloaded");
+        if (IsLoaded)
         {
-            SavingSystem.i.CaptureEntityStates(savableEntities);
-
+            //SavingSystem.i.CaptureEntityStates(savableEntities);
+            Debug.Log($"{gameObject.name} is  Unloaded");
             SceneManager.UnloadSceneAsync(gameObject.name);
             IsLoaded = false;
         }
     }
-   
-    List<SavableEntity>  GetSavableEntitiesInScene()
+
+    List<SavableEntity> GetSavableEntitiesInScene()
     {
-        var currentScene = SceneManager.GetSceneByName(gameObject.name);
-        var savableEntitys = FindObjectsOfType<SavableEntity>().Where(x => x.gameObject.scene == currentScene).ToList();
-        return savableEntitys;
-}
+        var currScene = SceneManager.GetSceneByName(gameObject.name);
+        var savableEntities = FindObjectsOfType<SavableEntity>().Where(x => x.gameObject.scene == currScene).ToList();
+        return savableEntities;
+    }
 }

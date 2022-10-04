@@ -28,7 +28,7 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
     {
         DontDestroyOnLoad(gameObject);
 
-         GameController.instance.PauseGame(true);
+         GameController.Instance.PauseGame(true);
         yield return fader.FadeIn(0.5f);
 
         yield return SceneManager.LoadSceneAsync(sceneToLoad);
@@ -38,7 +38,7 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
 
         yield return fader.FadeOut(0.5f);
 
-        GameController.instance.PauseGame(false);
+        GameController.Instance.PauseGame(false);
 
         Destroy(gameObject);
     }

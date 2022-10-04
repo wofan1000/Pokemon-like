@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/scene2.unity
     guid: 69913336f9a655a43a3cb58b97775976
   - enabled: 1
-    path: Assets/Scenes/house.unity
+    path: Assets/Scenes/House.unity
     guid: 76922441cdc222c4b8e58108ce17b481
   - enabled: 1
     path: Assets/Scenes/Town.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: 7550041f88a175b48bfb59f49391bd33
+  - enabled: 1
+    path: Assets/Scenes/Cave.unity
+    guid: 140c973ae2694024b9917f026254489a
   m_configObjects: {}

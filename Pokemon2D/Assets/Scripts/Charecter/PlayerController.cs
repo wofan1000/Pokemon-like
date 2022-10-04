@@ -12,9 +12,17 @@ public class PlayerController : MonoBehaviour, ISavable
 
     private Charecter charecter;
 
-    
+    public static PlayerController instance;
+
+    public Sprite openedChestSprite;
+
+
+  
+
+
     private void Awake()
     {
+        instance = this;
         charecter = GetComponent<Charecter>();
     }
 

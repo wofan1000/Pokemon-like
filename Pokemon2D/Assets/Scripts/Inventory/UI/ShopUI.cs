@@ -34,7 +34,7 @@ public class ShopUI : MonoBehaviour
     private void Awake()
     {
         
-        itemListRect = GetComponent<RectTransform>();
+        itemListRect = itemList.GetComponent<RectTransform>();
     }
 
     public void Show(List<ItemBase> avalibleItems, Action<ItemBase> onItemSelected, Action onBack)
@@ -65,6 +65,11 @@ public class ShopUI : MonoBehaviour
 
         if (selectedItem != prevSelection)
             UpdateItemSelection();
+
+        if (Input.GetKeyDown(KeyCode.Z))
+            onItemSelected?.Invoke(avalibleItems[selectedItem]);
+        else if (Input.GetKeyDown(KeyCode.X))
+            onBack?.Invoke();
     }
 
     void UpdateItemList()
@@ -83,10 +88,6 @@ public class ShopUI : MonoBehaviour
         }
         UpdateItemSelection();
 
-        if (Input.GetKeyDown(KeyCode.Z))
-            onItemSelected?.Invoke(avalibleItems[selectedItem]);
-        else if (Input.GetKeyDown(KeyCode.X))
-            onBack?.Invoke();
     }
 
     void UpdateItemSelection()

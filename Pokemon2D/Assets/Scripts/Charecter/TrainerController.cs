@@ -25,7 +25,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
 
     public IEnumerator Interact(Transform initer)
     {
-        charecter.LookTwords(initer.position);
+        charecter.LookTowards(initer.position);
 
         if (!battleLost)
         {

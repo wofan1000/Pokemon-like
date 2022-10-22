@@ -27,7 +27,7 @@ public class EvolutionManager : MonoBehaviour
         creatureImage.sprite = creature.Base.RightSprite;
         yield return DialogueManager.Instance.ShowDialogText($" {creature.Base.Name} is changing");
 
-        var oldCreature =creature.Base;
+        var oldCreature = creature.Base;
         creature.Evolve(evolution);
 
         creatureImage.sprite = creature.Base.RightSprite;

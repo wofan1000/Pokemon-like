@@ -296,7 +296,7 @@ public class Creature
 
     public Evolution CheckForEvolution()
     {
-        return Base.Evolutions.FirstOrDefault(e => e.RequiredLevel <= level);
+        return Base.Evolutions.FirstOrDefault(e => e.RequiredLevel == level);
     }
 
     public Evolution CheckForEvolution(ItemBase item)

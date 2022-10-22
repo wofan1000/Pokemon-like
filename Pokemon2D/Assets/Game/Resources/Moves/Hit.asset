@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Hit
   description: bam
   type: 0
-  power: 10
-  mp: 1
+  power: 40
+  mp: 10
   accuracy: 0
   speed: 0
-  alwaysHits: 0
+  alwaysHits: 1
   isSpecial: 0
   catagory: 0
   effects:

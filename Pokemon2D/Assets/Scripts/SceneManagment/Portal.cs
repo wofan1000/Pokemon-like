@@ -34,7 +34,7 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
         yield return SceneManager.LoadSceneAsync(sceneToLoad);
 
         var portal = FindObjectsOfType<Portal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
-        player.Charecter.SetPosToTile(portal.spawnPoint.position);
+        //player.Charecter.SetPosToTile(portal.spawnPoint.position);
 
         yield return fader.FadeOut(0.5f);
 

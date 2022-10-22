@@ -183,7 +183,7 @@ MonoBehaviour:
   itemIcon: {fileID: 8292307530414997843}
   itemdesc: {fileID: 8061606443942732183}
   catagoryText: {fileID: 5778490795812308301}
-  partyScreen: {fileID: 0}
+  partyScreen: {fileID: 2828569911989857333, guid: 8317b8a143706ac458c452fc837d0df5, type: 3}
   upArrow: {fileID: 0}
   downarrow: {fileID: 0}
 --- !u!1 &3665871145553841854

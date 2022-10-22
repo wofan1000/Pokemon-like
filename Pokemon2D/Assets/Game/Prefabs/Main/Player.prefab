@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154bcd0eb32544145a2f1f81f128ff00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openedChestSprite: {fileID: 0}
 --- !u!114 &9123381927748408807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +177,7 @@ MonoBehaviour:
   - {fileID: -623776341, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
   - {fileID: -150680875, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
   - {fileID: 769756897, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
+  surfSprites: []
   defaultDir: 1
 --- !u!114 &9123381927748408809
 MonoBehaviour:
@@ -229,14 +231,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
-  - item: {fileID: 11400000, guid: 52645057c0cfa59488a6519535fdb748, type: 2}
+  - item: {fileID: 11400000, guid: f350cdfcca757324196c1d3dcf0e4234, type: 2}
     count: 3
   - item: {fileID: 11400000, guid: 07a963004138a984984dde719a810ba6, type: 2}
-    count: 2
-  - item: {fileID: 11400000, guid: f350cdfcca757324196c1d3dcf0e4234, type: 2}
-    count: 5
-  - item: {fileID: 11400000, guid: a9bdb0975ec98614cba425d26a88f928, type: 2}
-    count: 5
+    count: 3
+  - item: {fileID: 11400000, guid: 924becdb7c2e3554c981c91b75bf215e, type: 2}
+    count: 3
+  - item: {fileID: 11400000, guid: 924becdb7c2e3554c981c91b75bf215e, type: 2}
+    count: 3
   capsuleSlots: []
   tmSlots:
   - item: {fileID: 11400000, guid: a9bdb0975ec98614cba425d26a88f928, type: 2}

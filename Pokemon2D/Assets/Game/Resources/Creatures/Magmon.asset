@@ -10,28 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f6ed3a8a2404674f9a38f2a818aa0e0, type: 3}
-  m_Name: Tim
+  m_Name: Magmon
   m_EditorClassIdentifier: 
-  name: Tim
-  description: A Boi
-  leftSprite: {fileID: -1013662434, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
-  rightSprite: {fileID: -1758144368, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
-  type1: 3
-  type2: 0
-  attack: 5
-  defense: 6
-  maxhp: 100
-  spAttack: 1
-  spDefense: 1
-  speed: 0
-  expGain: 73
-  growthRate: 1
+  name: 
+  description: 
+  leftSprite: {fileID: -511709012, guid: ded7ce88692876b449a244b875ca1043, type: 3}
+  rightSprite: {fileID: -511709012, guid: ded7ce88692876b449a244b875ca1043, type: 3}
+  type1: 2
+  type2: 3
+  attack: 100
+  defense: 15
+  maxhp: 200
+  spAttack: 4
+  spDefense: 3
+  speed: 3
+  expGain: 499
+  growthRate: 0
   catchRate: 255
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
-    level: 1
+    level: 0
+  - moveBase: {fileID: 11400000, guid: 5cf1eadb25f8e674b87a84397502705b, type: 2}
+    level: 0
   learnableByItems: []
-  evolutions:
-  - evolveInto: {fileID: 11400000, guid: d1804e170e2a66b43abe38c282eab77d, type: 2}
-    requiredLevel: 18
-    requiredItem: {fileID: 0}
+  evolutions: []

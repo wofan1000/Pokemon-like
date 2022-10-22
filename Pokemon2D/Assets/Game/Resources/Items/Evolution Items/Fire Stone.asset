@@ -15,3 +15,5 @@ MonoBehaviour:
   name: Fire Stone
   description: Gives Fire Element To Creature
   icon: {fileID: 21300036, guid: 7384dec0e667b8643bee02d3ecaf659c, type: 3}
+  price: 665
+  canSell: 0

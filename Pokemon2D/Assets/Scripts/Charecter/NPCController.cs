@@ -39,7 +39,7 @@ public class NPCController : MonoBehaviour, Interactable, ISavable
         if (state == NPCState.Idle)
         {
             state = NPCState.Dialogue;
-            charecter.LookTwords(initer.position);
+            charecter.LookTowards(initer.position);
 
             if (questToComplete != null)
             {

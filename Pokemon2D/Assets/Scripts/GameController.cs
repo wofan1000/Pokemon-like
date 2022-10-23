@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState { FreeRoam, Battle, Dialog, Menu, PartyScreen, Bag, Cutscene, Paused, Evolution, Shop }
+public enum GameState { FreeRoam, Battle, Dialog, Menu, PartyScreen, Inventory, Cutscene, Paused, Evolution, Shop }
 
 
 
@@ -188,8 +188,9 @@ public class GameController : MonoBehaviour
 
             partyScreen.HandleUpdate(onSelected, onBack);
         }
-        else if (state == GameState.Bag)
+        else if (state == GameState.Inventory)
         {
+
             Action onBack = () =>
             {
                 inventoryUI.gameObject.SetActive(false);
@@ -222,7 +223,7 @@ public class GameController : MonoBehaviour
         {
             // Bag
             inventoryUI.gameObject.SetActive(true);
-            state = GameState.Bag;
+            state = GameState.Inventory;
         }
         else if (selectedItem == 2)
         {

@@ -15,6 +15,7 @@ public class PartyScreen : MonoBehaviour
     public Creature SelectedCreature => creatures[selection];
 
     public BattleState? CalledFrom { get;  set; }
+
     public void Init()
     {
         memberSlots = GetComponentsInChildren<PartyMemberUI>(true);
@@ -25,11 +26,11 @@ public class PartyScreen : MonoBehaviour
         party.OnUpdated += SetPartyData;
     }
 
-    public void SetPartyData ()
+    public void SetPartyData()
     {
         creatures = party.Creatures;
 
-        for(int i = 0; i < memberSlots.Length; i++)
+        for (int i = 0; i < memberSlots.Length; i++)
         {
             if (i < creatures.Count)
             {
@@ -39,52 +40,48 @@ public class PartyScreen : MonoBehaviour
             else
                 memberSlots[i].gameObject.SetActive(false);
         }
-                UpdateMemberSelection(selection);
-    }
 
-    public void ShowIfTMIsUsable(TMItems tmItem)
-    {
-        for (int i = 0; i < creatures.Count; i++)
-        {
-            string message = tmItem.CanBeTaught(creatures[i]) ? "Can Learn" : "Cant Learn";
-           // memberSlots[i].SetMessage(message);
-        }
-    }
+        UpdateMemberSelection(selection);
 
-    public void ClearMemberSlotMessages()
-    {
-        for (int i = 0; i < creatures.Count; i++)
-        {
-            
-            memberSlots[i].SetMessage("");
-        }
+        
     }
 
     public void HandleUpdate(Action onSelected, Action onBack)
     {
         var prevSelection = selection;
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Debug.Log("is runnung right");
             ++selection;
-        else if (Input.GetKeyDown(KeyCode.A))
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            Debug.Log("is runnung left");
             --selection;
-        else if (Input.GetKeyDown(KeyCode.S))
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Debug.Log("is runnung down");
             selection += 2;
-        else if (Input.GetKeyDown(KeyCode.W))
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
             selection -= 2;
 
+        Debug.Log("is runnung");
         selection = Mathf.Clamp(selection, 0, creatures.Count - 1);
 
-        if(selection != prevSelection)
-        UpdateMemberSelection(selection);
+        if (selection != prevSelection)
+            UpdateMemberSelection(selection);
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-         onSelected();
+            onSelected?.Invoke();
+            
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-          onBack();
+            onBack?.Invoke();
         }
     }
 
@@ -99,5 +96,20 @@ public class PartyScreen : MonoBehaviour
         }
     }
 
-  
+    public void ShowIfTmIsUsable(TMItems tmItem)
+    {
+        for (int i = 0; i < creatures.Count; i++)
+        {
+            string message = tmItem.CanBeTaught(creatures[i]) ? "ABLE!" : "NOT ABLE!";
+            memberSlots[i].SetMessage(message);
+        }
+    }
+
+    public void ClearMemberSlotMessages()
+    {
+        for (int i = 0; i < creatures.Count; i++)
+        {
+            memberSlots[i].SetMessage("");
+        }
+    }
 }

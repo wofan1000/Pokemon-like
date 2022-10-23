@@ -309,7 +309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9117820801994203029, guid: 9cdd0131ff4a2e74194e6d8fdce3969c, type: 3}
       propertyPath: creatures.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9117820801994203029, guid: 9cdd0131ff4a2e74194e6d8fdce3969c, type: 3}
       propertyPath: creatures.Array.data[0]._base

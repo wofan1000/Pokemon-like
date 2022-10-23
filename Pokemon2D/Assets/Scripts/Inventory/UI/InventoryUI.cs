@@ -77,13 +77,13 @@ public class InventoryUI : MonoBehaviour
             int prevSelection = selectedItem;
             int prevCategory = selectedCatagory;
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.S))
                 ++selectedItem;
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.W))
                 --selectedItem;
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.D))
                 ++selectedCatagory;
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (Input.GetKeyDown(KeyCode.A))
                 --selectedCatagory;
 
             if (selectedCatagory > Inventory.ItemCatagories.Count - 1)
@@ -161,10 +161,8 @@ public class InventoryUI : MonoBehaviour
         {
             OpenPartyScreen();
 
-
             if(item is TMItems)
-                partyScreen.ShowIfTMIsUsable(item as TMItems);
-            
+                partyScreen.ShowIfTmIsUsable(item as TMItems);     
         }
     }
 

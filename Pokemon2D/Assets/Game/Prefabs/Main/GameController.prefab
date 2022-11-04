@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7773027850837769497}
   - component: {fileID: 3951774093853977086}
   - component: {fileID: 2286569498451312330}
+  - component: {fileID: 7521491223235554293}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -53,7 +54,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   battleSystem: {fileID: 0}
   worldCamera: {fileID: 0}
-  partyScreen: {fileID: 2828569911989857333, guid: 8317b8a143706ac458c452fc837d0df5, type: 3}
+  partyScreen: {fileID: 0}
   inventoryUI: {fileID: 0}
 --- !u!114 &8411297020339630857
 MonoBehaviour:
@@ -167,3 +168,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evolutionUI: {fileID: 0}
   creatureImage: {fileID: 0}
+--- !u!114 &7521491223235554293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411297020339630858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a3fd375ec28c649bfc7247bfd22d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

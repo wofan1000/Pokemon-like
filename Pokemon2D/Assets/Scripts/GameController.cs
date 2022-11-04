@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils.StateMachine;
 
 public enum GameState { FreeRoam, Battle, Dialog, Menu, PartyScreen, Inventory, Cutscene, Paused, Evolution, Shop }
 
@@ -17,21 +18,33 @@ public class GameController : MonoBehaviour
     [SerializeField] PartyScreen partyScreen;
     [SerializeField] InventoryUI inventoryUI;
 
+    [SerializeField] BuddyController buddy;
+
+    [SerializeField] EvolutionManager evoMan;
+
     GameState state;
     GameState prevState;
     GameState stateBeforeEvolution;
 
+    public StateMachine<GameController> StateMachine { get; private set; }
+
     public SceneDetails CurrentScene { get; private set; }
     public SceneDetails PrevScene { get; private set; }
 
-    MenuController menuController;
+    public EvolutionManager EvoMan { get => evoMan; }
+
+    
 
     public static GameController Instance { get; private set; }
+
+    public BuddyController Buddy { get => buddy; } //set => buddy = value; }
+
+    public PlayerController PlayerController { get => playerController; } //set => playerController = value; }
     private void Awake()
     {
         Instance = this;
 
-        menuController = GetComponent<MenuController>();
+        PlayerController.SetBuddy(Buddy);
 
         CreatureDB.init();
         MoveDB.init();
@@ -42,6 +55,10 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        StateMachine = new StateMachine<GameController>(this);
+      
+        StateMachine.ChangeState(FreeRoamState.i);
+
         battleSystem.OnBattleOver += EndBattle;
 
         partyScreen.Init();
@@ -58,19 +75,13 @@ public class GameController : MonoBehaviour
                 state = prevState;
         };
 
-        menuController.onBack += () =>
-        {
-            state = GameState.FreeRoam;
-        };
 
-        menuController.onMenuSelected += OnMenuSelected;
-
-        EvolutionManager.i.OnStartEvolution += () =>
+        evoMan.OnStartEvolution += () =>
         {
             stateBeforeEvolution = state;
             state = GameState.Evolution;
         };
-        EvolutionManager.i.OnCompleteEvolution += () =>
+        evoMan.OnCompleteEvolution += () =>
         {
             partyScreen.SetPartyData();
             state = stateBeforeEvolution;
@@ -101,26 +112,22 @@ public class GameController : MonoBehaviour
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
 
-        var playerParty = playerController.GetComponent<Party>();
         var wildPokemon = CurrentScene.GetComponent<MapArea>().GetRandomCreature(trigger);
 
-        var wildPokemonCopy = new Creature(wildPokemon.Base, wildPokemon.Level);
-
-        battleSystem.StartBattle(playerParty, wildPokemonCopy);
+        battleSystem.StartBattle(playerController.creatureparty, new Creature(wildPokemon.Base, wildPokemon.Level));
     }
 
     TrainerController trainer;
-    public void StartTrainerBattle(TrainerController trainer)
+    public void StartBattle(TrainerController trainer)
     {
         state = GameState.Battle;
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
 
         this.trainer = trainer;
-        var playerParty = playerController.GetComponent<Party>();
-        var trainerParty = trainer.GetComponent<Party>();
+       
 
-        battleSystem.StartTrainerBattle(playerParty, trainerParty);
+        battleSystem.StartTrainerBattle(playerController.creatureparty,trainer.creatureParty);
     }
 
     public void OnEnterTrainersView(TrainerController trainer)
@@ -143,7 +150,7 @@ public class GameController : MonoBehaviour
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
 
-        var playerParty = playerController.GetComponent<Party>();
+        //var playerParty = playerController.creatureparty;
         //bool hasEvolutions = playerParty.CheckForEvolutions();
 
        
@@ -151,27 +158,26 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        //StateMachine.Execute();
+
         if (state == GameState.FreeRoam)
         {
             playerController.HandleUpdate();
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                menuController.OpenMenu();
-                state = GameState.Menu;
-            }
+               //menuController.OpenMenu();
+             state = GameState.Menu;
+           }
         }
-        else if (state == GameState.Battle)
+
+         if (state == GameState.Battle)
         {
             battleSystem.HandleUpdate();
         }
         else if (state == GameState.Dialog)
         {
             DialogueManager.Instance.HandleUpdate();
-        }
-        else if (state == GameState.Menu)
-        {
-            menuController.HandleUpdate();
         }
         else if (state == GameState.PartyScreen)
         {
@@ -252,4 +258,8 @@ public class GameController : MonoBehaviour
     }
 
     public GameState State => state;
+    public void RevertToPrevState()
+    {
+        state = prevState;
+    }
 }

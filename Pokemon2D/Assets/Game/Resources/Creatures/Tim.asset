@@ -24,14 +24,24 @@ MonoBehaviour:
   spAttack: 1
   spDefense: 1
   speed: 0
+  maxMp: 40
+  currentmp: 40
   expGain: 73
   growthRate: 1
   catchRate: 255
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
     level: 1
+  - moveBase: {fileID: 11400000, guid: d12859cfac2b5e6499278e232dc8015b, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 5cf1eadb25f8e674b87a84397502705b, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: be2d0f10dd4ee2648b625dc097df2853, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 5cf1eadb25f8e674b87a84397502705b, type: 2}
+    level: 1
   learnableByItems: []
   evolutions:
   - evolveInto: {fileID: 11400000, guid: d1804e170e2a66b43abe38c282eab77d, type: 2}
     requiredLevel: 18
-    requiredItem: {fileID: 0}
+    requiredItem: {fileID: 11400000, guid: 924becdb7c2e3554c981c91b75bf215e, type: 2}

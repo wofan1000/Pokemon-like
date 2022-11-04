@@ -138,6 +138,7 @@ public class InventoryUI : MonoBehaviour
             if (!item.CanUseInBattle)
             {
                 yield return DialogueManager.Instance.ShowDialogText($"This item cannot be used in battle");
+                GameController.Instance.RevertToPrevState();
                 state = InventoryUIState.ItemSelection;
                 yield break;
             }
@@ -162,7 +163,8 @@ public class InventoryUI : MonoBehaviour
             OpenPartyScreen();
 
             if(item is TMItems)
-                partyScreen.ShowIfTmIsUsable(item as TMItems);     
+                partyScreen.ShowIfTmIsUsable(item as TMItems);
+        
         }
     }
 
@@ -181,12 +183,13 @@ public class InventoryUI : MonoBehaviour
             var evolution = creature.CheckForEvolution(item);
             if (evolution != null)
             {
-                yield return EvolutionManager.i.Evolove(creature, evolution);
+                yield return GameController.Instance.EvoMan.Evolove(creature, evolution);
             }
             else
             {
                 yield return DialogueManager.Instance.ShowDialogText($"It won't have any affect!");
                 ClosePartyScreen();
+                GameController.Instance.RevertToPrevState();
                 yield break;
             }
         }
@@ -199,13 +202,15 @@ public class InventoryUI : MonoBehaviour
                 yield return DialogueManager.Instance.ShowDialogText($"The player used {usedItem.Name}");
 
             onItemUsed?.Invoke(usedItem);
+            GameController.Instance.RevertToPrevState();
         }
         else
         {
             if (selectedCatagory == (int)ItemCatagory.Items)
                 yield return DialogueManager.Instance.ShowDialogText($"It won't have any affect!");
+            GameController.Instance.RevertToPrevState();
+            yield break;
         }
-
         ClosePartyScreen();
     }
 

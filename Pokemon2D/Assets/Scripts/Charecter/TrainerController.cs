@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using static CharecterAnimator;
 
+[RequireComponent(typeof(Party))]
 public class TrainerController : MonoBehaviour, Interactable, ISavable
 {
     [SerializeField] GameObject exclimation;
     [SerializeField] GameObject fov;
     [SerializeField] Dialogue dialogue;
     [SerializeField] Dialogue dialogueAfterBattle;
+
+    public Party creatureParty { get; private set; }
+
     Charecter charecter;
 
     bool battleLost = false;
 
     private void Awake()
     {
+        creatureParty = GetComponent<Party>();
         charecter = GetComponent<Charecter>();
     }
 
@@ -30,7 +35,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
         if (!battleLost)
         {
             yield return DialogueManager.Instance.ShowDialogue(dialogue);
-            GameController.Instance.StartTrainerBattle(this);
+            GameController.Instance.StartBattle(this);
            
         }
         else
@@ -59,7 +64,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
         yield return charecter.Move(movevec);
 
         yield return DialogueManager.Instance.ShowDialogue(dialogue);
-        GameController.Instance.StartTrainerBattle(this);
+        GameController.Instance.StartBattle(this);
     }
         
     public void SetFovRotation(FacingDirection dir)

@@ -34,6 +34,10 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] PartyScreen partyScreen;
     [SerializeField] GameObject captureCapsuleSprite;
     [SerializeField] InventoryUI inventoryUI;
+    [Tooltip("defult attack")]
+    [SerializeField] MoveBase genericMove;
+
+    [SerializeField] Creature creature;
 
     [SerializeField] Image battleBackround;
     [SerializeField] Sprite grassBackround, waterBackround;
@@ -230,28 +234,39 @@ public class BattleSystem : MonoBehaviour
             ++currentMove;
         else if (Input.GetKeyDown(KeyCode.A))
             --currentMove;
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S)) 
             currentMove += 2;
         else if (Input.GetKeyDown(KeyCode.W))
             currentMove -= 2;
 
-        currentMove = Mathf.Clamp(currentAction, 0, playerUnit.Creature.Moves.Count - 1);
+        currentMove = Mathf.Clamp(currentMove, 0, playerUnit.Creature.Moves.Count - 1);
 
         dialogueBox.UpdateMoveSelection(currentMove, playerUnit.Creature.Moves[currentMove]);
+        dialogueBox.UpdateMP(playerUnit.Creature);
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) )
         {
             var move = playerUnit.Creature.Moves[currentMove];
-            if (move.MP <= 0) return;
-
+          
             dialogueBox.EnableMoveSelector(false);
-            StartCoroutine(RunTurns(BattleAction.Move));
+            dialogueBox.EnableActionSelector(false);
+
+            if (CheckMoveMP(playerUnit, move))
+            { 
+               playerUnit.Creature.MP -= move.MPCost;
+              StartCoroutine(RunTurns(BattleAction.Move));
+            } else
+            {
+                StartCoroutine(NotEnoughMP());
+                
+            }
 
         } else if (Input.GetKeyDown(KeyCode.X))
         {
             dialogueBox.EnableMoveSelector(false);
             ActionSelection();
         }
+
     }
 
     void HandleActionSelection()
@@ -273,7 +288,9 @@ public class BattleSystem : MonoBehaviour
         {
             if (currentAction == 0)
             {
-                
+                dialogueBox.EnableActionSelector(false);
+                currentMove = 0;
+                StartCoroutine(RunTurns(BattleAction.Move));
             }
             else if (currentAction == 1)
             {
@@ -313,9 +330,7 @@ public class BattleSystem : MonoBehaviour
         if (!isTrainerBattle)
         {
             playerUnit.SetUp(playerParty.GetUninjuredCreature());
-            enemyUnit.SetUp(potentialCreature);
-
-            dialogueBox.SetMoveNames(playerUnit.Creature.Moves);
+            enemyUnit.SetUp(potentialCreature);     
         }
         else
         {
@@ -328,8 +343,9 @@ public class BattleSystem : MonoBehaviour
             playerUnit.gameObject.SetActive(true);
             var playerCreature = playerParty.GetUninjuredCreature();
             playerUnit.SetUp(playerCreature);
-            dialogueBox.SetMoveNames(playerUnit.Creature.Moves);
+            
         }
+        dialogueBox.SetMoveNames(playerUnit.Creature.Moves);
         escapeAttempts = 0;
         partyScreen.Init();
         yield return new WaitForSeconds(1f);
@@ -374,7 +390,7 @@ public class BattleSystem : MonoBehaviour
             var secondCreature = secondUnit.Creature;
 
             // first turn
-            yield return RunMove(firstUnit, firstUnit, firstUnit.Creature.CurrentMove);
+            yield return RunMove(firstUnit, secondUnit, firstUnit.Creature.CurrentMove);
             yield return RunAfterTurn(firstUnit);
             if (state == BattleState.BattleOver) yield break;
 
@@ -424,8 +440,6 @@ public class BattleSystem : MonoBehaviour
             yield break;
         }
 
-        move.MP--;
-        yield return new WaitForSeconds(1f);
 
         if (CheckIfMoveHits(move, sourceUnit.Creature, tarUnit.Creature))
         {
@@ -464,8 +478,22 @@ public class BattleSystem : MonoBehaviour
 
         }
 
+    }
 
+    bool CheckMoveMP(Battleunit sourceUnit, Move moveToCheck)
+    {
+        if (sourceUnit.Creature.MP >= moveToCheck.MPCost)
+        {
+            return true;
+           // sourceUnit.Creature.MP -= move.MPCost;
+           // yield return new WaitForSeconds(1f);
+            //StartCoroutine(RunTurns(BattleAction.Move));
+        }
 
+        else
+        {
+            return false;
+        }
     }
 
     void RunMoveEffects(MoveEffects effects, Creature source, Creature target, MoveTarget moveTarget)
@@ -631,6 +659,13 @@ public class BattleSystem : MonoBehaviour
             Destroy(capsule);
             state = BattleState.RunningTurn;
         }
+    }
+
+    public IEnumerator NotEnoughMP()
+    {
+        yield return DialogueManager.Instance.ShowDialogText($"Not enough MP!");
+        GameController.Instance.RevertToPrevState();
+        MoveSelection();
     }
 
     int TryToCatchCreature(Creature creature, CapsuleItem capsuleItem)

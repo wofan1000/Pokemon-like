@@ -16,7 +16,7 @@ MonoBehaviour:
   description: bam
   type: 0
   power: 40
-  mp: 10
+  mpCost: 33
   accuracy: 0
   speed: 0
   alwaysHits: 1

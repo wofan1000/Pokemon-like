@@ -14,7 +14,11 @@ public class BattleDialogueBox : MonoBehaviour
     
     [SerializeField] Text mpText;
 
-  
+    [SerializeField] Text mpCostText;
+
+    [SerializeField] CreatureBase creaturebase;
+
+
 
     public void EnableActionSelector(bool enabled)
     {
@@ -46,7 +50,14 @@ public class BattleDialogueBox : MonoBehaviour
             else
                 moveText[i].color = Color.black;
         }
-        mpText.text = $"MP {move.MP}/{move.Base.MP}";
+        
+        
+        mpCostText.text = $"Cost: {move.MPCost} MP";
+    }
+
+    public void UpdateMP(Creature creatureMp)
+    {
+        mpText.text = $"MP: {creatureMp.MP}/{creatureMp.MaxMP}";
     }
    
 

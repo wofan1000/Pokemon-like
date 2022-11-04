@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   type: 3
   power: 10
-  mp: 1
+  mpCost: 6
   accuracy: 0
   speed: 0
   alwaysHits: 0

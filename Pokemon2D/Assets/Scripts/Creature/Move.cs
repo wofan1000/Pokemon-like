@@ -5,18 +5,18 @@ using UnityEngine;
 public class Move 
 {
     public MoveBase Base { get; set; }
-    public int MP { get; set; }
+    public int MPCost { get; set; }
 
     public Move(MoveBase pbase)
     {
         Base = pbase;
-        MP = pbase.MP;
+        MPCost = pbase.MPCost;
     }
 
     public Move(MoveSaveData savedata)
     {
         Base = MoveDB.GetObjectbyName(savedata.name);
-        MP = savedata.mp;
+        MPCost = savedata.mpCost;
     }
 
     public MoveSaveData GetSaveData() 
@@ -24,20 +24,17 @@ public class Move
         var savedata = new MoveSaveData()
         {
             name = Base.name,
-            mp = MP
+            mpCost = MPCost
         };
         return savedata;
     }
 
-  public  void IncreaseMP(int amount)
-    {
-        MP = Mathf.Clamp(MP + amount, 0, Base.MP);
-    }
+ 
 }
 
 [System.Serializable]
 public class MoveSaveData
 {
     public string name;
-    public int mp;
+    public int mpCost;
 }

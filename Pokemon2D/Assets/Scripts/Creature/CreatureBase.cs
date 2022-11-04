@@ -24,13 +24,15 @@ public class CreatureBase : ScriptableObject
     [SerializeField] int spAttack;
     [SerializeField] int spDefense;
     [SerializeField] int speed;
-   
+    [SerializeField] int maxMp;
+    [SerializeField] int currentmp;
+
     [SerializeField] int expGain;
     [SerializeField] GrowthRate growthRate;
 
     [SerializeField] int catchRate = 255;
 
-    public static int maxMoves { get; set; }
+    public const int maxMoves = 4;
 
     [SerializeField] List<LearnableMoves> learnableMoves;
     [SerializeField] List<MoveBase> learnableByItems;
@@ -90,6 +92,15 @@ public class CreatureBase : ScriptableObject
     public int MaxHP
     {
         get { return maxhp; }
+    }
+    public int MaxMP
+    {
+        get { return maxMp; }
+    }
+
+    public int CurrentMP
+    {
+        get { return currentmp; }
     }
 
     public List<LearnableMoves> LearnableMoves

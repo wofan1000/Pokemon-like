@@ -52,23 +52,23 @@ public class PartyScreen : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            Debug.Log("is runnung right");
+          
             ++selection;
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Debug.Log("is runnung left");
+           
             --selection;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Debug.Log("is runnung down");
+            
             selection += 2;
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
             selection -= 2;
 
-        Debug.Log("is runnung");
+        
         selection = Mathf.Clamp(selection, 0, creatures.Count - 1);
 
         if (selection != prevSelection)

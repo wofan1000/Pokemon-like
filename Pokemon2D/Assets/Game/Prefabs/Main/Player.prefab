@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 9123381927748408809}
   - component: {fileID: 9123381927748408810}
   - component: {fileID: -5531203311599383972}
+  - component: {fileID: 1461537236}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 508338283
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -299699299, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -139,12 +140,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatures:
-  - _base: {fileID: 11400000, guid: 031002312baeea14480a194e2980bdbf, type: 2}
+  - _base: {fileID: 11400000, guid: 41109ee3a0ce8df42b6bbfded2f70c78, type: 2}
     level: 17
   - _base: {fileID: 11400000, guid: e7354041e0381ef40877eb0a9eaf7e91, type: 2}
     level: 8
   - _base: {fileID: 11400000, guid: d1804e170e2a66b43abe38c282eab77d, type: 2}
-    level: 99
+    level: 16
+  - _base: {fileID: 11400000, guid: 41109ee3a0ce8df42b6bbfded2f70c78, type: 2}
+    level: 65
 --- !u!114 &9123381927748408808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,14 +238,27 @@ MonoBehaviour:
     count: 3
   - item: {fileID: 11400000, guid: 07a963004138a984984dde719a810ba6, type: 2}
     count: 3
-  - item: {fileID: 11400000, guid: 924becdb7c2e3554c981c91b75bf215e, type: 2}
+  - item: {fileID: 11400000, guid: 3d4a6c483ed4c8d4387866a09dedfb2e, type: 2}
     count: 3
   - item: {fileID: 11400000, guid: 924becdb7c2e3554c981c91b75bf215e, type: 2}
     count: 3
-  capsuleSlots: []
-  tmSlots:
-  - item: {fileID: 11400000, guid: a9bdb0975ec98614cba425d26a88f928, type: 2}
-    count: 2
+  capsuleSlots:
+  - item: {fileID: 11400000, guid: 3d4a6c483ed4c8d4387866a09dedfb2e, type: 2}
+    count: 3
+  tmSlots: []
+--- !u!114 &1461537236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9123381927748408800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90ec220d310df44a835dca40139b0c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 2000
 --- !u!1 &9123381929684885036
 GameObject:
   m_ObjectHideFlags: 0

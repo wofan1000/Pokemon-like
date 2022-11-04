@@ -81,13 +81,13 @@ public class RecoveryItem : ItemBase
         // restoreMP
         if(restoreMaxMP)
         {
-            creature.Moves.ForEach(m => m.IncreaseMP(m.Base.MP));
+            creature.IncreaseMP(mpAmount);
         }
         else
         {
             if(mpAmount > 0)
             {
-                creature.Moves.ForEach(m => m.IncreaseMP(mpAmount));
+                creature.IncreaseMP(mpAmount);
             }
         }
 

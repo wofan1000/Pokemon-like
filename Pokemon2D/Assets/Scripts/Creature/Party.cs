@@ -59,7 +59,7 @@ public class Party : MonoBehaviour
           var evolution =  creature.CheckForEvolution();
             if(evolution != null)
             {
-                yield return EvolutionManager.i.Evolove(creature, evolution);
+                yield return GameController.Instance.EvoMan.Evolove(creature, evolution);
             }
         }
     }

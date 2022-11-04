@@ -12,7 +12,7 @@ public class MoveBase : ScriptableObject
 
     [SerializeField] CreatureType type;
     [SerializeField] int power;
-    [SerializeField] int mp;
+    [SerializeField] int mpCost;
     [SerializeField] int accuracy;
     [SerializeField] int speed;
     [SerializeField] bool alwaysHits;
@@ -47,9 +47,9 @@ public class MoveBase : ScriptableObject
         get { return speed; }
     }
 
-    public int MP
+    public int MPCost
     {
-        get { return mp; }
+        get { return mpCost; }
     }
 
     public int Accuracy

@@ -6,24 +6,27 @@ using System.Linq;
 using UnityEngine;
 using static Creature;
 
+[RequireComponent(typeof(Party))]
 public class PlayerController : MonoBehaviour, ISavable
 {
     private Vector2 input;
 
     private Charecter charecter;
 
-    public static PlayerController instance;
 
     public Sprite openedChestSprite;
 
+    private BuddyController buddyController;
 
+    public Party creatureparty { get; private set; }
   
 
 
     private void Awake()
-    {
-        instance = this;
-        charecter = GetComponent<Charecter>();
+    {   
+        creatureparty = GetComponent<Party>();
+
+        charecter = GetComponent<Charecter>();        
     }
 
     public void HandleUpdate()
@@ -32,6 +35,9 @@ public class PlayerController : MonoBehaviour, ISavable
         {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
+
+            if(buddyController != null)
+            buddyController.Follow(transform.position);
 
 
             StartCoroutine(charecter.Move(input, OnMoveOver));
@@ -90,7 +96,7 @@ public class PlayerController : MonoBehaviour, ISavable
         var saveData = new PlayerSaveData()
         {
             pos = new float[] { transform.position.x, transform.position.y },
-            creatures = GetComponent<Party>().Creatures.Select(p => p.GetSaveData()).ToList()
+            creatures = creatureparty.Creatures.Select(p => p.GetSaveData()).ToList()
         };
 
         float[] pos = new float[] {transform.position.x, transform.position.y};
@@ -104,13 +110,19 @@ public class PlayerController : MonoBehaviour, ISavable
         var pos = savedata.pos;
         transform.position = new Vector3(pos[0], pos[1]);
 
-      GetComponent<Party>().Creatures = savedata.creatures.Select(s => new Creature(s)).ToList();
+      creatureparty.Creatures = savedata.creatures.Select(s => new Creature(s)).ToList();
+    }
+
+    public void SetBuddy(BuddyController buddy)
+    {
+        buddyController = buddy;
     }
 
     public Charecter Charecter => charecter;
 
     public string Name { get;  set; }
 }
+
 
 [Serializable]
 public class PlayerSaveData

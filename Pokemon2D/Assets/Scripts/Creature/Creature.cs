@@ -31,6 +31,8 @@ public class Creature
     }
     public int Exp { get; set; }
     public int HP { get; set; }
+
+    public int MP { get; set; }
     public List<Move> Moves { get;  set; }
     public Move CurrentMove { get; set; }
     public Dictionary<Stat,int> Stats { get; private set; }
@@ -68,6 +70,7 @@ public class Creature
         CalculateStats();
 
         HP = MaxHP;
+        MP = MaxMP;
 
         statusChanges = new Queue<string>();
         ResetStatBoost();
@@ -104,6 +107,17 @@ public class Creature
 
         if(oldMaxHP != 0)
         HP += MaxHP - oldMaxHP;
+
+        int oldmaxmp = MaxMP;
+        MaxMP = Mathf.FloorToInt((Base.MaxMP * Level) / 100f) + 10 + Level;
+
+        if (oldmaxmp != 0)
+            MP += MaxMP - oldmaxmp;
+    }
+
+    public void IncreaseMP(int amount)
+    {
+        MP = Mathf.Clamp(MaxMP + amount, 0, MP);
     }
 
     public void SetStatus(ConditionsID conditionsID)
@@ -200,7 +214,9 @@ public class Creature
     }
 
     public int MaxHP { get; private set; }
-    
+
+    public int MaxMP { get; private set; }
+
 
     public bool TakeDamage(Move move,Creature attacker)
     {
@@ -226,7 +242,7 @@ public class Creature
 
     public Move GetRandomMove()
     {
-        var movesWithMP = Moves.Where(x => x.MP > 0).ToList();
+        var movesWithMP = Moves.Where(x => x.MPCost > 0).ToList();
 
         int r = Random.Range(0, movesWithMP.Count);
         return movesWithMP[r];

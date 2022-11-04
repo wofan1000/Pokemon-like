@@ -15,6 +15,22 @@ public class Battleunit : MonoBehaviour
         get { return isPlayerUnit; }
     }
 
+    public bool CanUseMoves()
+    {
+        foreach (Move move in Creature.Moves)
+        {
+            if(move.Base.Name == "Hit")
+            {
+                continue;
+            }
+            if(Creature.MP <= move.Base.MPCost)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public BattleHud  Hud {
         get{ return hud;  }
         }

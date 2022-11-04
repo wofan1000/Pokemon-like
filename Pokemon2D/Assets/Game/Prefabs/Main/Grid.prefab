@@ -1105,6 +1105,7 @@ GameObject:
   - component: {fileID: 6712992914480379908}
   - component: {fileID: 6712992914480379909}
   - component: {fileID: 6712992914480379910}
+  - component: {fileID: 5263000365695084670}
   m_Layer: 9
   m_Name: BattleZone
   m_TagString: Untagged
@@ -1747,6 +1748,18 @@ CompositeCollider2D:
       - {x: 4.000029, y: -1}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &5263000365695084670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6712992914480379912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8521a9843a5cb74ea1ae0bc65d01d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6712992914816708537
 GameObject:
   m_ObjectHideFlags: 0

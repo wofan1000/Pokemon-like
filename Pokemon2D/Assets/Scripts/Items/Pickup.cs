@@ -38,6 +38,8 @@ public class Pickup : MonoBehaviour, Interactable, ISavable
             string playerName = initer.GetComponent<PlayerController>().Name;
 
             yield return DialogueManager.Instance.ShowDialogText($" {playerName} found {item.Name}");
+
+            GameController.Instance.RevertToPrevState();
         }
     }
 

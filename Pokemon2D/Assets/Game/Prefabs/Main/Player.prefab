@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatures:
-  - _base: {fileID: 11400000, guid: 41109ee3a0ce8df42b6bbfded2f70c78, type: 2}
+  - _base: {fileID: 11400000, guid: 031002312baeea14480a194e2980bdbf, type: 2}
     level: 17
   - _base: {fileID: 11400000, guid: e7354041e0381ef40877eb0a9eaf7e91, type: 2}
     level: 8
@@ -180,7 +180,12 @@ MonoBehaviour:
   - {fileID: -623776341, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
   - {fileID: -150680875, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
   - {fileID: 769756897, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
-  surfSprites: []
+  - {fileID: 769756897, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
+  surfSprites:
+  - {fileID: -299699299, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
+  - {fileID: 1828657131, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
+  - {fileID: 420166438, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
+  - {fileID: -98549697, guid: a739289d3ad5be44fadb1ccad767dbab, type: 3}
   defaultDir: 1
 --- !u!114 &9123381927748408809
 MonoBehaviour:

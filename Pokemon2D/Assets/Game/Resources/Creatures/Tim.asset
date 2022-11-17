@@ -30,7 +30,7 @@ MonoBehaviour:
   growthRate: 1
   catchRate: 255
   learnableMoves:
-  - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
+  - moveBase: {fileID: 11400000, guid: 40ae033b91b9fb54bb8db19f6f76d9b4, type: 2}
     level: 1
   - moveBase: {fileID: 11400000, guid: d12859cfac2b5e6499278e232dc8015b, type: 2}
     level: 1

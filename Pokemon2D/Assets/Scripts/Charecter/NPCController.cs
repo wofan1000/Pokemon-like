@@ -11,6 +11,7 @@ public class NPCController : MonoBehaviour, Interactable, ISavable
     [SerializeField] float timeBetweenPattern;
 
     float idleTimer;
+    GameState gameState;
 
     NPCState state;
 
@@ -51,6 +52,8 @@ public class NPCController : MonoBehaviour, Interactable, ISavable
             if (itemGiver != null && itemGiver.CanBeGiven())
             {
                 yield return itemGiver.GiveItem(initer.GetComponent<PlayerController>());
+                GameController.Instance.RevertToPrevState();
+
             }
             else if (creatureGiver != null && creatureGiver.CanBeGiven())
             {

@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa053973905b4784c8cf4cd93cc77cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questToCheck: {fileID: 0}
-  onStart: 0
+  questToCheck: {fileID: 11400000, guid: 76b40c38b03c47047afa61b1ff808801, type: 2}
+  onStart: 1
   onComplete: 0

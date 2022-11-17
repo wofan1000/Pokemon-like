@@ -112,9 +112,9 @@ public class GameController : MonoBehaviour
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
 
-       // var wildPokemon = CurrentScene.GetComponent<MapArea>().GetRandomCreature(trigger);
+       var wildPokemon = SceneSystem.currentLevelManager.GetRandomCreature(trigger);
 
-       // battleSystem.StartBattle(playerController.creatureparty, new Creature(wildPokemon.Base, wildPokemon.Level));
+        battleSystem.StartBattle(playerController.creatureparty, new Creature(wildPokemon.Base, wildPokemon.Level));
     }
 
     TrainerController trainer;

@@ -16,7 +16,7 @@ public class MoveableWater : MonoBehaviour, Interactable, IPlayerTriggerable
         if (animator.IsSurfing || isJumpingWater)
             yield break;
 
-        yield return DialogueManager.Instance.ShowDialogText("Yhe water is Deep Blue.");
+        yield return DialogueManager.Instance.ShowDialogText("The water is Deep Blue.");
 
         var creatureWithSurf = initer.GetComponent<Party>().Creatures.FirstOrDefault(p => p.Moves.Any(m => m.Base.Name == "Surf"));
 
@@ -42,7 +42,9 @@ public class MoveableWater : MonoBehaviour, Interactable, IPlayerTriggerable
                 isJumpingWater = false;
 
                 animator.IsSurfing = true;
-            }
+
+            } 
+            
         }
     }
 

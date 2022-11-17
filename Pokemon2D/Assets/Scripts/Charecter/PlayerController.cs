@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour, ISavable
             if(buddyController != null)
             buddyController.Follow(transform.position);
 
-
+            if(Math.Abs(input.x) == 1 || Math.Abs(input.y) == 1) 
             StartCoroutine(charecter.Move(input, OnMoveOver));
             
         }
@@ -55,9 +55,10 @@ public class PlayerController : MonoBehaviour, ISavable
         var facingDir = new Vector3(charecter.Animator.MoveX, charecter.Animator.MoveY);
         var interactPos = transform.position + facingDir;
 
-        // Debug.DrawLine(transform.position, interactPos, Color.green, 0.5f);
+        Debug.Log($"{charecter.Animator.MoveX} {charecter.Animator.MoveY}");
 
         var collider = Physics2D.OverlapCircle(interactPos, 0.3f, GameLayers.I.InteractableLayer | GameLayers.I.WaterLayer);
+        Debug.DrawLine(transform.position, interactPos, Color.green, 0.5f);
         if (collider != null)
         {
            yield return collider.GetComponent<Interactable>()?.Interact(transform);

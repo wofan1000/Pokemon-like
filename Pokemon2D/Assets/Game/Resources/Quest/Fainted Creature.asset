@@ -23,5 +23,5 @@ MonoBehaviour:
   completedDialogue:
     lines:
     - Thanks! Just kidding. You can keep to potion
-  requiredItem: {fileID: 11400000, guid: 07a963004138a984984dde719a810ba6, type: 2}
+  requiredItem: {fileID: 11400000, guid: f350cdfcca757324196c1d3dcf0e4234, type: 2}
   rewardItem: {fileID: 11400000, guid: 07a963004138a984984dde719a810ba6, type: 2}

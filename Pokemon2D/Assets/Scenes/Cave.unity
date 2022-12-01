@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &100296822
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -121.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786600221986225115, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+      propertyPath: m_Name
+      value: Essential Objects
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
 --- !u!1001 &328603446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6425,19 +6482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efdc3bad2349f942abc2152d5059f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creaturesInArea:
-  - creature: {fileID: 11400000, guid: 031002312baeea14480a194e2980bdbf, type: 2}
-    levelRange: {x: 3, y: 6}
-    chance: 40
-  - creature: {fileID: 11400000, guid: e7354041e0381ef40877eb0a9eaf7e91, type: 2}
-    levelRange: {x: 2, y: 5}
-    chance: 60
-  creaturesInWater:
-  - creature: {fileID: 11400000, guid: 5dbff6c054ba46242a554e71b126ebc6, type: 2}
-    levelRange: {x: 2, y: 5}
-    chance: 100
-  totalChance: 100
-  totalChanceWater: 100
 --- !u!4 &6712992916054025961
 Transform:
   m_ObjectHideFlags: 0

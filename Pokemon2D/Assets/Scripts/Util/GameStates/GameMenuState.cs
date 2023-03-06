@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using Utils.StateMachine;
 
@@ -23,20 +25,12 @@ public class GameMenuState : State<GameController>
         menuComtroller.OnBack += OnBack;
     }
 
-    private void OnGUI()
-    {
-        var style = new GUIStyle();
-        style.fontSize = 24;
-
-        GUILayout.Label("State Stack", style);
-        
-    }
+  
 
     public override void Execute()
     {
         menuComtroller.HandleUpdate();
 
-        OnBack();
     }
 
     public override void Exit()
@@ -46,9 +40,12 @@ public class GameMenuState : State<GameController>
         menuComtroller.OnBack -= OnBack;
     }
 
-    void OnMenuItemSelected(int selected)
+    void OnMenuItemSelected(int selection)
     {
-        Debug.Log($"selected Menu Item {selected}");
+        if (selection == 0)// Creature
+            gameController.StateMachine.Push(GamePartyStates.i);
+        else if (selection == 1 ) // Inventory
+            gameController.StateMachine.Push(InventoryState.i);
     }
 
     void OnBack()

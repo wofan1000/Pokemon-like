@@ -20,7 +20,7 @@ public class FreeRoamState : Utils.StateMachine.State<GameController>
     }
     public override void Execute()
     {
-       // PlayerController.instance.HandleUpdate();
+        PlayerController.i.HandleUpdate();
 
         if (Input.GetKeyDown(KeyCode.Return))
             gameController.StateMachine.Push(GameMenuState.i);

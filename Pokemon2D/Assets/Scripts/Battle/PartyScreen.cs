@@ -1,24 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils.GenericSelection;
 
-public class PartyScreen : MonoBehaviour
-{
+public class PartyScreen : SelectionUI<TextSlot> {
     Text message;
     PartyMemberUI[] memberSlots;
     List<Creature> creatures;
     Party party;
-    int selection = 0;
+   
 
-    public Creature SelectedCreature => creatures[selection];
+    public Creature SelectedCreature => creatures[selectedItem];
 
-    public BattleState? CalledFrom { get;  set; }
+    
 
     public void Init()
     {
         memberSlots = GetComponentsInChildren<PartyMemberUI>(true);
+        SetSelectionSettings(SelectionType.Grid, 2);
 
         party = Party.GetPlayerParty();
         SetPartyData();
@@ -40,61 +42,11 @@ public class PartyScreen : MonoBehaviour
             else
                 memberSlots[i].gameObject.SetActive(false);
         }
-
-        UpdateMemberSelection(selection);
-
-        
+       var textSlots = memberSlots.Select(m => m.GetComponent<TextSlot>());
+        SetItems(textSlots.Take(creatures.Count).ToList());
     }
 
-    public void HandleUpdate(Action onSelected, Action onBack)
-    {
-        var prevSelection = selection;
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-          
-            ++selection;
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-           
-            --selection;
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            
-            selection += 2;
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-            selection -= 2;
-
-        
-        selection = Mathf.Clamp(selection, 0, creatures.Count - 1);
-
-        if (selection != prevSelection)
-            UpdateMemberSelection(selection);
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            onSelected?.Invoke();
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.X))
-        {
-            onBack?.Invoke();
-        }
-    }
-
-    public void UpdateMemberSelection(int selectedMember)
-    {
-        for (int i = 0; i < creatures.Count; i++)
-        {
-            if (i == selectedMember)
-                memberSlots[i].SetSelected(true);
-            else
-                memberSlots[i].SetSelected(false);
-        }
-    }
+ 
 
     public void ShowIfTmIsUsable(TMItems tmItem)
     {

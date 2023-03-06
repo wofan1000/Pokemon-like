@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using Utils.GenericSelection;
 
 public enum InventoryUIState 
 { 
@@ -10,7 +12,7 @@ public enum InventoryUIState
     PartySelection,
     Busy
 }
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : SelectionUI<TextSlot>
 {
     [SerializeField] GameObject itemList;
     [SerializeField] ItemSlotUI itemSlotUI;
@@ -32,7 +34,7 @@ public class InventoryUI : MonoBehaviour
 
     const int itemsInViewport = 8;
 
-    int selectedItem = 0;
+   
     int selectedCatagory = 0;
     InventoryUIState state;
 
@@ -65,66 +67,37 @@ public class InventoryUI : MonoBehaviour
             slotUIList.Add(slotUIObj);
         }
 
-        UpdateItemSelection();
+        SetItems(slotUIList.Select(s => s.GetComponent<TextSlot>()).ToList());
+
+        UpdateSelectionUI();
     }
 
-    public void HandleUpdate(Action onBack, Action<ItemBase> onItemUsed = null)
+    public override void HandleUpdate()
     {
-        this.onItemUsed = onItemUsed;
-
-        if (state == InventoryUIState.ItemSelection)
-        {
-            int prevSelection = selectedItem;
-            int prevCategory = selectedCatagory;
-
-            if (Input.GetKeyDown(KeyCode.S))
-                ++selectedItem;
-            else if (Input.GetKeyDown(KeyCode.W))
-                --selectedItem;
-            else if (Input.GetKeyDown(KeyCode.D))
-                ++selectedCatagory;
-            else if (Input.GetKeyDown(KeyCode.A))
-                --selectedCatagory;
-
-            if (selectedCatagory > Inventory.ItemCatagories.Count - 1)
-                selectedCatagory = 0;
-            else if (selectedCatagory < 0)
-                selectedCatagory = Inventory.ItemCatagories.Count - 1;
-
-            selectedItem = Mathf.Clamp(selectedItem, 0, inventory.GetSlotsByCatagory(selectedCatagory).Count - 1);
-
-            if (prevCategory != selectedCatagory)
-            {
-                ResetSelection();
-                catagoryText.text = Inventory.ItemCatagories[selectedCatagory];
-                UpdateItemList();
-            }
-            else if (prevSelection != selectedItem)
-            {
-                UpdateItemSelection();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Z))
-                StartCoroutine(ItemSelected());
-            else if (Input.GetKeyDown(KeyCode.X))
-                onBack?.Invoke();
-        }
-        else if (state == InventoryUIState.PartySelection)
-        {
-            Action onSelected = () =>
-            {
-                StartCoroutine(UseItem());
-            };
-
-            Action onBackPartyScreen = () =>
-            {
-                ClosePartyScreen();
-            };
-
-            partyScreen.HandleUpdate(onSelected, onBackPartyScreen);
-        }
         
+        int prevCategory = selectedCatagory;
+
+      if (Input.GetKeyDown(KeyCode.D))
+            ++selectedCatagory;
+        else if (Input.GetKeyDown(KeyCode.A))
+            --selectedCatagory;
+
+        if (selectedCatagory > Inventory.ItemCatagories.Count - 1)
+            selectedCatagory = 0;
+        else if (selectedCatagory < 0)
+            selectedCatagory = Inventory.ItemCatagories.Count - 1;
+
+        if (prevCategory != selectedCatagory)
+        {
+            ResetSelection();
+            catagoryText.text = Inventory.ItemCatagories[selectedCatagory];
+            UpdateItemList();
+        }
+
+        base.HandleUpdate();
     }
+
+    
 
     IEnumerator ItemSelected()
     {
@@ -156,7 +129,7 @@ public class InventoryUI : MonoBehaviour
 
         if (selectedCatagory == (int)ItemCatagory.Capsules)
         {
-            StartCoroutine(UseItem());
+            //StartCoroutine(UseItem());
         }
         else
         {
@@ -168,96 +141,16 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    IEnumerator UseItem()
+  
+    public override void UpdateSelectionUI()
     {
-        state = InventoryUIState.Busy;
+        base.UpdateSelectionUI();
 
-        yield return HandleTmItems();
-
-        var item = inventory.GetItem(selectedItem, selectedCatagory);
-        var creature = partyScreen.SelectedCreature;
-
-        // Handle Evolution Items
-        if (item is EvolutionItem)
-        {
-            var evolution = creature.CheckForEvolution(item);
-            if (evolution != null)
-            {
-                yield return GameController.Instance.EvoMan.Evolove(creature, evolution);
-            }
-            else
-            {
-                yield return DialogueManager.Instance.ShowDialogText($"It won't have any affect!");
-                ClosePartyScreen();
-                GameController.Instance.RevertToPrevState();
-                yield break;
-            }
-        }
-
-        var usedItem = inventory.UseItem(selectedItem, partyScreen.SelectedCreature, selectedCatagory);
-        if (usedItem != null)
-        {
-           
-            if (usedItem is RecoveryItem)
-                yield return DialogueManager.Instance.ShowDialogText($"The player used {usedItem.Name}");
-
-            onItemUsed?.Invoke(usedItem);
-            GameController.Instance.RevertToPrevState();
-        }
-        else
-        {
-            if (selectedCatagory == (int)ItemCatagory.Items)
-                yield return DialogueManager.Instance.ShowDialogText($"It won't have any affect!");
-            GameController.Instance.RevertToPrevState();
-            yield break;
-        }
-        ClosePartyScreen();
-    }
-
-    IEnumerator HandleTmItems()
-    {
-        var tmItem = inventory.GetItem(selectedItem, selectedCatagory) as TMItems;
-        if (tmItem == null)
-            yield break;
-
-        var creature = partyScreen.SelectedCreature;
-
- 
-
-        if (creature.HasMove(tmItem.Move))
-        {
-            yield return DialogueManager.Instance.ShowDialogText($"{creature.Base.Name} already knows {tmItem.Move.Name}");
-            yield break;
-        }
-
-        if(!tmItem.CanBeTaught(creature))
-        {
-            yield return DialogueManager.Instance.ShowDialogText($"{creature.Base.Name} cant learn {tmItem.Move.Name}");
-            yield break;
-        }
-
-        if (creature.Moves.Count < CreatureBase.maxMoves)
-        {
-            creature.LearnMove(tmItem.Move);
-            yield return DialogueManager.Instance.ShowDialogText($"{creature.Base.Name} learned {tmItem.Move.Name}");
-        }
-    }
-
-
-    void UpdateItemSelection()
-    {
         var slots = inventory.GetSlotsByCatagory(selectedCatagory);
 
         selectedItem = Mathf.Clamp(selectedItem, 0, slots.Count - 1);
 
-        for (int i = 0; i < slotUIList.Count; i++)
-        {
-            if (i == selectedItem)
-                slotUIList[i].Nametext.color = GlobalSettings.i.HighlightedColor;
-            else
-                slotUIList[i].Nametext.color = Color.black;
-        }
-
+    
         if (slots.Count > 0)
         {
             var item = slots[selectedItem].Item;
@@ -266,7 +159,9 @@ public class InventoryUI : MonoBehaviour
         }
 
         HandleScrolling();
+        
     }
+
 
     void HandleScrolling()
     {
@@ -306,4 +201,8 @@ public class InventoryUI : MonoBehaviour
        partyScreen.ClearMemberSlotMessages();
         partyScreen.gameObject.SetActive(false);
     }
+
+    public ItemBase SelectedItem => inventory.GetItem(selectedItem, selectedCatagory);
+
+    public int SelectedCatagory => selectedCatagory;
 }

@@ -110,7 +110,7 @@ public class BattleSystem : MonoBehaviour
                 StartCoroutine(OnItemUsed(useditem));
             };
 
-            inventoryUI.HandleUpdate(onBack);
+            //inventoryUI.HandleUpdate(onBack);
         }
     }
     void HandlePartyScreenSelection()
@@ -128,17 +128,17 @@ public class BattleSystem : MonoBehaviour
             }
             partyScreen.gameObject.SetActive(false);
 
-            if (partyScreen.CalledFrom == BattleState.ActionSelection)
-            {
+           // if (partyScreen.CalledFrom == BattleState.ActionSelection)
+           // {
 
-                StartCoroutine(RunTurns(BattleAction.SwitchCreature));
-            }
-            else
-            {
-                state = BattleState.Busy;
-                StartCoroutine(SwitchCreature(selectedMember));
-            }
-            partyScreen.CalledFrom = null;
+           //     StartCoroutine(RunTurns(BattleAction.SwitchCreature));
+           // }
+            //else
+            //{
+            //    state = BattleState.Busy;
+           //     StartCoroutine(SwitchCreature(selectedMember));
+           // }
+           // partyScreen.CalledFrom = null;
         };
 
         Action onBack = () =>
@@ -152,10 +152,10 @@ public class BattleSystem : MonoBehaviour
 
             ActionSelection();
 
-            partyScreen.CalledFrom = null;
+           // partyScreen.CalledFrom = null;
         };
 
-        partyScreen.HandleUpdate(onSelected,onBack);
+       // partyScreen.HandleUpdate(onSelected,onBack);
       
         
     }
@@ -183,10 +183,10 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        if(partyScreen.CalledFrom == null)
-        {
-            state = BattleState.RunningTurn;
-        }
+      //  if(partyScreen.CalledFrom == null)
+      //  {
+       //     state = BattleState.RunningTurn;
+       // }
     }
 
     IEnumerator OnItemUsed(ItemBase usedItem)
@@ -306,7 +306,7 @@ public class BattleSystem : MonoBehaviour
             }
             else if (currentAction == 4)
             {
-                partyScreen.CalledFrom = state;
+               // partyScreen.CalledFrom = state;
                 OpenPartyScreen();
             }
         }
@@ -315,7 +315,7 @@ public class BattleSystem : MonoBehaviour
 
     private void OpenPartyScreen()
     {
-        partyScreen.CalledFrom = state;
+      //  partyScreen.CalledFrom = state;
         state = BattleState.PartyScreen;
         partyScreen.gameObject.SetActive(true);
     }

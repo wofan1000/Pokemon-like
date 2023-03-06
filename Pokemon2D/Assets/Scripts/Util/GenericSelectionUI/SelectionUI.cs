@@ -4,10 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Utils.GenericSelection { 
+
+    public enum SelectionType { List, Grid}
+
 public class SelectionUI<T> : MonoBehaviour where T : ISelectableItem 
 {
     List<T> items;
-    int selectedItem = 0;
+   protected int selectedItem = 0;
+
+     SelectionType selectionType;
+       
+    int gridWidth = 2;
 
     float selectionTimer = 0;
 
@@ -16,6 +23,14 @@ public class SelectionUI<T> : MonoBehaviour where T : ISelectableItem
     public event Action<int> OnSelected;
 
     public event Action OnBack;
+
+        public void SetSelectionSettings(SelectionType selectionType, int gridWidth)
+        {
+            if (selectionType == SelectionType.List)
+                HandleListSelection();
+            else if (selectionType == SelectionType.Grid)
+                HandleGridSelection();
+        }
       
 
         public virtual void HandleUpdate()
@@ -23,7 +38,12 @@ public class SelectionUI<T> : MonoBehaviour where T : ISelectableItem
             UpdateSelectionTimer();
 
             int prevSelection = selectedItem;
-            HandleListSelection();
+
+            if(selectionType== SelectionType.List)
+                 HandleListSelection();
+
+            if (selectionType == SelectionType.Grid)
+                HandleGridSelection();
 
             selectedItem = Mathf.Clamp(selectedItem, 0, items.Count - 1);
 
@@ -53,14 +73,33 @@ public class SelectionUI<T> : MonoBehaviour where T : ISelectableItem
             }
         }
 
+        public virtual void HandleGridSelection()
+        {
+            float v = Input.GetAxis("Vertical");
+            float h = Input.GetAxis("Horizontal");
+
+            if (selectionTimer == 0 && Mathf.Abs(v) > 0.2f || MathF.Abs(h) > 0.2f)
+            {
+
+                if(MathF.Abs(h) > MathF.Abs(v))
+                 selectedItem += (int)Mathf.Sign(h);
+                else
+                    selectedItem += -(int)Mathf.Sign(v) * gridWidth;
+
+                selectionTimer = 1 / selectionSpeed;
+            }
+        }
+
         public void SetItems(List<T> items)
         {
             this.items = items;
+
+            items.ForEach(i => i.Init());
             UpdateSelectionUI();
 
         }   
 
-        void UpdateSelectionUI()
+        public virtual void UpdateSelectionUI()
         {
             for (int i = 0; i < items.Count; i++)
             {

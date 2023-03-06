@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Utils.StateMachine;
 
 public enum GameState { FreeRoam, Battle, Dialog, Menu, PartyScreen, Inventory, Cutscene, Paused, Evolution, Shop }
@@ -108,26 +109,16 @@ public class GameController : MonoBehaviour
 
     public void StartBattle(BattleTrigger trigger)
     {
-        state = GameState.Battle;
-        battleSystem.gameObject.SetActive(true);
-        worldCamera.gameObject.SetActive(false);
-
-       var wildPokemon = SceneSystem.currentLevelManager.GetRandomCreature(trigger);
-
-        battleSystem.StartBattle(playerController.creatureparty, new Creature(wildPokemon.Base, wildPokemon.Level));
+      BattleStates.i.trigger= trigger;
+        StateMachine.Push(BattleStates.i);
     }
 
     TrainerController trainer;
-    public void StartBattle(TrainerController trainer)
+    public void StartTrainerBattle(TrainerController trainer)
     {
-        state = GameState.Battle;
-        battleSystem.gameObject.SetActive(true);
-        worldCamera.gameObject.SetActive(false);
+        BattleStates.i.trainer = trainer;
+        StateMachine.Push(BattleStates.i);
 
-        this.trainer = trainer;
-       
-
-        battleSystem.StartTrainerBattle(playerController.creatureparty,trainer.creatureParty);
     }
 
     public void OnEnterTrainersView(TrainerController trainer)
@@ -158,53 +149,15 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        //StateMachine.Execute();
+        StateMachine.Execute();
 
-        if (state == GameState.FreeRoam)
-        {
-            playerController.HandleUpdate();
-
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-               //menuController.OpenMenu();
-             state = GameState.Menu;
-           }
-        }
-
-         if (state == GameState.Battle)
-        {
-            battleSystem.HandleUpdate();
-        }
-        else if (state == GameState.Dialog)
+  
+       if (state == GameState.Dialog)
         {
             DialogueManager.Instance.HandleUpdate();
         }
-        else if (state == GameState.PartyScreen)
-        {
-            Action onSelected = () =>
-            {
-                // TODO: Go to Summary Screen
-            };
+       
 
-            Action onBack = () =>
-            {
-                partyScreen.gameObject.SetActive(false);
-                state = GameState.FreeRoam;
-            };
-
-            partyScreen.HandleUpdate(onSelected, onBack);
-        }
-        else if (state == GameState.Inventory)
-        {
-
-            Action onBack = () =>
-            {
-                inventoryUI.gameObject.SetActive(false);
-                state = GameState.FreeRoam;
-            };
-
-            inventoryUI.HandleUpdate(onBack);
-        }
         else if (state == GameState.Shop)
         {
             ShopController.i.HandleUpdate();
@@ -245,6 +198,19 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void OnGUI()
+    {
+        var style = new GUIStyle();
+        style.fontSize = 24;
+
+        GUILayout.Label("State Stack", style);
+
+        foreach(var state in StateMachine.StateStack)
+        {
+            GUILayout.Label(state.GetType().ToString(), style);
+        }
+    }
+
     public IEnumerator MoveCamera(Vector2 moveOffset, bool waitForFadeOut = false)
     {
         yield return Fader.i.FadeIn(0.5f);
@@ -258,6 +224,8 @@ public class GameController : MonoBehaviour
     }
 
     public GameState State => state;
+
+    public Camera WorldCamera => worldCamera;
     public void RevertToPrevState()
     {
         state = prevState;

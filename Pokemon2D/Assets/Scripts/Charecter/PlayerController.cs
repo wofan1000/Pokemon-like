@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour, ISavable
 
     private Charecter charecter;
 
+    public static PlayerController i;
 
     public Sprite openedChestSprite;
 
@@ -23,7 +24,9 @@ public class PlayerController : MonoBehaviour, ISavable
 
 
     private void Awake()
-    {   
+    {
+        i = this;
+
         creatureparty = GetComponent<Party>();
 
         charecter = GetComponent<Charecter>();        

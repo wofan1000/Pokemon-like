@@ -45,12 +45,18 @@ public class Inventory : MonoBehaviour, ISavable
     public ItemBase UseItem(int itemIndex, Creature selectedCreature, int selectedCatagory)
     {
         var item = GetItem(itemIndex, selectedCatagory);
-        bool itemused = item.Use(selectedCreature); 
+        return UseItem(item, selectedCreature);
+    }
 
-        if(itemused)
+    public ItemBase UseItem(ItemBase item, Creature selectedCreature)
+    {
+        
+        bool itemused = item.Use(selectedCreature);
+
+        if (itemused)
         {
-            if(!item.IsReusable)
-            RemoveItem(item);
+            if (!item.IsReusable)
+                RemoveItem(item);
 
             return item;
         }

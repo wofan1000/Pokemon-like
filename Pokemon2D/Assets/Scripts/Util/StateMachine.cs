@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Utils.StateMachine
@@ -32,7 +34,7 @@ namespace Utils.StateMachine
             CurrentState.Enter(owner);
         }
 
-        public void Pop ()
+        public void Pop()
         {
             StateStack.Pop();
             CurrentState.Exit();
@@ -50,5 +52,17 @@ namespace Utils.StateMachine
             CurrentState = newState;
             CurrentState.Enter(owner);
         }
+
+        public State<T> GetPrevState()
+        {
+            return StateStack.ElementAt(1);
+        }
+        public IEnumerator PushandWait(State<T> newState)
+        {
+            var oldState = CurrentState;
+            Push(newState);
+            yield return new WaitUntil(() => CurrentState == oldState);
+        }
     }
+ 
 }

@@ -496,6 +496,7 @@ GameObject:
   - component: {fileID: 7851399744789795021}
   - component: {fileID: 7721415248037463936}
   - component: {fileID: 7456215138220026699}
+  - component: {fileID: 7974330279747910216}
   m_Layer: 0
   m_Name: Party Member
   m_TagString: Untagged
@@ -551,6 +552,19 @@ MonoBehaviour:
   levelText: {fileID: 4407992893885558037}
   hpBar: {fileID: 9063767935072913111}
   messagetext: {fileID: 6381099270488862036}
+--- !u!114 &7974330279747910216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779171440137256010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a761802ea650e4d953a67726b50182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 7055382982170527147}
 --- !u!1 &8035512549671278752
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +577,7 @@ GameObject:
   - component: {fileID: 6288666880921230309}
   - component: {fileID: 7055382982170527147}
   m_Layer: 0
-  m_Name: Nmae Text
+  m_Name: Name Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

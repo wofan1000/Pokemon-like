@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3621589135396510867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 31.7, y: -13.2, z: 0}
-  m_LocalScale: {x: 43, y: 14, z: 1}
+  m_LocalScale: {x: 43, y: 14.065122, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21301248, guid: af6bc9dfbb9b08e4890cf8e4b8dd00c3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.43137255}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,7 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81fad9547a57f414c98899e6ff5e0907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelRef: {fileID: 0}
+  levelRef: {fileID: 11400000, guid: d2450197a9706244ca08aa47ea384c66, type: 2}
+  creaturesInArea:
+  - creature: {fileID: 11400000, guid: d1804e170e2a66b43abe38c282eab77d, type: 2}
+    levelRange: {x: 1, y: 4}
+    chance: 50
+  creaturesInWater: []
 --- !u!61 &6373812881343318168
 BoxCollider2D:
   m_ObjectHideFlags: 0

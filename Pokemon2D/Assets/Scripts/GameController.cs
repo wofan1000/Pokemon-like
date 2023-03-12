@@ -29,12 +29,8 @@ public class GameController : MonoBehaviour
 
     public StateMachine<GameController> StateMachine { get; private set; }
 
-    public SceneDetails CurrentScene { get; private set; }
-    public SceneDetails PrevScene { get; private set; }
-
     public EvolutionManager EvoMan { get => evoMan; }
 
-    
 
     public static GameController Instance { get; private set; }
 
@@ -52,6 +48,7 @@ public class GameController : MonoBehaviour
         ConditionDB.Init();
         ItemDB.init();
         QuestDB.init();
+       
     }
 
     private void Start()
@@ -164,11 +161,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void SetCurrentScene(SceneDetails currScene)
-    {
-        PrevScene = CurrentScene;
-        CurrentScene = currScene;
-    }
+
 
     void OnMenuSelected(int selectedItem)
     {
@@ -224,6 +217,8 @@ public class GameController : MonoBehaviour
     }
 
     public GameState State => state;
+
+    public PlayerController Playercontroller => playerController;
 
     public Camera WorldCamera => worldCamera;
     public void RevertToPrevState()

@@ -2,6 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Habitates
+{
+    Fire,
+    Water,
+    Earth,
+    Ice,
+    Darkness,
+    Etharial
+}
+
 [CreateAssetMenu(fileName = "Creature", menuName = "Creature/Create New")]
 public class CreatureBase : ScriptableObject
 {
@@ -15,6 +25,8 @@ public class CreatureBase : ScriptableObject
 
     [SerializeField] CreatureType type1;
     [SerializeField] CreatureType type2;
+
+    [SerializeField] Habitates creatureHabitates;
 
     //base stats
 
@@ -133,7 +145,7 @@ public class CreatureBase : ScriptableObject
 
     public GrowthRate GrowthRate => growthRate;
 
-
+    public Habitates getHabitate { get { return creatureHabitates; } }
 
 }
 

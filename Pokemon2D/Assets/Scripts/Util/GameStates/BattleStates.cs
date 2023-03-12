@@ -7,61 +7,69 @@ using Utils.StateMachine;
 
 public class BattleStates : State<GameController>
 {
-    [SerializeField] BattleSystem Battlesystem;
+    [SerializeField] BattleSystem battleSystem;
+
+    public TrainerController trainer { get; set; }
 
     public static BattleStates i { get; private set; }
 
     public BattleTrigger trigger { get; set; }
-
-    public TrainerController trainer { get; set; }
-
-    public LevelManager levelManager;
-
-    private void Awake()
+    
+    void Awake()
     {
         i = this;
-    }
-    GameController gc;
 
+   
+    }
+
+    GameController gc;
+ 
     public override void Enter(GameController owner)
     {
         gc = owner;
-        Battlesystem.gameObject.SetActive(true);
-        gc.WorldCamera.gameObject.SetActive(false);
-        var playerParty = gc.PlayerController.GetComponent<Party>();
 
+        battleSystem.gameObject.SetActive(true);
+        gc.WorldCamera.gameObject.SetActive(false);
+
+        var playerParty = gc.Playercontroller.GetComponent<Party>();
+
+        
         if (trainer == null)
         {
-           var potentialCreature = gc.CurrentScene.GetComponent<LevelManager>().GetRandomCreature(trigger);
-            var creaturecopy = new Creature(potentialCreature.Base, potentialCreature.Level);
-            Battlesystem.StartBattle(playerParty, creaturecopy, trigger);
+            var potentialCreatures = SceneSystem.currentLevelManager.GetRandomCreature(trigger);
+           
 
-        }
-        else
+            var potentalCreatureCopy = new Creature(potentialCreatures.Base, potentialCreatures.Level);
+
+            battleSystem.StartBattle(playerParty, potentalCreatureCopy, trigger);
+        } else
         {
 
             var trainerParty = trainer.GetComponent<Party>();
-            Battlesystem.StartTrainerBattle(gc.PlayerController.creatureparty, trainer.creatureParty);
+              battleSystem.StartTrainerBattle(playerParty, trainerParty);
         }
 
-        Battlesystem.OnBattleOver += EndBattle;
+        battleSystem.OnBattleOver += EndBattle;
+
+    }
+
+
+    public override void Exit()
+    {
+        battleSystem.gameObject.SetActive(false);
+        gc.WorldCamera.gameObject.SetActive(true);
+
+        battleSystem.OnBattleOver -= EndBattle;
     }
 
     public override void Execute()
     {
-        Battlesystem.HandleUpdate();
+        battleSystem.HandleUpdate();
     }
 
-    public override void Exit()
+    void EndBattle(bool won)
     {
-        Battlesystem.gameObject.SetActive(false);
-        gc.WorldCamera.gameObject.SetActive(true);
-
-        Battlesystem.OnBattleOver -= EndBattle;
-    }
-    void EndBattle (bool won)
-    {
-        if(trainer!= null && won == true) 
+        if (trainer != null && won == true)
         {
             trainer.BattleLost();
             trainer = null;

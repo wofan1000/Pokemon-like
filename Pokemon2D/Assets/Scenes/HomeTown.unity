@@ -257,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 9117820801994203029, guid: 9cdd0131ff4a2e74194e6d8fdce3969c, type: 3}
       propertyPath: creatures.Array.data[0]._base
       value: 
-      objectReference: {fileID: 11400000, guid: d1804e170e2a66b43abe38c282eab77d, type: 2}
+      objectReference: {fileID: 11400000, guid: 5dbff6c054ba46242a554e71b126ebc6, type: 2}
     - target: {fileID: 9117820801994203029, guid: 9cdd0131ff4a2e74194e6d8fdce3969c, type: 3}
       propertyPath: creatures.Array.data[0].level
       value: 43
@@ -337,17 +337,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c212132b44822ab4cab89e547c94b7a0, type: 3}
---- !u!114 &736064252 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
-  m_PrefabInstance: {fileID: 3621589135284501211}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81fad9547a57f414c98899e6ff5e0907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &899518043
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,71 +461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beebe36fb1454814a966c9208d99e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1056567880
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225093, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600221986225115, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_Name
-      value: Essential Objects
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786600223017798325, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6219353824118225442, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
-      propertyPath: levelManager
-      value: 
-      objectReference: {fileID: 736064252}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
 --- !u!1001 &1149278715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8033,12 +7957,16 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510864, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 14.065122
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621589135396510864, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510864, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.2
+      value: 4.9749
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510864, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8077,24 +8005,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
-      propertyPath: levelRef
-      value: 
-      objectReference: {fileID: 11400000, guid: d2450197a9706244ca08aa47ea384c66, type: 2}
-    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
-      propertyPath: creaturesInWater.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
-      propertyPath: creaturesInArea.Array.data[0].chance
-      value: 30
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[1].chance
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[2].chance
@@ -8105,13 +8021,9 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
-      propertyPath: creaturesInArea.Array.data[0].creature
-      value: 
-      objectReference: {fileID: 11400000, guid: 031002312baeea14480a194e2980bdbf, type: 2}
-    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[1].creature
       value: 
-      objectReference: {fileID: 11400000, guid: 5dbff6c054ba46242a554e71b126ebc6, type: 2}
+      objectReference: {fileID: 11400000, guid: 41109ee3a0ce8df42b6bbfded2f70c78, type: 2}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[2].creature
       value: 
@@ -8121,20 +8033,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 41109ee3a0ce8df42b6bbfded2f70c78, type: 2}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
-      propertyPath: creaturesInArea.Array.data[0].levelRange.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
-      propertyPath: creaturesInArea.Array.data[0].levelRange.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[1].levelRange.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[1].levelRange.y
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[2].levelRange.x
@@ -15283,18 +15187,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8248223523395243091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8248223523395243100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efdc3bad2349f942abc2152d5059f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8248223523395243100
 GameObject:
   m_ObjectHideFlags: 0
@@ -15305,7 +15197,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8248223523395243090}
   - component: {fileID: 8248223523395243101}
-  - component: {fileID: 8248223523395243091}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged

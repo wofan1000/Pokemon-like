@@ -58,6 +58,10 @@ public class BattleSystem : MonoBehaviour
     PlayerController player;
     TrainerController trainer;
 
+   [SerializeField] public MoveBase movebase;
+
+    public DamageNumber theDamageNumber;
+
     BattleTrigger battletrigger;
     // Start is called before the first frame update
     public void StartBattle(Party playerParty, Creature potentialCreature, BattleTrigger trigger = BattleTrigger.Land)
@@ -443,10 +447,13 @@ public class BattleSystem : MonoBehaviour
 
         if (CheckIfMoveHits(move, sourceUnit.Creature, tarUnit.Creature))
         {
-
+            
             sourceUnit.PlayAttackAnimation();
             yield return new WaitForSeconds(.5f);
+           // Instantiate(theDamageNumber, tarUnit.transform.position, tarUnit.transform.rotation).SetDamage(move.Base.Power);
+            Instantiate(move.Base.attackVisualEffect, tarUnit.transform.position, tarUnit.transform.rotation);
             tarUnit.PLayHitAnimation();
+           
 
             if (move.Base.Catagory == MoveCatagory.Status)
             {

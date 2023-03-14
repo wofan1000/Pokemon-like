@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class BeastierySystem : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class BeastierySystem : MonoBehaviour
     [SerializeField]List<CreaterBeastieryEntry> completeEntries = new List<CreaterBeastieryEntry>();
     [SerializeField] List<HabitateInfo> habitateInformation = new List<HabitateInfo>();
     [SerializeField] List<CreatureButtonUI> Creaturebuttons = new List<CreatureButtonUI>();
+
+    [SerializeField] List<BeastieryButton> beastieryButton = new List<BeastieryButton>();
+
     private enum ButtonType
     {
         NextButton,
@@ -46,7 +50,18 @@ public class BeastierySystem : MonoBehaviour
             nextButton.onClick.AddListener(() => TurnPage(ButtonType.PreviousButton));
         }
 
-        LoadHabitate(testHabs);
+        //LoadHabitate(testHabs);
+
+        for (int i = 0; i < beastieryButton.Count; i++)
+        {
+            int k = i;
+            beastieryButton[i].GetButton.onClick.AddListener(() =>
+            {
+                LoadHabitate(beastieryButton[k].GetHabitates);
+         });
+
+        }
+        EventSystem.current.SetSelectedGameObject(beastieryButton[0].GetButton.gameObject);
     }
 
     // Update is called once per frame
@@ -90,6 +105,7 @@ public class BeastierySystem : MonoBehaviour
 
     private void LoadHabitate(Habitates habitate)
     {
+        Debug.Log($"testing {habitate}");
         currentBeastieryEntries.Clear();
         currentBeastieryEntries.AddRange(completeEntries.Where(x => x.GetCreatureBase.getHabitate == habitate));
         HabitateInfo tempInfo = habitateInformation.FirstOrDefault(x => x.GetHabitates == habitate);
@@ -111,4 +127,16 @@ public class HabitateInfo
     public Habitates GetHabitates { get { return Thehabitate; } }
     public string GetTitle { get { return habitatetitle; } }
     public Color GetColor { get { return habitateColor; } }
+}
+
+[System.Serializable]
+public class BeastieryButton
+{
+    [SerializeField] Button habitateButton;
+    public Button GetButton { get { return habitateButton; } set { habitateButton = value; } }
+
+    [SerializeField] Habitates Thehabitate;
+    
+    public Habitates GetHabitates { get { return Thehabitate; } }
+
 }

@@ -26,5 +26,6 @@ MonoBehaviour:
     boosts: []
     status: 1
     volitileStatus: 1
+  attackVisualEffect: {fileID: 3528754412870217544, guid: c81186c5bd58e864dba74694905a53ed, type: 3}
   secondaries: []
   target: 0

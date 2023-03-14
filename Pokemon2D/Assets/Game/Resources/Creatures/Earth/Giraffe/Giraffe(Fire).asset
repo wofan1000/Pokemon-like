@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Giraffe(Fire)
   description: 
-  leftSprite: {fileID: 21300000, guid: 1fe5d6fbf5cc9c142b6c58ff8a0c27d3, type: 3}
-  rightSprite: {fileID: 21300006, guid: 988d560df8d322a468c97243cbfd76e8, type: 3}
-  type1: 3
+  leftSprite: {fileID: 537869447, guid: 1fe5d6fbf5cc9c142b6c58ff8a0c27d3, type: 3}
+  rightSprite: {fileID: 537869447, guid: 1fe5d6fbf5cc9c142b6c58ff8a0c27d3, type: 3}
+  type1: 2
   type2: 0
+  creatureHabitates: 0
   attack: 300
   defense: 0
   maxhp: 0

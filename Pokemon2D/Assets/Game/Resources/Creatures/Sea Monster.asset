@@ -18,9 +18,10 @@ MonoBehaviour:
   rightSprite: {fileID: 1776340308, guid: aabc985d7aac09541af0d2fa53ca0eeb, type: 3}
   type1: 3
   type2: 2
+  creatureHabitates: 0
   attack: 20
   defense: 7
-  maxhp: 150
+  maxhp: 300
   spAttack: 0
   spDefense: 0
   speed: 0

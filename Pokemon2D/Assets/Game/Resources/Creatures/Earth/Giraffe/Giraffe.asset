@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Giraffe
   description: 
-  leftSprite: {fileID: 1060857308, guid: 379cdf3d55592aa40bb73d94a4be4d19, type: 3}
-  rightSprite: {fileID: -912232131, guid: 379cdf3d55592aa40bb73d94a4be4d19, type: 3}
+  leftSprite: {fileID: -912232131, guid: 379cdf3d55592aa40bb73d94a4be4d19, type: 3}
+  rightSprite: {fileID: 1060857308, guid: 379cdf3d55592aa40bb73d94a4be4d19, type: 3}
   type1: 0
-  type2: 0
+  type2: 1
   creatureHabitates: 2
   attack: 200
   defense: 0

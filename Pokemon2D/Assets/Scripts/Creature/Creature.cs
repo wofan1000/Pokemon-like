@@ -9,7 +9,7 @@ public class Creature
     [SerializeField] CreatureBase _base;
     [SerializeField] int level;
 
-
+    
     public Creature(CreatureBase pbase, int plevel)
     {
         _base = pbase;
@@ -235,6 +235,7 @@ public class Creature
         float d = a * move.Base.Power * ((float)attacker.Attack / Defense) + 2;
         int damage = Mathf.FloorToInt(d * modifiers);
 
+        
         DecreaseHP(damage);
 
         return false;

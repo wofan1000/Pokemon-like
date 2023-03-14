@@ -19,6 +19,7 @@ public class MoveBase : ScriptableObject
     [SerializeField] bool isSpecial;
     [SerializeField] MoveCatagory catagory;
     [SerializeField] MoveEffects effects;
+    [SerializeField] public AttackEffect attackVisualEffect;
     [SerializeField] List<SecondaryEffects> secondaries;
     [SerializeField] MoveTarget target;
     public string Name

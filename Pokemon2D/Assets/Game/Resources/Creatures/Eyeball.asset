@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6ed3a8a2404674f9a38f2a818aa0e0, type: 3}
   m_Name: Eyeball
   m_EditorClassIdentifier: 
-  name: 
+  name: Eyeball
   description: 
   leftSprite: {fileID: 21300010, guid: 988d560df8d322a468c97243cbfd76e8, type: 3}
   rightSprite: {fileID: 21300010, guid: 988d560df8d322a468c97243cbfd76e8, type: 3}
   type1: 0
   type2: 0
+  creatureHabitates: 0
   attack: 100
   defense: 5
   maxhp: 467

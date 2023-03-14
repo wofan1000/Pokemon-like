@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Giraffe(Darkness)
   description: 
-  leftSprite: {fileID: 0}
-  rightSprite: {fileID: 0}
-  type1: 0
-  type2: 0
+  leftSprite: {fileID: 1234728806, guid: cf7ae0e6e6480eb4d9c83afcbef463da, type: 3}
+  rightSprite: {fileID: 1234728806, guid: cf7ae0e6e6480eb4d9c83afcbef463da, type: 3}
+  type1: 4
+  type2: 6
+  creatureHabitates: 4
   attack: 0
   defense: 0
   maxhp: 0

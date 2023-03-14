@@ -8005,12 +8005,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
+      propertyPath: totalChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.size
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
+      propertyPath: creaturesInArea.Array.data[0].chance
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[1].chance
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[2].chance
@@ -8033,12 +8041,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 41109ee3a0ce8df42b6bbfded2f70c78, type: 2}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
+      propertyPath: creaturesInArea.Array.data[0].levelRange.x
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
+      propertyPath: creaturesInArea.Array.data[0].levelRange.y
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[1].levelRange.x
-      value: 1
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[1].levelRange.y
-      value: 2
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInArea.Array.data[2].levelRange.x
@@ -8055,6 +8071,14 @@ PrefabInstance:
     - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: creaturesInWater.Array.data[0].levelRange.y
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
+      propertyPath: creaturesInArea.Array.data[0].<upperChance>k__BackingField
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621589135396510866, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
+      propertyPath: creaturesInArea.Array.data[1].<upperChance>k__BackingField
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3621589135396510867, guid: 20da63bf250d81b41bffaee7f063a0f6, type: 3}
       propertyPath: m_Name

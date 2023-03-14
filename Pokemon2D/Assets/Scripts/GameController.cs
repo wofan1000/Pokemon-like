@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
     [SerializeField] PartyScreen partyScreen;
     [SerializeField] InventoryUI inventoryUI;
 
+    [SerializeField] BeastierySystem beastieryUI;
+
     [SerializeField] BuddyController buddy;
 
     [SerializeField] EvolutionManager evoMan;
@@ -187,6 +189,13 @@ public class GameController : MonoBehaviour
         {
             // Load
             SavingSystem.i.Load("saveSlot1");
+            state = GameState.FreeRoam;
+        }
+
+        else if (selectedItem == 4)
+        {
+            // open beastiery
+            beastieryUI.gameObject.SetActive(true);
             state = GameState.FreeRoam;
         }
     }

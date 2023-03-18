@@ -7,26 +7,28 @@ public class DamageNumber : MonoBehaviour
 {
     public Text damageText;
 
-    public float lifetime;
     public float moveSpeed = 1;
 
     public float placmentJitter = .5f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+    RectTransform rectTrans;
+    private void Start()
+    {
+        rectTrans = GetComponent<RectTransform>();
+        damageText.gameObject.SetActive(false);  
+
+    }
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject,lifetime) ;
-        transform.position = new Vector3 (0f, moveSpeed * Time.deltaTime, 0f) ;
+      
+        rectTrans.localPosition = new Vector2 (0f, moveSpeed * Time.deltaTime) ;
     }
 
-    public void SetDamage(int damageAmount)
+    public void SetDamage(int damageAmount, Vector2 pos)
     {
+       
         damageText.text = damageAmount.ToString();
-        transform.position += new Vector3(Random.Range(-placmentJitter, placmentJitter), Random.Range(-placmentJitter, placmentJitter), 0);
+        rectTrans.localPosition = new Vector2(Random.Range(-placmentJitter, placmentJitter) + pos.x, Random.Range(-placmentJitter, placmentJitter) + pos.y);
     }
 }

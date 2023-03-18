@@ -218,7 +218,7 @@ public class Creature
     public int MaxMP { get; private set; }
 
 
-    public bool TakeDamage(Move move,Creature attacker)
+    public int TakeDamage(Move move,Creature attacker)
     {
         float critical = 1f;
         if (Random.value * 100f <= 6.3f)
@@ -238,7 +238,7 @@ public class Creature
         
         DecreaseHP(damage);
 
-        return false;
+        return damage;
     }
 
     public Move GetRandomMove()

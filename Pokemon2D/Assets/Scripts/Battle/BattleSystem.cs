@@ -58,9 +58,9 @@ public class BattleSystem : MonoBehaviour
     PlayerController player;
     TrainerController trainer;
 
-   [SerializeField] public MoveBase movebase;
+    [SerializeField] public MoveBase movebase;
 
-    public DamageNumber theDamageNumber;
+    [SerializeField] DamageNumber theDamageNumber;
 
     BattleTrigger battletrigger;
     // Start is called before the first frame update
@@ -450,7 +450,7 @@ public class BattleSystem : MonoBehaviour
             
             sourceUnit.PlayAttackAnimation();
             yield return new WaitForSeconds(.5f);
-           // Instantiate(theDamageNumber, tarUnit.transform.position, tarUnit.transform.rotation).SetDamage(move.Base.Power);
+            
             Instantiate(move.Base.attackVisualEffect, tarUnit.transform.position, tarUnit.transform.rotation);
             tarUnit.PLayHitAnimation();
            
@@ -462,6 +462,8 @@ public class BattleSystem : MonoBehaviour
             else
             {
                 var damageDetails = tarUnit.Creature.TakeDamage(move, sourceUnit.Creature);
+                StartCoroutine(ShowDamageNumber(tarUnit.GetComponent<RectTransform>().localPosition, damageDetails));
+                //Instantiate(theDamageNumber, tarUnit.transform.position, tarUnit.transform.rotation).SetDamage(damageDetails);
                 yield return tarUnit.Hud.WaitForHpUpdate();
 
             }
@@ -484,6 +486,17 @@ public class BattleSystem : MonoBehaviour
         {
 
         }
+
+    }
+
+    IEnumerator ShowDamageNumber(Vector3 pos, int damage)
+    {
+        theDamageNumber.gameObject.SetActive(true);
+
+        theDamageNumber.SetDamage(damage, pos);
+        yield return new WaitForSeconds (1f);
+
+        theDamageNumber.gameObject.SetActive(false);
 
     }
 

@@ -48,16 +48,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkDownSprites:
-  - {fileID: 543575656, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
-  - {fileID: 2146475327, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
+  - {fileID: 547245160, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: -1961941828, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: -361101522, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: -655696918, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
   walkUpSprites:
-  - {fileID: -953511502, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
-  - {fileID: 669794343, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
+  - {fileID: -1713310249, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: 1308267252, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: 1083531479, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: 971426252, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
   walkRightSprites:
-  - {fileID: -1929199805, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
-  - {fileID: -1651484063, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
+  - {fileID: 1506510492, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: -1205076442, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: 972013496, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: -2141377355, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
   walkLeftSprites:
-  - {fileID: -1679680209, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
+  - {fileID: -53117890, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: 253053964, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  - {fileID: -1652499450, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
   - {fileID: -1402736174, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
   surfSprites: []
   defaultDir: 1
@@ -115,8 +123,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1014861807, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
-  m_Color: {r: 0.4438857, g: 0.5207926, b: 0.990566, a: 1}
+  m_Sprite: {fileID: 547245160, guid: f0f92a74a0ab3e447b4bc1bf9ca83970, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

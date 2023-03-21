@@ -6,6 +6,8 @@ public interface IPlayerTriggerable
 {
     void OnPlayerTriggered(PlayerController player);
 
+    void OnCompanionTriggered(CompanionController companion);
+
     bool triggerRepeatedly { get;  }
     
 }

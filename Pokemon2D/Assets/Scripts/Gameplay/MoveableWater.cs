@@ -48,6 +48,11 @@ public class MoveableWater : MonoBehaviour, Interactable, IPlayerTriggerable
         }
     }
 
+    public void OnCompanionTriggered(CompanionController companion)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void OnPlayerTriggered(PlayerController player)
     {
         if (UnityEngine.Random.Range(1, 101) <= 10)
@@ -55,4 +60,6 @@ public class MoveableWater : MonoBehaviour, Interactable, IPlayerTriggerable
             GameController.Instance.StartBattle(BattleTrigger.Water);
         }
     }
+
+
 }

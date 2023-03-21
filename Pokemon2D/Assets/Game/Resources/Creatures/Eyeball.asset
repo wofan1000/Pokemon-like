@@ -20,10 +20,10 @@ MonoBehaviour:
   type2: 0
   creatureHabitates: 0
   attack: 100
-  defense: 5
+  defense: 4
   maxhp: 467
   spAttack: 6
-  spDefense: 46
+  spDefense: 30
   speed: 5
   maxMp: 34
   currentmp: 34

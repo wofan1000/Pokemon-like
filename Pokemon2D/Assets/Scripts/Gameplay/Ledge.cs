@@ -7,7 +7,7 @@ public class Ledge : MonoBehaviour
 {
     [SerializeField] int xDir;
     [SerializeField] int yDir;
-
+    public float ledgejumpPower = 1;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class Ledge : MonoBehaviour
         GameController.Instance.PauseGame(true);
 
         var jumpDestination = charecter.transform.position + new Vector3(xDir, yDir) * 2;
-        yield return charecter.transform.DOJump(jumpDestination, 0.3f, 1, 0.5f).WaitForCompletion();
+        yield return charecter.transform.DOJump(jumpDestination, ledgejumpPower, 1, 0f).WaitForCompletion();
 
         GameController.Instance.PauseGame(false);
     }

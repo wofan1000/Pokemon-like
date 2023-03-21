@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuddyController : MonoBehaviour
+public class BuddyController : MonoBehaviour, ISwitchable
 {
     private Charecter character;
+
+    [SerializeField] private PlayerController player;
+
+    public bool isActive { get; set; }
+
+    
 
     public void Follow(Vector3 movePosition)
     {
@@ -25,13 +31,37 @@ public class BuddyController : MonoBehaviour
 
     private void Update()
     {
+        if (CharecterSwap.istogether == false) return;
         if (Vector3.Distance(transform.position, GameController.Instance.PlayerController.transform.position) > 3f)
         {
+
             transform.position = GameController.Instance.PlayerController.transform.position;
         }
 
         character.HandleUpdate();
     }
+
+    public void OnSwitch(bool state)
+    {
+        player.playerActive = state;
+        GetComponent<Party>().enabled = state;
+        GetComponent<BuddyController>().enabled = !state;
+    }
+
+ 
+    public void IsSeperated()
+    {
+        isActive= false;
+    }
+
+    public void IsTogether()
+    {
+        
+    }
+
+    
+
+    Transform ISwitchable.thecurrentChar => this.transform;
 }
 
 

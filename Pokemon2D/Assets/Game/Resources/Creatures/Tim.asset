@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6ed3a8a2404674f9a38f2a818aa0e0, type: 3}
   m_Name: Tim
   m_EditorClassIdentifier: 
-  name: Tim
+  name: Elric
   description: A Boi
-  leftSprite: {fileID: -1013662434, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
-  rightSprite: {fileID: -1758144368, guid: ed5804dd896a58e4d85f1700b9e56375, type: 3}
+  leftSprite: {fileID: 345453148, guid: e614bad97d6aaf240a63224e91079e14, type: 3}
+  rightSprite: {fileID: 1763352404, guid: e614bad97d6aaf240a63224e91079e14, type: 3}
   type1: 3
   type2: 0
+  creatureHabitates: 0
   attack: 5
   defense: 6
   maxhp: 100

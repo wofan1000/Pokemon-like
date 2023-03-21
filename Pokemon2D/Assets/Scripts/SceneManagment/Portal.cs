@@ -43,6 +43,11 @@ public class Portal : MonoBehaviour, IPlayerTriggerable
         Destroy(gameObject);
     }
 
+    public void OnCompanionTriggered(CompanionController companion)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public Transform SpawnPoint => spawnPoint;
 
     public bool triggerRepeatedly => false;

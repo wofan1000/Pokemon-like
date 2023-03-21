@@ -81,11 +81,11 @@ public class Battleunit : MonoBehaviour
     {
         var sequence = DOTween.Sequence();
         if (isPlayerUnit)
-            sequence.Append(image.transform.DOLocalMoveY(originalPos.y - 50f, 0.25f));
+            sequence.Append(image.transform.DOLocalMoveY(originalPos.x - 50f, 0.25f));
         else
-            sequence.Append(image.transform.DOLocalMoveY(originalPos.y - 50f, 0.25f));
+            sequence.Append(image.transform.DOLocalMoveY(originalPos.x - 50f, 0.25f));
 
-        sequence.Append(image.transform.DOLocalMoveY(originalPos.y, .25f));
+        sequence.Append(image.transform.DOLocalMoveY(originalPos.x, .25f));
     }
 
     public void PLayHitAnimation()

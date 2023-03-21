@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7588148295488782029}
   - component: {fileID: 7804862713948814793}
   - component: {fileID: 7353414632393893428}
-  - component: {fileID: 8543715306482010995}
   m_Layer: 0
   m_Name: Buddy
   m_TagString: Untagged
@@ -131,18 +130,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8543715306482010995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2451160362507803480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d3a4550d87e55c4e824ee67e426bcb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

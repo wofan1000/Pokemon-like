@@ -6,8 +6,9 @@ using System.Linq;
 using UnityEngine;
 using static Creature;
 
-[RequireComponent(typeof(Party))]
-public class PlayerController : MonoBehaviour, ISavable
+
+
+public class PlayerController : MonoBehaviour, ISavable,ISwitchable
 {
     private Vector2 input;
 
@@ -20,9 +21,9 @@ public class PlayerController : MonoBehaviour, ISavable
     private BuddyController buddyController;
 
     public Party creatureparty { get; private set; }
-  
 
 
+    public bool playerActive = true;
     private void Awake()
     {
         i = this;
@@ -34,13 +35,18 @@ public class PlayerController : MonoBehaviour, ISavable
 
     public void HandleUpdate()
     {
+        if (!playerActive) return;
         if (!charecter.IsMoving)
         {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
-            if(buddyController != null)
-            buddyController.Follow(transform.position);
+            if (buddyController != null )
+            {
+                if (CharecterSwap.istogether == true) {buddyController.Follow(transform.position);}
+                
+               
+            }
 
             if(Math.Abs(input.x) == 1 || Math.Abs(input.y) == 1) 
             StartCoroutine(charecter.Move(input, OnMoveOver));
@@ -122,9 +128,28 @@ public class PlayerController : MonoBehaviour, ISavable
         buddyController = buddy;
     }
 
+    public void OnSwitch(bool isSwitched)
+    {
+        playerActive = isSwitched;
+        
+    }
+
+    public void IsSeperated()
+    {
+       // turn off buddy script
+
+    }
+
+    public void IsTogether()
+    {
+        // turn on buddy script
+    }
+
     public Charecter Charecter => charecter;
 
     public string Name { get;  set; }
+
+    public Transform thecurrentChar => this.transform;
 }
 
 

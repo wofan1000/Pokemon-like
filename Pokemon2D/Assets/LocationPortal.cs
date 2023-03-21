@@ -37,6 +37,12 @@ public class LocationPortal : MonoBehaviour, IPlayerTriggerable
         GameController.Instance.PauseGame(false);
     }
 
+    public void OnCompanionTriggered(CompanionController companion)
+    {
+        companion.Charecter.Animator.IsMoving = false;
+        StartCoroutine(Teleport());
+    }
+
     public Transform SpawnPoint => spawnPoint;
 
     public bool triggerRepeatedly => false;

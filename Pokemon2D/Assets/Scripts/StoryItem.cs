@@ -14,6 +14,13 @@ public class StoryItem : MonoBehaviour, IPlayerTriggerable
         player.Charecter.Animator.IsMoving = false;
         DialogueManager.Instance.ShowDialogue(dialogue);
     }
+
+    public void OnCompanionTriggered(CompanionController companion)
+    {
+        companion.Charecter.Animator.IsMoving = false;
+        DialogueManager.Instance.ShowDialogue(dialogue);
+    }
+
     public bool triggerRepeatedly => false;
 
     

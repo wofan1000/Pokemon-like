@@ -1,6 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Utils.StateMachine;
@@ -29,6 +34,8 @@ public class GameController : MonoBehaviour
     GameState prevState;
     GameState stateBeforeEvolution;
 
+
+   
     public StateMachine<GameController> StateMachine { get; private set; }
 
     public EvolutionManager EvoMan { get => evoMan; }
@@ -45,6 +52,7 @@ public class GameController : MonoBehaviour
 
         PlayerController.SetBuddy(Buddy);
 
+        //SceneSystem.init();
         CreatureDB.init();
         MoveDB.init();
         ConditionDB.Init();
@@ -60,6 +68,8 @@ public class GameController : MonoBehaviour
         StateMachine.ChangeState(FreeRoamState.i);
 
         battleSystem.OnBattleOver += EndBattle;
+
+
 
         partyScreen.Init();
 
@@ -144,6 +154,16 @@ public class GameController : MonoBehaviour
         //bool hasEvolutions = playerParty.CheckForEvolutions();
 
        
+    }
+
+    public void StartCutsceneState()
+    {
+        state = GameState.Cutscene;
+    }
+
+    public void StartFreeRoamState()
+    {
+        state = GameState.FreeRoam;
     }
 
     private void Update()
@@ -234,4 +254,7 @@ public class GameController : MonoBehaviour
     {
         state = prevState;
     }
+
+
+  
 }

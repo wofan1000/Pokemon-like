@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using static CharecterAnimator;
 
+[RequireComponent(typeof(CharecterAnimator))]
+
+[RequireComponent(typeof(Charecter))]
 [RequireComponent(typeof(Party))]
 public class TrainerController : MonoBehaviour, Interactable, ISavable
 {
     [SerializeField] GameObject exclimation;
-    [SerializeField] GameObject fov;
+    [SerializeField]  protected GameObject fov;
     [SerializeField] Dialogue dialogue;
     [SerializeField] Dialogue dialogueAfterBattle;
 
@@ -15,7 +18,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
 
     Charecter charecter;
 
-    bool battleLost = false;
+    protected bool battleLost = false;
 
     private void Awake()
     {
@@ -35,7 +38,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
         if (!battleLost)
         {
             yield return DialogueManager.Instance.ShowDialogue(dialogue);
-           // GameController.Instance.StartBattle(this);
+            //GameController.Instance.StartBattle(this);
            
         }
         else
@@ -44,7 +47,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
         }
     }
 
-    public void BattleLost()
+    public virtual void BattleLost()
     {
         battleLost = true;
         fov.gameObject.SetActive(false);

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6ed3a8a2404674f9a38f2a818aa0e0, type: 3}
+  m_Name: Deer (Darkness)
+  m_EditorClassIdentifier: 
+  name: Deer (Darkness)
+  description: 
+  leftSprite: {fileID: -1905278087, guid: bc15fb56ec13bd5419158aa8d5da8295, type: 3}
+  rightSprite: {fileID: -1905278087, guid: bc15fb56ec13bd5419158aa8d5da8295, type: 3}
+  type1: 4
+  type2: 4
+  creatureHabitates: 4
+  attack: 19
+  defense: 6
+  maxhp: 999
+  spAttack: 2
+  spDefense: 5
+  speed: 2
+  maxMp: 7
+  currentmp: 7
+  expGain: 300
+  growthRate: 0
+  catchRate: 255
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
+    level: 0
+  learnableByItems: []
+  evolutions: []

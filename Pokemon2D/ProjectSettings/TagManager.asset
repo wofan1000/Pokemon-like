@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Teleporter
+  - Buddy
+  - Block
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - Portal
   - Triggers
   - Ledges
-  - 
+  - Grabbable
   - 
   - 
   - 

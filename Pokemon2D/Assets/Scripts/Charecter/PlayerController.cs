@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using static Creature;
 
 
@@ -24,6 +25,9 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
 
 
     public bool playerActive = true;
+
+    public Text swapText;
+
     private void Awake()
     {
         i = this;
@@ -31,6 +35,11 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
         creatureparty = GetComponent<Party>();
 
         charecter = GetComponent<Charecter>();        
+    }
+
+    private void Start()
+    {
+            
     }
 
     public void HandleUpdate()
@@ -126,23 +135,29 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
     public void SetBuddy(BuddyController buddy)
     {
         buddyController = buddy;
+     
     }
 
     public void OnSwitch(bool isSwitched)
     {
         playerActive = isSwitched;
-        
+     
+
     }
 
     public void IsSeperated()
     {
-       // turn off buddy script
+        // turn off buddy script
+       buddyController.GetComponent<BuddyController>().enabled = false;
 
+        swapText.text = "Stay";
     }
 
     public void IsTogether()
     {
         // turn on buddy script
+        swapText.text = "Follow";
+        buddyController.GetComponent<BuddyController>().enabled = true;
     }
 
     public Charecter Charecter => charecter;

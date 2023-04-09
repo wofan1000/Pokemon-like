@@ -6,21 +6,33 @@ public class PlayerTeleport : MonoBehaviour
 {
     private GameObject currentTeleporter;
 
-   
+    
+    public  Fader fader;
 
 
+    private void Awake()
+    {
+        fader= GetComponent<Fader>();
+    }
 
     private void Update()
     {
-        if(currentTeleporter != null)
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().transform.position;
+          
+            if (currentTeleporter != null)
+            {
+                
+                transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().transform.position;
+            }
+            
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Teleporter"))
         {
+            Debug.Log("is teleported");
             currentTeleporter = other.gameObject;
         }
     }
@@ -35,4 +47,6 @@ public class PlayerTeleport : MonoBehaviour
             }
         }
     }
+
+    
 }

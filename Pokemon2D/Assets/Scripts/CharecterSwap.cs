@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 
 public class CharecterSwap : MonoBehaviour
@@ -18,21 +19,12 @@ public class CharecterSwap : MonoBehaviour
 
     public static bool istogether = true;
 
+    
     public bool isInRange()
     {
         return true;
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (charecter == null && charecterstoSwap.Count >= 1)
-        {
-            //charecter = charecterstoSwap[0];
-        }
-      
-    }
 
     // Update is called once per frame
     void Update()
@@ -47,6 +39,7 @@ public class CharecterSwap : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {    
+           
             istogether= !istogether;
         }
 
@@ -78,7 +71,7 @@ public class CharecterSwap : MonoBehaviour
 
         cam.transform.parent = charecterstoSwap[currentChar(whichCharecter)].GetComponent<ISwitchable>().thecurrentChar;
         cam.transform.localPosition = new Vector3(0, 0, cam.transform.position.z);
-        //cam.LookAt = charecterstoSwap[currentChar(whichCharecter)].GetComponent<ISwitchable>().thecurrentChar;
+       
     }
 
 }

@@ -4,29 +4,38 @@ using UnityEngine;
 
 public class DoorSetActive : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject[] switches;
 
-    private bool isopen = false;
-   public void OpenDoor()
-    {
-        gameObject.SetActive(false);
+    public GameObject door;
+
+    int switchpressed = 0;
+
+    private void Update()
+    {  
+        GetSwitchDoor();
+      
     }
-
-    public void CloseDoor()
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void ToggleDoor()
-    {
-        isopen = !isopen;
-
-        if(isopen)
-            OpenDoor();
-        else
+    public bool SwitchPress()
+    {   
         {
-            CloseDoor();
-        }
+            switchpressed = 0;
 
+            for (int i = 0; i < switches.Length; i++)
+            {
+                if (switches[i].GetComponent<DoorSwitch>().isPressed == true)
+
+                    switchpressed++;
+            }
+        }
+            return switches.Length == switchpressed;
         
     }
+
+    public void GetSwitchDoor()
+    {
+      door.SetActive(!SwitchPress());
+     
+    }
+   
 }

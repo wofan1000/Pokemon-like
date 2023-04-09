@@ -9,6 +9,8 @@ public static class SceneSystem
 
     static List<SceneDetails> currentsceneDetails = new List<SceneDetails>();
 
+   [SerializeField]  //SceneSystem currentScenesLoaded
+
     public static IEnumerator EnterLevel(LevelManager newLevel)
     {
         if(currentLevelManager == newLevel)
@@ -55,5 +57,7 @@ public static class SceneSystem
 
 
     }
+
+   
 
 }

@@ -503,7 +503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1080615154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22091,7 +22091,7 @@ GameObject:
   - component: {fileID: 1413028505}
   - component: {fileID: 1413028504}
   m_Layer: 0
-  m_Name: Door SWitch  (1)
+  m_Name: Snowball Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

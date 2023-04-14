@@ -1500,7 +1500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5517470233125909969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2533,7 +2533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4786600222167264137}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -44.14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2935,7 +2935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -245.9195, y: -169.09996}
+  m_AnchoredPosition: {x: -245.9195, y: -169.09998}
   m_SizeDelta: {x: -450.07, y: -344.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4786600223017798321
@@ -9522,6 +9522,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fader: {fileID: 0}
+--- !u!50 &1487197054
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113751765349637087}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 2
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &2231711471802648876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10167,6 +10188,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9123381927748408802, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123381927748408802, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123381927748408802, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9123381927748408804, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: m_Size.x
       value: 0.8125
@@ -10189,11 +10222,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9123381927748408805, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.1
+      value: -68.6
       objectReference: {fileID: 0}
     - target: {fileID: 9123381927748408805, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.3
+      value: 40.2
       objectReference: {fileID: 0}
     - target: {fileID: 9123381927748408805, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10335,12 +10368,30 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9123381927748408806, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
   m_PrefabInstance: {fileID: 4391475882455875076}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4786600222716570596}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 154bcd0eb32544145a2f1f81f128ff00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4786600222716570596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9123381927748408800, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+  m_PrefabInstance: {fileID: 4391475882455875076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1870296107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4786600222716570596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b4fb23d164e0f41a799e69a38be977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fader: {fileID: 0}
 --- !u!1001 &4760651860170482356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10559,7 +10610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 80404044558978268, guid: e288c1c682a86fc44a7cc5301e46eb46, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -183.99998
+      value: -184
       objectReference: {fileID: 0}
     - target: {fileID: 80404044558978268, guid: e288c1c682a86fc44a7cc5301e46eb46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

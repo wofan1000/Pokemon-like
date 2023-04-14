@@ -13,14 +13,7 @@ public class blockPuzzleDoor : MonoBehaviour
 
     int holeFilled = 0;
 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+  
     void Update()
     {
         GetHoleDoor();
@@ -46,9 +39,6 @@ public class blockPuzzleDoor : MonoBehaviour
     public void GetHoleDoor()
     {
         door.SetActive(!BlockFilled());
-
-
-        door.SetActive(false);
 
     }
 

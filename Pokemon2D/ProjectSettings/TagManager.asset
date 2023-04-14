@@ -7,6 +7,8 @@ TagManager:
   - Teleporter
   - Buddy
   - Block
+  - Torch
+  - Snowball
   layers:
   - Default
   - TransparentFX

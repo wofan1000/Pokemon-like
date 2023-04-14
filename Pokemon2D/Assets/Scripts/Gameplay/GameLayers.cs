@@ -14,6 +14,7 @@ public class GameLayers : MonoBehaviour
     [SerializeField] LayerMask ledgesLayer;
     [SerializeField] LayerMask waterLayer;
     [SerializeField] LayerMask digLayer;
+    [SerializeField] LayerMask moveableObjects;
 
 
 
@@ -41,6 +42,11 @@ public class GameLayers : MonoBehaviour
     public LayerMask PlayerLayer
     {
         get => playerLayer;
+    }
+
+    public LayerMask MoveableObjects
+    {
+        get => moveableObjects;
     }
 
     public LayerMask FovLayer

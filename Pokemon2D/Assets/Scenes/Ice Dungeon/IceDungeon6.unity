@@ -503,7 +503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1080615154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,8 +518,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchUp: {fileID: 1973018883895226460, guid: d18463426b8436348815bb7d35e63fa6, type: 3}
   switchDown: {fileID: 4278717928226453771, guid: 049b88eafd6317f488fcbca5f6b4d41b, type: 3}
-  isPressed: 0
-  ispresuresensative: 1
+  isPressed: 1
+  ispresuresensative: 0
 --- !u!61 &1080615155
 BoxCollider2D:
   m_ObjectHideFlags: 0

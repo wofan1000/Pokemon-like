@@ -27,7 +27,7 @@ TagManager:
   - Triggers
   - Ledges
   - Grabbable
-  - 
+  - MoveableObjects
   - 
   - 
   - 
@@ -60,4 +60,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3688158499
+    locked: 0
+  - name: Overhead
+    uniqueID: 2632281719
     locked: 0

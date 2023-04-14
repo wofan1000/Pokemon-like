@@ -81,6 +81,12 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
         {
            yield return collider.GetComponent<Interactable>()?.Interact(transform);
         }
+        
+         collider = Physics2D.OverlapCircle(interactPos, 0.3f, GameLayers.I.MoveableObjects);
+        if(collider != null)
+        {
+            yield return collider.GetComponent<MovableObject>().Move(facingDir);
+        }
     }
 
     IPlayerTriggerable currentlyInTrigger;

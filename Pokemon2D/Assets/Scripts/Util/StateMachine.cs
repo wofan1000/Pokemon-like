@@ -38,7 +38,7 @@ namespace Utils.StateMachine
         {
             StateStack.Pop();
             CurrentState.Exit();
-            StateStack.Peek();
+            CurrentState = StateStack.Peek();
         }
 
         public void ChangeState(State<T> newState)

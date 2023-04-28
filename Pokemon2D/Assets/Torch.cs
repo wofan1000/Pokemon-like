@@ -11,7 +11,7 @@ public class Torch : MonoBehaviour
 
     public bool isLit = false;
 
-
+   
     private void Update()
     {
         TRiggerFlame();
@@ -22,6 +22,7 @@ public class Torch : MonoBehaviour
         {
             isLit = true;
         }
+
     }
 
     void TRiggerFlame()

@@ -20,5 +20,9 @@ public class TextSlot : MonoBehaviour, ISelectableItem
         text.color = (isSelected) ? GlobalSettings.i.HighlighedColor : originalColor;
     }
 
+    public void SetText(string s)
+    {
+        text.text = s;
+    }
   
 }

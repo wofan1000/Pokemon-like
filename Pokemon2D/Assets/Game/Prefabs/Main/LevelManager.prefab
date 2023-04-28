@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81fad9547a57f414c98899e6ff5e0907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelRef: {fileID: 11400000, guid: d2450197a9706244ca08aa47ea384c66, type: 2}
+  levelRef: {fileID: 11400000, guid: da0f7764e4318e74eb965f22e713e125, type: 2}
   creaturesInArea:
   - creature: {fileID: 11400000, guid: d1804e170e2a66b43abe38c282eab77d, type: 2}
     levelRange: {x: 1, y: 4}

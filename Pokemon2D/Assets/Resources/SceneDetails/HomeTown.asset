@@ -15,4 +15,5 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 11400000, guid: da0f7764e4318e74eb965f22e713e125, type: 2}
   - {fileID: 11400000, guid: 980df154073e1774baa9e6e1e66d05f5, type: 2}
-  sceneName: 
+  - {fileID: 11400000, guid: 8c57a3b072af71943ae1a45029316ec6, type: 2}
+  sceneName: HomeTown

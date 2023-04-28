@@ -15,9 +15,9 @@ MonoBehaviour:
   name: Deer (Darkness)
   description: 
   leftSprite: {fileID: -1905278087, guid: bc15fb56ec13bd5419158aa8d5da8295, type: 3}
-  rightSprite: {fileID: -1905278087, guid: bc15fb56ec13bd5419158aa8d5da8295, type: 3}
-  type1: 4
-  type2: 4
+  rightSprite: {fileID: 1989026343, guid: bc15fb56ec13bd5419158aa8d5da8295, type: 3}
+  type1: 0
+  type2: 0
   creatureHabitates: 4
   attack: 19
   defense: 6

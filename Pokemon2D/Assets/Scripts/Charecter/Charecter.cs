@@ -15,7 +15,7 @@ public class Charecter : MonoBehaviour
     {
         animator = GetComponent<CharecterAnimator>();
         SetPositionAndSnapToTile(transform.position);
-
+      
     }
 
     public void SetPositionAndSnapToTile(Vector2 pos)
@@ -83,7 +83,7 @@ public class Charecter : MonoBehaviour
 
     private bool IsWalkable(Vector3 targetPos)
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, GameLayers.I.SolidLayer | GameLayers.I.InteractableLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, GameLayers.I.SolidLayer | GameLayers.I.InteractableLayer | GameLayers.I.MoveableObjects) != null)
         {
             return false;
         }

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6ed3a8a2404674f9a38f2a818aa0e0, type: 3}
+  m_Name: Yeti
+  m_EditorClassIdentifier: 
+  name: Yeti
+  description: 
+  leftSprite: {fileID: -1909570351, guid: 6589a61d35c18084897a7456e0e77ae3, type: 3}
+  rightSprite: {fileID: -1909570351, guid: 6589a61d35c18084897a7456e0e77ae3, type: 3}
+  type1: 0
+  type2: 0
+  creatureHabitates: 3
+  attack: 1
+  defense: 0
+  maxhp: 50
+  spAttack: 0
+  spDefense: 0
+  speed: 0
+  maxMp: 0
+  currentmp: 0
+  expGain: 400
+  growthRate: 0
+  catchRate: 255
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
+    level: 0
+  learnableByItems: []
+  evolutions: []

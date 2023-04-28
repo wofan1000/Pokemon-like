@@ -3,7 +3,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
+using Utils.StateMachine;
 
 public enum BattleState
 {
@@ -34,13 +36,16 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] PartyScreen partyScreen;
     [SerializeField] GameObject captureCapsuleSprite;
     [SerializeField] InventoryUI inventoryUI;
+    
     [Tooltip("defult attack")]
     [SerializeField] MoveBase genericMove;
 
-    [SerializeField] Creature creature;
+  
 
     [SerializeField] Image battleBackround;
     [SerializeField] Sprite grassBackround, waterBackround;
+
+    
 
     BattleState state;
     int currentAction;
@@ -58,7 +63,6 @@ public class BattleSystem : MonoBehaviour
     PlayerController player;
     TrainerController trainer;
 
-    [SerializeField] public MoveBase movebase;
 
     [SerializeField] DamageNumber theDamageNumber;
 
@@ -94,14 +98,17 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.ActionSelection)
         {
             HandleActionSelection();
-        } else if (state == BattleState.MoveSelection)
+
+        }
+        else if (state == BattleState.MoveSelection)
         {
             HandleMoveSelection();
-        } else if (state == BattleState.PartyScreen)
+        }
+        else if (state == BattleState.PartyScreen)
         {
             HandlePartyScreenSelection();
         }
-        else if ( state == BattleState.Inventory)
+        else if (state == BattleState.Inventory)
         {
             Action onBack = () =>
             {
@@ -130,6 +137,7 @@ public class BattleSystem : MonoBehaviour
             {
                 return;
             }
+
             partyScreen.gameObject.SetActive(false);
 
            // if (partyScreen.CalledFrom == BattleState.ActionSelection)
@@ -326,6 +334,8 @@ public class BattleSystem : MonoBehaviour
 
     public IEnumerator SetUpBattle()
     {
+       
+
         playerUnit.Clear();
         enemyUnit.Clear();
 
@@ -352,8 +362,9 @@ public class BattleSystem : MonoBehaviour
         dialogueBox.SetMoveNames(playerUnit.Creature.Moves);
         escapeAttempts = 0;
         partyScreen.Init();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         ActionSelection();
+        
     }
 
 
@@ -744,5 +755,6 @@ public class BattleSystem : MonoBehaviour
             }
         }
     }
+    public Battleunit PlayerUnit => playerUnit;
 }
 

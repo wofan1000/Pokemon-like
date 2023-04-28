@@ -16,8 +16,6 @@ public class BattleDialogueBox : MonoBehaviour
 
     [SerializeField] Text mpCostText;
 
-    [SerializeField] CreatureBase creaturebase;
-
 
 
     public void EnableActionSelector(bool enabled)

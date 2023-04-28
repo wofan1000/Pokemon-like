@@ -16,8 +16,8 @@ MonoBehaviour:
   description: 
   leftSprite: {fileID: 1234728806, guid: cf7ae0e6e6480eb4d9c83afcbef463da, type: 3}
   rightSprite: {fileID: 1234728806, guid: cf7ae0e6e6480eb4d9c83afcbef463da, type: 3}
-  type1: 4
-  type2: 6
+  type1: 0
+  type2: 0
   creatureHabitates: 4
   attack: 0
   defense: 0
@@ -27,10 +27,12 @@ MonoBehaviour:
   speed: 0
   maxMp: 0
   currentmp: 0
-  expGain: 0
+  expGain: 500
   growthRate: 0
   catchRate: 255
-  learnableMoves: []
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
+    level: 0
   learnableByItems: []
   evolutions:
   - evolveInto: {fileID: 11400000, guid: a57ab19ccfb3a6e49bb2432494410674, type: 2}

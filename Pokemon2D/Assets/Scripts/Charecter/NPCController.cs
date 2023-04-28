@@ -47,6 +47,8 @@ public class NPCController : MonoBehaviour, Interactable, ISavable
                 var quest = new Quest(questToComplete);
                 yield return quest.CompleteQuest(initer);
                 questToComplete = null;
+
+                Debug.Log($"{quest.Base.Name} complete");
             }
 
             if (itemGiver != null && itemGiver.CanBeGiven())
@@ -115,7 +117,7 @@ public class NPCController : MonoBehaviour, Interactable, ISavable
                 idleTimer = 0;
 
                 if (movePattern.Count > 0)
-                    StartCoroutine(charecter.Move(new Vector2(2, 0)));
+                    StartCoroutine(Walk());
             }
         }
         charecter.HandleUpdate();

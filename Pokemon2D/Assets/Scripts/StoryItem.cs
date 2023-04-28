@@ -11,6 +11,7 @@ public class StoryItem : MonoBehaviour, IPlayerTriggerable
 
     public void OnPlayerTriggered(PlayerController player)
     {
+        Debug.Log("Is showing");
         player.Charecter.Animator.IsMoving = false;
         DialogueManager.Instance.ShowDialogue(dialogue);
     }

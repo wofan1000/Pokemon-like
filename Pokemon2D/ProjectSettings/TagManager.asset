@@ -9,6 +9,7 @@ TagManager:
   - Block
   - Torch
   - Snowball
+  - Revivable
   layers:
   - Default
   - TransparentFX

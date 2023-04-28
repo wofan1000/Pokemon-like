@@ -14,6 +14,8 @@ public class BattleStates : State<GameController>
     public static BattleStates i { get; private set; }
 
     public BattleTrigger trigger { get; set; }
+
+
     
     void Awake()
     {
@@ -77,4 +79,6 @@ public class BattleStates : State<GameController>
 
         gc.StateMachine.Pop();
     }
+
+    public BattleSystem BattleSystem => battleSystem;
 }

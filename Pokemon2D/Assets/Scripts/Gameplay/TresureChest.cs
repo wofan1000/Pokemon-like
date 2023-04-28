@@ -16,7 +16,7 @@ public class TresureChest : MonoBehaviour, ISavable, Interactable
 
     PlayerController playerController;
 
-    
+   public Behaviour chestScript;
    
 
     public bool Used { get; set; } = false;
@@ -59,6 +59,9 @@ public class TresureChest : MonoBehaviour, ISavable, Interactable
         yield return DialogueManager.Instance.ShowDialogText($" {playerName} found {item.Name}");
 
         gameState = GameState.FreeRoam;
+
+        chestScript.enabled = false;
+       
     }
 
    

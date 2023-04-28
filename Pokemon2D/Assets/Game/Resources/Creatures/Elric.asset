@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f6ed3a8a2404674f9a38f2a818aa0e0, type: 3}
-  m_Name: Tim
+  m_Name: Elric
   m_EditorClassIdentifier: 
   name: Elric
   description: A Boi
@@ -25,23 +25,19 @@ MonoBehaviour:
   spAttack: 1
   spDefense: 1
   speed: 0
-  maxMp: 40
-  currentmp: 40
+  maxMp: 800
+  currentmp: 500
   expGain: 73
   growthRate: 1
   catchRate: 255
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
-    level: 1
-  - moveBase: {fileID: 11400000, guid: d12859cfac2b5e6499278e232dc8015b, type: 2}
-    level: 1
-  - moveBase: {fileID: 11400000, guid: 5cf1eadb25f8e674b87a84397502705b, type: 2}
-    level: 1
-  - moveBase: {fileID: 11400000, guid: be2d0f10dd4ee2648b625dc097df2853, type: 2}
-    level: 1
+    level: 0
+  - moveBase: {fileID: 11400000, guid: d81a38abcbef3a44cb60a7aee4df8b51, type: 2}
+    level: 0
   learnableByItems:
   - {fileID: 0}
   evolutions:
-  - evolveInto: {fileID: 11400000, guid: d1804e170e2a66b43abe38c282eab77d, type: 2}
-    requiredLevel: 18
+  - evolveInto: {fileID: 11400000}
+    requiredLevel: 0
     requiredItem: {fileID: 11400000, guid: 924becdb7c2e3554c981c91b75bf215e, type: 2}

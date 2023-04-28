@@ -9,16 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57634b27e32e67240b94a92dd473b0b3, type: 3}
-  m_Name: MeetProf
+  m_Script: {fileID: 11500000, guid: e6fad7397e3f62140a39cedb075df987, type: 3}
+  m_Name: IceDungeon3
   m_EditorClassIdentifier: 
-  name: Meet Frof
-  desctription: 
-  startDialogue:
-    lines: []
-  inProgressDialogue:
-    lines: []
-  completedDialogue:
-    lines: []
-  requiredItem: {fileID: 0}
-  rewardItem: {fileID: 0}
+  connectedScenes:
+  - {fileID: 11400000, guid: f7b4f21053f1f6d408bfe7831d614644, type: 2}
+  - {fileID: 11400000, guid: 828d6110f578b814386c9659642129f7, type: 2}
+  sceneName: 

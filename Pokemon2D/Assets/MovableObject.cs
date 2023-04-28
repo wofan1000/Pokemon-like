@@ -18,41 +18,48 @@ public class MovableObject : MonoBehaviour
 
     public IEnumerator Move(Vector2 moveVec)
     {
-
-        var targetPos = transform.position;
-        targetPos.x += moveVec.x;
-        targetPos.y += moveVec.y;
-
-
-    // while(canSlid)
-       // {
-          //  transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-          //  yield return null; 
-          //  continue;
-       // }
-
-        if (!IsPathClear(targetPos))
-            yield break;
-
-
-        IsMoving = true;
-
-        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+        if (canSlid)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-            yield return null;
-           
-        }
-        transform.position = targetPos;
-      
-        if(canSlid == true) 
-        {
-            Move(moveVec);
-            
-            
-        }
-        IsMoving = false;
+            var targetPos = CheckLocation(moveVec, transform.position);
+            IsMoving = true;
 
+            while ((targetPos).sqrMagnitude > Mathf.Epsilon)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                yield return null;
+
+            }
+            transform.position = targetPos;
+
+
+            IsMoving = false;
+        } else 
+            {
+                var targetPos = transform.position;
+                IsMoving = true;
+                while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                    yield return null;
+
+                }
+                transform.position = targetPos;
+
+            IsMoving = false;
+
+        }
+    }
+
+    public Vector2 CheckLocation(Vector2 moveVec, Vector2 currentPos)
+    {
+        //currentPos += moveVec;
+        var testPos = currentPos + moveVec;
+        if(IsPathClear(testPos))
+        {
+            testPos = CheckLocation(moveVec, testPos);
+            return testPos;
+        }
+        return currentPos;
     }
 
     private bool IsPathClear(Vector3 targetPos)

@@ -8,6 +8,7 @@ public class Cutscene : MonoBehaviour, IPlayerTriggerable
     [SerializeReference]
     [SerializeField] List<CutsceneAction> actions;
 
+    public bool isStoryscene;
     public bool triggerRepeatedly => false;
 
     public IEnumerator Play()
@@ -16,8 +17,13 @@ public class Cutscene : MonoBehaviour, IPlayerTriggerable
         foreach (var action in actions)
         {
             yield return action.Play();
+            if (isStoryscene)
+            {
+                Destroy(gameObject);
+            }
         }
         GameController.Instance.StartFreeRoamState();
+        
     }
     public void AddAction(CutsceneAction action)
     {
@@ -29,6 +35,7 @@ public class Cutscene : MonoBehaviour, IPlayerTriggerable
     {
         player.Charecter.Animator.IsMoving= false;
         StartCoroutine(Play());
+        
     }
 
     public void OnCompanionTriggered(CompanionController companion)

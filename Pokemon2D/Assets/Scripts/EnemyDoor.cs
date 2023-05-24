@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDoor : MonoBehaviour
 {
-    public GameObject[] Enemies;
+    public List<GameObject> Enemies;
 
     [SerializeField] private GameObject doorGameObject;
 
@@ -12,7 +12,7 @@ public class EnemyDoor : MonoBehaviour
 
   
 
-    public int enemycount = 0;
+    
 
     private void Awake()
     {
@@ -22,22 +22,14 @@ public class EnemyDoor : MonoBehaviour
 
     private void Update()
     {
-        enemycount--;
+       if(Enemies.Count <= 0) 
+        { 
+            Destroy(doorGameObject);
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
 
 
-        if (other.GetComponent<PlayerController>() != null)
-        {
-            
-            enemycount--;
-            if (enemycount <= Enemies.Length)
-            {
-                Destroy(doorGameObject);
-            }
-
-
-        }
     }
 }

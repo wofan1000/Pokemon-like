@@ -23,12 +23,12 @@ public class SceneDetails : ScriptableObject
     {
         levelManager = levelMan; 
     }
-    static string GetAssetPath(SceneDetails sceneDetails)
-    {
-        string currentPath = UnityEditor.AssetDatabase.GetAssetPath(sceneDetails);
-        currentPath = currentPath.Replace("Assets/Resources/SceneDetails/", "Assets/Scenes/");
-        currentPath = currentPath.Split(delimiterChars)[0];
-        return currentPath;
-    }
+  //  static string GetAssetPath(SceneDetails sceneDetails)
+   // {
+    //    string currentPath = UnityEditor.AssetDatabase.GetAssetPath(sceneDetails);
+    //    currentPath = currentPath.Replace("Assets/Resources/SceneDetails/", "Assets/Scenes/");
+    //    currentPath = currentPath.Split(delimiterChars)[0];
+    //    return currentPath;
+   // }
    
 }

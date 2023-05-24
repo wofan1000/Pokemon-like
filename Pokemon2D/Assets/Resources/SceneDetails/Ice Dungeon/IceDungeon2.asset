@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fad7397e3f62140a39cedb075df987, type: 3}
   m_Name: IceDungeon2
   m_EditorClassIdentifier: 
-  connectedScenes:
-  - {fileID: 11400000, guid: 99086c4849ecfc84d8efba9b2b5458a1, type: 2}
-  - {fileID: 11400000, guid: 542d06863da013e45a738b849999c7e0, type: 2}
+  connectedScenes: []
   sceneName: IceDungeon2

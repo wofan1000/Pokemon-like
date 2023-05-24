@@ -110,16 +110,16 @@ public class BattleSystem : MonoBehaviour
         }
         else if (state == BattleState.Inventory)
         {
-            Action onBack = () =>
-            {
-                inventoryUI.gameObject.SetActive(false);
-                state = BattleState.ActionSelection;
-            };
+          //  Action onBack = () =>
+           // {
+           //     inventoryUI.gameObject.SetActive(false);
+           //     state = BattleState.ActionSelection;
+           // };
 
-            Action<ItemBase> onItemUsed = (ItemBase useditem) =>
-            {
-                StartCoroutine(OnItemUsed(useditem));
-            };
+          //  Action<ItemBase> onItemUsed = (ItemBase useditem) =>
+           // {
+           //     StartCoroutine(OnItemUsed(useditem));
+           // };
 
             //inventoryUI.HandleUpdate(onBack);
         }
@@ -308,10 +308,10 @@ public class BattleSystem : MonoBehaviour
             {
                 MoveSelection();
             }
-            else if (currentAction == 2)
-            {
-                OpenInventory();
-            }
+           // else if (currentAction == 2)
+          //  {
+          //      OpenInventory();
+          //  }
             else if (currentAction == 3)
             {
                 StartCoroutine(RunTurns(BattleAction.Flee));

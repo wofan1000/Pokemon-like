@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
 
     public Text swapText;
 
+ 
+
     private void Awake()
     {
         i = this;
@@ -39,7 +41,8 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
 
     private void Start()
     {
-            
+     
+       // controllerScript.enabled = true;
     }
 
     public void HandleUpdate()
@@ -147,8 +150,10 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
     public void OnSwitch(bool isSwitched)
     {
         playerActive = isSwitched;
-     
 
+       // controllerScript.enabled = false;
+       // inventoryScript.enabled = false;
+       // buddyScript.enabled= true;
     }
 
     public void IsSeperated()

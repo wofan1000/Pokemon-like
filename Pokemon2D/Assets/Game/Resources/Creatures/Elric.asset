@@ -21,17 +21,19 @@ MonoBehaviour:
   creatureHabitates: 0
   attack: 5
   defense: 6
-  maxhp: 100
+  maxhp: 999
   spAttack: 1
   spDefense: 1
   speed: 0
-  maxMp: 800
-  currentmp: 500
+  maxMp: 999
+  currentmp: 0
   expGain: 73
   growthRate: 1
   catchRate: 255
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: d81a38abcbef3a44cb60a7aee4df8b51, type: 2}
     level: 0
   - moveBase: {fileID: 11400000, guid: d81a38abcbef3a44cb60a7aee4df8b51, type: 2}
     level: 0

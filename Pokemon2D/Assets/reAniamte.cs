@@ -23,11 +23,11 @@ public class reAniamte : TrainerController, Interactable
     [SerializeField]
    public int timesreanimated;
 
-
+    public int counttime;
 
     private void Update()
     {
-        if(timesreanimated >= 3)
+        if(timesreanimated >= counttime)
         {
             Destroy(gameObject);
         }

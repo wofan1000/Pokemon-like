@@ -17,7 +17,8 @@ GameObject:
   - component: {fileID: 7863876336547595854}
   - component: {fileID: 2149785149864060984}
   - component: {fileID: 7863876336547595843}
-  - component: {fileID: 402408456}
+  - component: {fileID: 354692576}
+  - component: {fileID: 354692586}
   m_Layer: 10
   m_Name: Snowball Enemy
   m_TagString: Untagged
@@ -211,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueId: e4596683-eebd-4bbe-a520-699e8fa64869
+  uniqueId: ddc1f098-8086-4296-8121-8733ac12557a
 --- !u!114 &7863876336547595843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +232,7 @@ MonoBehaviour:
   dialogueAfterBattle:
     lines: []
   waitTime: 0.2
---- !u!114 &402408456
+--- !u!114 &354692576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,9 +249,22 @@ MonoBehaviour:
   questToStart: {fileID: 0}
   questToComplete: {fileID: 0}
   movePattern:
-  - {x: 4, y: 0}
-  - {x: -4, y: 0}
-  timeBetweenPattern: 2
+  - {x: 0, y: 2}
+  - {x: 0, y: -2}
+  timeBetweenPattern: 1
+--- !u!114 &354692586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863876336547595862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f3f17816a855d4f9da5cf1cfaff408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: {fileID: 0}
 --- !u!1001 &5405271678602702564
 PrefabInstance:
   m_ObjectHideFlags: 0

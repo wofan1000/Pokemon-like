@@ -11,7 +11,10 @@ public class Torch : MonoBehaviour
 
     public bool isLit = false;
 
-   
+    bool canPickup = false;
+
+    [SerializeField, HideInInspector]
+    PlayerController player;
     private void Update()
     {
         TRiggerFlame();
@@ -37,5 +40,16 @@ public class Torch : MonoBehaviour
             isLit = false;
         }
     }
+
+    void Pickup()
+    {
+        if(canPickup== true)
+        {
+            gameObject.SetActive(false);
+            //gameObject = player.transform.position;
+        }
+    }
+
+   
 
 }

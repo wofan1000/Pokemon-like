@@ -128,39 +128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7863876336547595862, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
   m_PrefabInstance: {fileID: 2051653670}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &354692576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354692575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64218ae3a9f8a244994d4d70cb698bf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    lines: []
-  questToStart: {fileID: 0}
-  questToComplete: {fileID: 0}
-  movePattern:
-  - {x: 0, y: 2}
-  - {x: 0, y: -2}
-  timeBetweenPattern: 1
---- !u!114 &354692586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354692575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f3f17816a855d4f9da5cf1cfaff408, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies: {fileID: 0}
 --- !u!1 &367142536
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,50 +619,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 402408456, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: timeBetweenPattern
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 402408456, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: movePattern.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 402408456, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: movePattern.Array.data[0].x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 402408456, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: movePattern.Array.data[0].y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 402408456, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: movePattern.Array.data[1].x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 402408456, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: movePattern.Array.data[1].y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 402408456, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: movePattern.Array.data[2].x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 402408456, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: movePattern.Array.data[2].y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 402408456, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: movePattern.Array.data[3].x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2149785149864060984, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: uniqueId
-      value: ddc1f098-8086-4296-8121-8733ac12557a
-      objectReference: {fileID: 0}
-    - target: {fileID: 7863876336547595843, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
-      propertyPath: waitTime
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -744,8 +667,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snowball Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 402408456, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
 --- !u!1839735485 &1834922716824307572
 Tilemap:

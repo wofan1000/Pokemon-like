@@ -28,7 +28,9 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
 
     public Text swapText;
 
- 
+    public GameObject torch;
+
+    public CharecterAnimator theanim;
 
     private void Awake()
     {
@@ -76,20 +78,31 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
         var facingDir = new Vector3(charecter.Animator.MoveX, charecter.Animator.MoveY);
         var interactPos = transform.position + facingDir;
 
-        Debug.Log($"{charecter.Animator.MoveX} {charecter.Animator.MoveY}");
+        //Debug.Log($"{charecter.Animator.MoveX} {charecter.Animator.MoveY}");
 
         var collider = Physics2D.OverlapCircle(interactPos, 0.3f, GameLayers.I.InteractableLayer | GameLayers.I.WaterLayer);
         Debug.DrawLine(transform.position, interactPos, Color.green, 0.5f);
         if (collider != null)
         {
-           yield return collider.GetComponent<Interactable>()?.Interact(transform);
+             if(collider.gameObject.GetComponent<Torch>() != null)
+             {
+                collider.gameObject.SetActive(false);
+                torch = collider.gameObject;
+                torch.transform.parent = this.transform;
+                theanim.IsSHoldingTorch= true;
+             }
+
+            yield return collider.GetComponent<Interactable>()?.Interact(transform);
         }
+
+      
         
          collider = Physics2D.OverlapCircle(interactPos, 0.3f, GameLayers.I.MoveableObjects);
         if(collider != null)
         {
             yield return collider.GetComponent<MovableObject>().Move(facingDir);
         }
+
     }
 
     IPlayerTriggerable currentlyInTrigger;

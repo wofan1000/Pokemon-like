@@ -76,14 +76,18 @@ public class reAniamte : TrainerController, Interactable
     {
         if (!isBoss)
         {
-            if (other.gameObject.tag == "Torch" && isreanimating == true)
+            if (other.GetComponent<CharecterAnimator>().IsSHoldingTorch == true && isreanimating == true)
             {
                 Destroy(gameObject);
+                other.GetComponent<CharecterAnimator>().IsSHoldingTorch = false;
+                Destroy(other.GetComponent<PlayerController>().torch);
             }
         }
     }
 
-    
+ 
+
+
 }
     
 

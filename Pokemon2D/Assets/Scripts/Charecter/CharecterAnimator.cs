@@ -8,6 +8,13 @@ public class CharecterAnimator : MonoBehaviour
     [SerializeField] List<Sprite> walkUpSprites;
     [SerializeField] List<Sprite> walkRightSprites;
     [SerializeField] List<Sprite> walkLeftSprites;
+
+
+    [SerializeField] List<Sprite> torchDownSprites;
+    [SerializeField] List<Sprite> torchUpSprites;
+    [SerializeField] List<Sprite> torchRightSprites;
+    [SerializeField] List<Sprite> torchLeftSprites;
+
     [SerializeField] List<Sprite> surfSprites;
     [SerializeField] FacingDirection defaultDir = FacingDirection.Down;
 
@@ -19,11 +26,21 @@ public class CharecterAnimator : MonoBehaviour
 
     public bool IsSurfing { get; set; }
 
+    public bool IsSHoldingTorch{ get; set; }
+
+
+
+
     // States
     SpriteAnimator walkDownAnim;
     SpriteAnimator walkUpAnim;
     SpriteAnimator walkRightAnim;
     SpriteAnimator walkLeftAnim;
+
+    SpriteAnimator torchDownAnim;
+    SpriteAnimator torchUpAnim;
+    SpriteAnimator torchRightAnim;
+    SpriteAnimator torchLeftAnim;
 
     SpriteAnimator currentAnim;
     bool wasPreviouslyMoving;
@@ -33,11 +50,19 @@ public class CharecterAnimator : MonoBehaviour
 
     private void Start()
     {
+  
         spriteRenderer = GetComponent<SpriteRenderer>();
         walkDownAnim = new SpriteAnimator(walkDownSprites, spriteRenderer);
         walkUpAnim = new SpriteAnimator(walkUpSprites, spriteRenderer);
         walkRightAnim = new SpriteAnimator(walkRightSprites, spriteRenderer);
         walkLeftAnim = new SpriteAnimator(walkLeftSprites, spriteRenderer);
+
+        torchDownAnim = new SpriteAnimator(torchDownSprites, spriteRenderer);
+        torchUpAnim = new SpriteAnimator(torchUpSprites, spriteRenderer);
+        torchRightAnim = new SpriteAnimator(torchRightSprites, spriteRenderer);
+        torchLeftAnim = new SpriteAnimator(torchLeftSprites, spriteRenderer);
+
+
         SetFacingDir(defaultDir);
 
         currentAnim = walkDownAnim;
@@ -45,6 +70,7 @@ public class CharecterAnimator : MonoBehaviour
 
     private void Update()
     {
+        
         var prevAnim = currentAnim;
 
         if(!IsSurfing)
@@ -77,7 +103,18 @@ public class CharecterAnimator : MonoBehaviour
                 spriteRenderer.sprite = surfSprites[0];
         }
 
-     
+        if(IsSHoldingTorch)
+        if (MoveX == 1)
+            currentAnim = torchRightAnim;
+        else if (MoveX == -1)
+            currentAnim = torchLeftAnim;
+        else if (MoveY == 1)
+            currentAnim = torchUpAnim;
+        else if (MoveY == -1)
+            currentAnim = torchDownAnim;
+
+
+
 
         wasPreviouslyMoving = IsMoving;
     }

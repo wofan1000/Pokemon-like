@@ -10740,6 +10740,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9123381927748408806, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: theanim
+      value: 
+      objectReference: {fileID: 4786600222716570604}
+    - target: {fileID: 9123381927748408806, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: swapText
       value: 
       objectReference: {fileID: 4852157798874995209}
@@ -10756,7 +10760,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a6b42291ba144ec4a8f3ac6e13283268, type: 2}
     - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchUpSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: walkLeftSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchDownSprites.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
@@ -10775,6 +10787,26 @@ PrefabInstance:
       propertyPath: walkUpSprites.Array.data[3]
       value: 
       objectReference: {fileID: -1907830282, guid: e614bad97d6aaf240a63224e91079e14, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchRightSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchUpSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -861728090, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchUpSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 499132319, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchUpSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -1874011065, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchUpSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 37254576, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
     - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: walkDownSprites.Array.data[0]
       value: 
@@ -10808,6 +10840,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 453575627, guid: e614bad97d6aaf240a63224e91079e14, type: 3}
     - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchDownSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -712159002, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchDownSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 499132319, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchDownSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -1874011065, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchDownSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 37254576, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: walkRightSprites.Array.data[0]
       value: 
       objectReference: {fileID: -324207865, guid: e614bad97d6aaf240a63224e91079e14, type: 3}
@@ -10823,6 +10871,22 @@ PrefabInstance:
       propertyPath: walkRightSprites.Array.data[3]
       value: 
       objectReference: {fileID: -1139598320, guid: e614bad97d6aaf240a63224e91079e14, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchRightSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1001889006, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchRightSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -1495199897, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchRightSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -1495199897, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
+    - target: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: torchRightSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 2077955088, guid: ea8e2a54897ff63469c0e011de2712aa, type: 3}
     - target: {fileID: 9123381927748408810, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.8125
@@ -10883,6 +10947,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fader: {fileID: 0}
+--- !u!114 &4786600222716570604 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+  m_PrefabInstance: {fileID: 4391475882455875076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4786600222716570596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d089d8b913a6fa4f966cb968d482ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4760651860170482356
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class RemoveFromList : MonoBehaviour
 {
-    public EnemyDoor enemies;
+    public EnemyDoor objToRemove;
 
+  
     private void OnDestroy()
     {
-        if (enemies != null)
+        if (objToRemove != null)
         {
-            enemies.Enemies.Remove(gameObject);
+            objToRemove.Enemies.Remove(gameObject);
         }
     }
 }

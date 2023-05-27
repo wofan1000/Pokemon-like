@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Torch : MonoBehaviour
@@ -9,21 +10,33 @@ public class Torch : MonoBehaviour
     [SerializeField]
     GameObject Unlit;
 
+    [SerializeField, HideInInspector]
+
+    CharecterAnimator playerAnim;
+
     public bool isLit = false;
 
-    bool canPickup = false;
 
     [SerializeField, HideInInspector]
     PlayerController player;
     private void Update()
     {
         TRiggerFlame();
+     
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if ((other.gameObject.tag == "Torch" && isLit == false))
         {
             isLit = true;
+        }
+
+        if (other.gameObject.tag == "Player") 
+        {
+            if(other.gameObject.GetComponent<CharecterAnimator>().IsSHoldingTorch == true)
+            {
+                        isLit= true;
+            }
         }
 
     }
@@ -40,16 +53,5 @@ public class Torch : MonoBehaviour
             isLit = false;
         }
     }
-
-    void Pickup()
-    {
-        if(canPickup== true)
-        {
-            gameObject.SetActive(false);
-            //gameObject = player.transform.position;
-        }
-    }
-
-   
 
 }

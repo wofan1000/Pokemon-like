@@ -8,6 +8,10 @@ public class Pickup : MonoBehaviour, Interactable, ISavable
 
     public bool Used { get;  set; } = false;
 
+    public bool isPhysicalPickup = false;
+
+    [SerializeField] PlayerController player;
+
     public object CaptureState()
     {
         return Used;
@@ -26,6 +30,12 @@ public class Pickup : MonoBehaviour, Interactable, ISavable
 
     public IEnumerator Interact(Transform initer)
     {
+        if(isPhysicalPickup)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.transform.parent = player.transform;
+        }
         if (!Used)
         {
             initer.GetComponent<Inventory>().AddItem(item);

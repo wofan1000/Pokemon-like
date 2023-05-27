@@ -14,6 +14,7 @@ public class TourchPuzzleDoor : MonoBehaviour
     private void Update()
     {
         TorchesLit();
+        GetTorchDoor();
     }
 
     public bool TorchesLit()

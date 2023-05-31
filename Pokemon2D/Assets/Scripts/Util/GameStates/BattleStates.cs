@@ -14,7 +14,7 @@ public class BattleStates : State<GameController>
 
     public BattleTrigger trigger { get; set; }
 
-
+   
     
     void Awake()
     {

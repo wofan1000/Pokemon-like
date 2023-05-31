@@ -46,7 +46,7 @@ public class Torch : MonoBehaviour
         if (isLit == true)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = Lit.GetComponent<SpriteRenderer>().sprite;
-           // anim.Play();
+            //anim.Play();
         } else
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = Unlit.GetComponent<SpriteRenderer>().sprite;

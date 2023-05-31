@@ -610,8 +610,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects: {fileID: 799702786}
   spawnpoint: {fileID: 1580896554}
-  switchUp: {fileID: 4278717928226453771, guid: 6343c73cce31f7f4a8d127b5f77c006b, type: 3}
-  switchDown: {fileID: 1973018883895226460, guid: d18463426b8436348815bb7d35e63fa6, type: 3}
+  switchUp: {fileID: 4327781241688320685, guid: 90a2ccc78363c1c4bbe93763a8001f4c, type: 3}
+  switchDown: {fileID: 1973018883895226460, guid: 041f035bd378f144ea64f02a38e0e553, type: 3}
   ispresuresensative: 1
 --- !u!61 &650211688
 BoxCollider2D:
@@ -680,7 +680,7 @@ SpriteRenderer:
   m_SortingLayerID: 508338283
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300362, guid: 88ae461370fb3334d8f7009dad27cd8f, type: 3}
+  m_Sprite: {fileID: 1730695177, guid: 0b110c856e005be47a0cdada8695e6a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

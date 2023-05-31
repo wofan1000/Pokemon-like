@@ -81,6 +81,7 @@ public class GameController : MonoBehaviour
         {
             prevState = state;
             state = GameState.Dialog;
+           
         };
 
         DialogueManager.Instance.OnCloseDialogue += () =>
@@ -160,15 +161,6 @@ public class GameController : MonoBehaviour
        
     }
 
-    public void StartCutsceneState()
-    {
-        state = GameState.Cutscene;
-    }
-
-    public void StartFreeRoamState()
-    {
-        state = GameState.FreeRoam;
-    }
 
     private void Update()
     {
@@ -229,12 +221,12 @@ public class GameController : MonoBehaviour
         var style = new GUIStyle();
        style.fontSize = 24;
 
-      //  GUILayout.Label("State Stack", style);
+        GUILayout.Label("State Stack", style);
 
-      //  foreach(var state in StateMachine.StateStack)
-      //  {
-       //     GUILayout.Label(state.GetType().ToString(), style);
-       // }
+        foreach(var state in StateMachine.StateStack)
+        {
+            GUILayout.Label(state.GetType().ToString(), style);
+        }
     }
 
     public IEnumerator MoveCamera(Vector2 moveOffset, bool waitForFadeOut = false)

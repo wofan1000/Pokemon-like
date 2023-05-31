@@ -55,7 +55,7 @@ public class GamePartyStates : State<GameController>
         {
             var battleStates = prevstate as BattleStates;
 
-           
+
             if (SelectedCreature.HP <= 0)
             {
                 return;

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: scene2
   m_EditorClassIdentifier: 
   connectedScenes:
-  - {fileID: 11400000, guid: d2450197a9706244ca08aa47ea384c66, type: 2}
   - {fileID: 11400000, guid: 99086c4849ecfc84d8efba9b2b5458a1, type: 2}
   sceneName: 

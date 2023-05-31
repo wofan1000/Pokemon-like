@@ -99,6 +99,12 @@ public class SelectionUI<T> : MonoBehaviour where T : ISelectableItem
 
         }   
 
+        public void ClearItems()
+        {
+            items.ForEach(i => i.Clear());
+
+            this.items = null;
+        }
         public virtual void UpdateSelectionUI()
         {
             for (int i = 0; i < items.Count; i++)

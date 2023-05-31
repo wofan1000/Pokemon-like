@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,19 +8,38 @@ using Utils.GenericSelection;
 
 public class MoveSelectionUI : SelectionUI<TextSlot>
 {
-    [SerializeField] List<TextSlot> moveSlots;
+    [SerializeField] List<TextSlot> moveTextSlots;
 
     [SerializeField] Text mpText;
-   public void SetMoves(List<Move> moves)
-    {
-        SetItems(moveSlots.Take(moves.Count).ToList());
 
-        for (int i = 0; i < moveSlots.Count; ++i)
+    Creature _moves;
+
+    private void Start()
+    {
+        SetSelectionSettings(SelectionType.Grid, 3);
+    }
+
+    private void Update()
+    {
+        
+    }
+
+  
+
+    public void SetMoves(List<Move> moves)
+    {
+       
+
+        SetItems(moveTextSlots.Take(moves.Count).ToList());
+
+        selectedItem = 0;
+
+        for (int i = 0; i < moveTextSlots.Count; ++i)
         {
             if (i < moves.Count)
-                moveSlots[i].SetText(moves[i].Base.name);
+                moveTextSlots[i].SetText(moves[i].Base.name);
             else
-                moveSlots[i].SetText("");
+                moveTextSlots[i].SetText("");
         }
     }
 
@@ -27,10 +47,13 @@ public class MoveSelectionUI : SelectionUI<TextSlot>
     {
         base.UpdateSelectionUI();
 
-       
+        var move = _moves;
+
+       // UpdateMP(move);
+
     }
 
-    public void UpdateMP(Creature creatureMp)
+    void UpdateMP(Creature creatureMp)
     {
         mpText.text = $"MP: {creatureMp.MP}/{creatureMp.MaxMP}";
     }

@@ -15,6 +15,11 @@ public class TextSlot : MonoBehaviour, ISelectableItem
     {
         originalColor = text.color;
     }
+
+    public void Clear()
+    {
+        text.color = originalColor;
+    }
     public void OnSelectionChanged(bool isSelected)
     {
         text.color = (isSelected) ? GlobalSettings.i.HighlighedColor : originalColor;

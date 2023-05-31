@@ -20,12 +20,12 @@ MonoBehaviour:
   type2: 0
   creatureHabitates: 0
   attack: 5
-  defense: 6
-  maxhp: 999
+  defense: 0
+  maxhp: 100
   spAttack: 1
-  spDefense: 1
+  spDefense: 0
   speed: 0
-  maxMp: 999
+  maxMp: 100
   currentmp: 0
   expGain: 73
   growthRate: 1

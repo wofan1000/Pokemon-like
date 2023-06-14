@@ -80,8 +80,12 @@ public class RunTurnState : State<BattleSystem>
             }
             else if (playerAction == BattleAction.UseItem)
             {
-                bs.battleDialogueBox.EnableActionSelector(false);
-                //ThrowCapsule();
+               if(bs.SelectedItem is CapsuleItem)
+                {
+                   yield return bs.ThrowCapsule(bs.SelectedItem as CapsuleItem);
+                    if (bs.isBattleOver) yield break;
+                }
+                
             }
             else if (playerAction == BattleAction.Flee)
             {

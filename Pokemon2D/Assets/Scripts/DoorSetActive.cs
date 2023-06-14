@@ -12,12 +12,12 @@ public class DoorSetActive : MonoBehaviour
     int switchpressed = 0;
 
     private void Update()
-    {  
+    {
         GetSwitchDoor();
-      
+
     }
     public bool SwitchPress()
-    {   
+    {
         {
             switchpressed = 0;
 
@@ -28,14 +28,19 @@ public class DoorSetActive : MonoBehaviour
                     switchpressed++;
             }
         }
-            return switches.Length == switchpressed;
-        
+        return switches.Length == switchpressed;
+
     }
 
     public void GetSwitchDoor()
     {
-      door.SetActive(!SwitchPress());
-     
+        door.SetActive(!SwitchPress());
+
     }
-   
+
+    public void HasKey()
+    {
+
+    }
 }
+

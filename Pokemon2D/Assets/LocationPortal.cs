@@ -9,14 +9,21 @@ public class LocationPortal : MonoBehaviour, IPlayerTriggerable
     [SerializeField] DesID destinationPortal;
     [SerializeField] Transform spawnPoint;
 
+   
+
     PlayerController player;
 
     Fader fader;
     public void OnPlayerTriggered(PlayerController player)
     {
-        player.Charecter.Animator.IsMoving = false;
-        this.player = player;
-        StartCoroutine(Teleport());
+       
+        
+            player.Charecter.Animator.IsMoving = false;
+            this.player = player;
+            StartCoroutine(Teleport());
+        
+
+           
     }
 
     private void Start()

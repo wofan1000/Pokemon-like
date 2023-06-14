@@ -9,19 +9,37 @@ EditorBuildSettings:
     path: Assets/Scenes/Snow Overworld/HomeTown.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Snow Overworld/scene2.unity
+    path: Assets/Scenes/Snow Overworld/Snow2.unity
     guid: 69913336f9a655a43a3cb58b97775976
   - enabled: 1
     path: Assets/Scenes/Snow Overworld/House.unity
     guid: 76922441cdc222c4b8e58108ce17b481
   - enabled: 1
-    path: Assets/Scenes/Snow Overworld/Town.unity
+    path: Assets/Scenes/Snow Overworld/Snow3.unity
     guid: 2c309aadc2d50274fb146a25b1e5a002
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow4.unity
+    guid: c262bda6e22f9a945a649e2c4ca1c52f
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow5.unity
+    guid: 22100f8fb253f164088eac66d20c7713
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow6.unity
+    guid: 622b4c9f75242ba41a34338530557932
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow7.unity
+    guid: a39d76a0642660045834d850874148e2
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow8.unity
+    guid: 6c012aea3bb0f2447bcef833e0337fc6
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow9.unity
+    guid: ec95e136b8453ec4e8667a46caa7c117
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: 7550041f88a175b48bfb59f49391bd33
   - enabled: 1
-    path: Assets/Scenes/Cave.unity
+    path: Assets/Scenes/Snow Overworld/Cave.unity
     guid: 140c973ae2694024b9917f026254489a
   - enabled: 1
     path: Assets/Scenes/Ice Dungeon/IceDungeon1.unity

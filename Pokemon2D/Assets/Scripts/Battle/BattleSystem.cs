@@ -68,6 +68,9 @@ public class BattleSystem : MonoBehaviour
 
     public Creature SelectedCreature { get;  set; }
 
+    public ItemBase SelectedItem { get; set; }
+
+
     public bool IsTrainerBattle { get; private set;} = false;
 
     PlayerController player;
@@ -409,14 +412,14 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
         state = BattleState.RunningTurn;
     }
-    IEnumerator ThrowCapsule(CapsuleItem capsuleItem)
+    public IEnumerator ThrowCapsule(CapsuleItem capsuleItem)
     {
-        state = BattleState.Busy;
 
         if(IsTrainerBattle)
         {
            
             state = BattleState.RunningTurn;
+            yield return DialogueManager.Instance.ShowDialogText("cant capture.");
             yield break;
         }
         yield return new WaitForSeconds(1f);
@@ -440,7 +443,7 @@ public class BattleSystem : MonoBehaviour
         if(shakeCount == 4)
         {
             yield return capsule.DOFade(0, 1.5f).WaitForCompletion();
-
+            yield return DialogueManager.Instance.ShowDialogText("creature has been added to ypur party");
             playerParty.AddCreature(enemyUnit.Creature);
 
             Destroy(capsule);
@@ -452,7 +455,6 @@ public class BattleSystem : MonoBehaviour
             yield return enemyUnit.PlayBreakOutAnimation();
 
             Destroy(capsule);
-            state = BattleState.RunningTurn;
         }
     }
 

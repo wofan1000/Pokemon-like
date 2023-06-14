@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 using static Creature;
 
@@ -55,6 +56,14 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
+            // remove diagonal movement
+           // if (input.x != 0) input.y = 0;
+
+          //  if (input != Vector2.zero)
+           // {
+           //     StartCoroutine(charecter.Move(input, OnMoveOver));
+           // }
+
             if (buddyController != null )
             {
                 if (CharecterSwap.istogether == true) {buddyController.Follow(transform.position);}
@@ -62,8 +71,8 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
                
             }
 
-            if(Math.Abs(input.x) == 1 || Math.Abs(input.y) == 1) 
-            StartCoroutine(charecter.Move(input, OnMoveOver));
+           if(Math.Abs(input.x) == 1 || Math.Abs(input.y) == 1) 
+           StartCoroutine(charecter.Move(input, OnMoveOver));
             
         }
 

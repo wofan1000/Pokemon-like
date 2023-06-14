@@ -19,8 +19,14 @@ public class ResetSwitch : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+         
             objects.position = spawnpoint.position;
             gameObject.GetComponent<SpriteRenderer>().sprite = switchDown.GetComponent<SpriteRenderer>().sprite;
+          
+            objects.GetComponent<MovableObject>().canSlid = false;
+
+            
+
             
         }
 
@@ -29,6 +35,8 @@ public class ResetSwitch : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+           
+
             if (ispresuresensative)
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = switchUp.GetComponent<SpriteRenderer>().sprite;

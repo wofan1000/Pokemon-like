@@ -8,7 +8,7 @@ public class MovableObject : MonoBehaviour
 {
     public float speed;
 
- 
+    
 
     public bool IsMoving;
 
@@ -31,23 +31,11 @@ public class MovableObject : MonoBehaviour
             }
             transform.position = targetPos;
 
-
+           
             IsMoving = false;
-        } else 
-            {
-                var targetPos = transform.position;
-                IsMoving = true;
-                while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-                    yield return null;
-
-                }
-                transform.position = targetPos;
-
-            IsMoving = false;
-
-        }
+           
+            
+        } 
     }
 
     public Vector2 CheckLocation(Vector2 moveVec, Vector2 currentPos)

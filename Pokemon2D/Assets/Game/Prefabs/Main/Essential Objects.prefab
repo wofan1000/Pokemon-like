@@ -7751,6 +7751,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -425
       objectReference: {fileID: 0}
+    - target: {fileID: 3689793484531299776, guid: 2681e06dcd6ea4c4897e6463eee5ef1b, type: 3}
+      propertyPath: m_Text
+      value: Beasteary
+      objectReference: {fileID: 0}
     - target: {fileID: 3709888664559826566, guid: 2681e06dcd6ea4c4897e6463eee5ef1b, type: 3}
       propertyPath: m_Name
       value: INventory Button
@@ -8642,6 +8646,12 @@ PrefabInstance:
     - target: {fileID: 6931267355285256021, guid: 2681e06dcd6ea4c4897e6463eee5ef1b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952544464272343769, guid: 2681e06dcd6ea4c4897e6463eee5ef1b, type: 3}
+      propertyPath: m_Text
+      value: 'Inventory
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 7020672609121831202, guid: 2681e06dcd6ea4c4897e6463eee5ef1b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -10033,6 +10043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fader: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &4959258633046038375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10698,7 +10709,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5531203311599383972, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: slots.Array.size
-      value: 7
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5531203311599383972, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: capsuleSlots.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5531203311599383972, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: slots.Array.data[2].item
@@ -10717,6 +10732,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 40379601959249e4f9d4fdd561d7312b, type: 2}
     - target: {fileID: -5531203311599383972, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: slots.Array.data[7].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d4a6c483ed4c8d4387866a09dedfb2e, type: 2}
+    - target: {fileID: -5531203311599383972, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: slots.Array.data[4].count
       value: 3
       objectReference: {fileID: 0}
@@ -10726,6 +10745,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5531203311599383972, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: slots.Array.data[6].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5531203311599383972, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
+      propertyPath: slots.Array.data[7].count
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9123381927748408800, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
@@ -10814,7 +10837,7 @@ PrefabInstance:
       objectReference: {fileID: 4852157798874995209}
     - target: {fileID: 9123381927748408807, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: creatures.Array.size
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9123381927748408807, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}
       propertyPath: creatures.Array.data[0].level
@@ -11044,6 +11067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fader: {fileID: 0}
+  player: {fileID: 4786600222716570594}
 --- !u!114 &4786600222716570604 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9123381927748408808, guid: a2c62d4513385ea44a646812d6bea4b6, type: 3}

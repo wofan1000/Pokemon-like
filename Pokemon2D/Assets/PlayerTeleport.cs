@@ -9,6 +9,7 @@ public class PlayerTeleport : MonoBehaviour
     
     public  Fader fader;
 
+    public PlayerController player;
 
     private void Awake()
     {
@@ -17,7 +18,7 @@ public class PlayerTeleport : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && player.Charecter.Animator.IsMoving == false)
         {
           
             if (currentTeleporter != null)

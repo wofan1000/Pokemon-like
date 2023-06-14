@@ -1347,11 +1347,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7892001835001705760, guid: da40b1a721dc1324e8e22dc265ba7075, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.95
+      value: -40.05
       objectReference: {fileID: 0}
     - target: {fileID: 7892001835001705760, guid: da40b1a721dc1324e8e22dc265ba7075, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.46
+      value: -4.08
       objectReference: {fileID: 0}
     - target: {fileID: 7892001835001705760, guid: da40b1a721dc1324e8e22dc265ba7075, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1384,6 +1384,14 @@ PrefabInstance:
     - target: {fileID: 7892001835001705760, guid: da40b1a721dc1324e8e22dc265ba7075, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892001835001705761, guid: da40b1a721dc1324e8e22dc265ba7075, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892001835001705761, guid: da40b1a721dc1324e8e22dc265ba7075, type: 3}
+      propertyPath: m_Size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7892001835001705762, guid: da40b1a721dc1324e8e22dc265ba7075, type: 3}
       propertyPath: m_Name
@@ -28243,6 +28251,10 @@ MonoBehaviour:
   - {fileID: 21300038, guid: e0ddba6d3fcf21f49949fcc95c849aac, type: 3}
   - {fileID: 21300040, guid: e0ddba6d3fcf21f49949fcc95c849aac, type: 3}
   - {fileID: 21300042, guid: e0ddba6d3fcf21f49949fcc95c849aac, type: 3}
+  torchDownSprites: []
+  torchUpSprites: []
+  torchRightSprites: []
+  torchLeftSprites: []
   surfSprites: []
   defaultDir: 1
 --- !u!114 &7130665037546173755

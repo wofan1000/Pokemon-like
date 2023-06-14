@@ -47,6 +47,8 @@ public class ActionSelectionState : State<BattleSystem>
         }
         else if (selection == 2)
         {
+            // items
+            StartCoroutine(GoToInventoryState());
 
         }
         else if (selection == 3)
@@ -58,6 +60,7 @@ public class ActionSelectionState : State<BattleSystem>
         {
             // party
             StartCoroutine(GoToPartyState());
+            bs.StateMachine.ChangeState(RunTurnState.i);
         }
     }
 
@@ -70,6 +73,18 @@ public class ActionSelectionState : State<BattleSystem>
         {
             bs.SelectedAction = BattleAction.SwitchCreature;
             bs.SelectedCreature = selectedCreature;
+            bs.StateMachine.ChangeState(RunTurnState.i);
+        }
+    }
+
+    IEnumerator GoToInventoryState()
+    {
+        yield return GameController.Instance.StateMachine.PushandWait(InventoryState.i);
+        var selectedItem = InventoryState.i.selectedItem;
+        if(selectedItem!= null)
+        {
+            bs.SelectedAction = BattleAction.UseItem;
+            bs.SelectedItem = selectedItem;
             bs.StateMachine.ChangeState(RunTurnState.i);
         }
     }

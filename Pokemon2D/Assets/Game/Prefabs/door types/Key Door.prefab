@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7550599319879424639}
   - component: {fileID: 7550599319879424632}
   - component: {fileID: 7550599319879424637}
-  - component: {fileID: 7550599319879424636}
   - component: {fileID: 7550599319879424611}
   m_Layer: 0
   m_Name: Key Door
@@ -126,20 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a6581b2f4f7424d87a3168c7a7380b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7550599319879424636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7550599319879424633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b82b09b7a7649f34289b05f23e3e14e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  door: {fileID: 7550599319879424637}
+  switches: []
+  door: {fileID: 0}
 --- !u!61 &7550599319879424611
 BoxCollider2D:
   m_ObjectHideFlags: 0

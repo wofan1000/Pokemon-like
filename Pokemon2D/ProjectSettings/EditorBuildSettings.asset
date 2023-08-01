@@ -6,21 +6,120 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/HomeTown.unity
+    path: Assets/Scenes/Snow Overworld/HomeTown.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/scene2.unity
+    path: Assets/Scenes/Snow Overworld/Snow2.unity
     guid: 69913336f9a655a43a3cb58b97775976
   - enabled: 1
-    path: Assets/Scenes/House.unity
+    path: Assets/Scenes/Snow Overworld/House.unity
     guid: 76922441cdc222c4b8e58108ce17b481
   - enabled: 1
-    path: Assets/Scenes/Town.unity
+    path: Assets/Scenes/Snow Overworld/Snow3.unity
     guid: 2c309aadc2d50274fb146a25b1e5a002
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow4.unity
+    guid: c262bda6e22f9a945a649e2c4ca1c52f
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow5.unity
+    guid: 22100f8fb253f164088eac66d20c7713
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow6.unity
+    guid: 622b4c9f75242ba41a34338530557932
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow7.unity
+    guid: a39d76a0642660045834d850874148e2
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea1.unity
+    guid: 6d050bb8cdc968e4281c4d12706ec8ee
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea2.unity
+    guid: 8205797cfd410a640b543706768b0b17
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea3.unity
+    guid: d282853e88b284444bcef6fba58a61e0
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea4.unity
+    guid: a819b433bc280394bb7906e7d508c48c
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea5.unity
+    guid: 69fcd7e58555f684dbc8022bd2a0ada7
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea6.unity
+    guid: c4147d3005ffcba4fa9aeddb537bb22c
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea7.unity
+    guid: b585b83b49243cb4086b2a16f0ada6e3
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea8.unity
+    guid: 2c0fe4ee4cd482e4a87f8f25b1da1f74
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea9.unity
+    guid: 7f45f96f9ecdafb42b546cbf2402b723
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea10.unity
+    guid: 0a6b788b8c5233c4bb5ed67ab3a36b0b
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea11.unity
+    guid: 215a4c7f36f873545823b93a3a996356
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea12.unity
+    guid: 445d9d7c6b2d0314ea6bca8f205baccf
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea13.unity
+    guid: 5aec487ef1e7309498e76c903d06496d
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea14.unity
+    guid: f18fc7901e8e0d948a661f703ee609e8
+  - enabled: 1
+    path: Assets/Scenes/Beach Area/BeachArea15.unity
+    guid: 43486d3a23364cf43bcb5ce4273d1cc6
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow8.unity
+    guid: 6c012aea3bb0f2447bcef833e0337fc6
+  - enabled: 1
+    path: Assets/Scenes/Snow Overworld/Snow9.unity
+    guid: ec95e136b8453ec4e8667a46caa7c117
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: 7550041f88a175b48bfb59f49391bd33
   - enabled: 1
-    path: Assets/Scenes/Cave.unity
+    path: Assets/Scenes/Snow Overworld/Cave.unity
     guid: 140c973ae2694024b9917f026254489a
+  - enabled: 1
+    path: Assets/Scenes/Ice Dungeon/IceDungeon1.unity
+    guid: 71a339b7060e61343a17740bdde41efc
+  - enabled: 1
+    path: Assets/Scenes/Ice Dungeon/IceDungeon2.unity
+    guid: 50f3cd01e9669924cb884cee363a932d
+  - enabled: 1
+    path: Assets/Scenes/Ice Dungeon/IceDungeon3.unity
+    guid: c8b32e9a9bb585649bc8448a0838f6b4
+  - enabled: 1
+    path: Assets/Scenes/Ice Dungeon/IceDungeon4.unity
+    guid: 5a37445474169b740a33ff7344d4a1a9
+  - enabled: 1
+    path: Assets/Scenes/Ice Dungeon/IceDungeon5.unity
+    guid: aface2a1da9dfcd439096031db86dab0
+  - enabled: 1
+    path: Assets/Scenes/Ice Dungeon/IceDungeon6.unity
+    guid: 0c68cd5d80203df43bcf3dbea549bccb
+  - enabled: 1
+    path: Assets/Scenes/Ice Dungeon/IceDungeon7.unity
+    guid: 3b260499635a96c42bad564839d2d1dc
+  - enabled: 1
+    path: Assets/Scenes/Ice Dungeon/IceDungeon8.unity
+    guid: 6b09eb26ef7f2bd42bbc8773e7384cda
+  - enabled: 1
+    path: Assets/Scenes/Ice Dungeon/IceDungeon9.unity
+    guid: 8fa52a13cce11a74390ae1e0139d6740
+  - enabled: 1
+    path: Assets/Scenes/Ice Dungeon/IceDungeon10.unity
+    guid: 9e4fe7b656fd2024dafd09f0e017464a
+  - enabled: 1
+    path: Assets/Scenes/Water Dungeon/WaterTemple1.unity
+    guid: 2e72869203a72d2409f94d4e60b885ec
+  - enabled: 1
+    path: Assets/Scenes/Water Dungeon/WaterTemple2.unity
+    guid: 38ac19101aec86b46a0aa15023afa6f9
   m_configObjects: {}

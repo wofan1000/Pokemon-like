@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fad7397e3f62140a39cedb075df987, type: 3}
+  m_Name: Snow6
+  m_EditorClassIdentifier: 
+  connectedScenes:
+  - {fileID: 11400000, guid: 01858067ad4a7e148bd82ae42cec59f4, type: 2}
+  - {fileID: 11400000, guid: 2a824fd9e99b7bf48aeb6801d70ca1f0, type: 2}
+  - {fileID: 11400000, guid: 98e7f7a21889dc64f9455091f1cd42d0, type: 2}
+  sceneName: 

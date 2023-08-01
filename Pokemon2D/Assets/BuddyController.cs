@@ -1,31 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class BuddyController : MonoBehaviour, ISwitchable
 {
-    private Charecter character;
+    private Charecter charecter;
 
     [SerializeField] private PlayerController player;
+    
+    public static BuddyController instance;
 
     public bool isActive { get; set; }
 
-    
+    private void Awake()
+    {
+        instance= this;
+    }
 
     public void Follow(Vector3 movePosition)
     {
         Vector2 moveVector = movePosition - this.transform.position;
         moveVector = moveVector.Generalize();
 
-        if (!character.IsMoving)
+        if (!charecter.IsMoving)
         {
-            StartCoroutine(this.character.Move(moveVector, null, true));
+            StartCoroutine(this.charecter.Move(moveVector, null, true));
         }
     }
 
     private void Start()
     {
-        character = GetComponent<Charecter>();
+        charecter = GetComponent<Charecter>();
         this.transform.position = GameController.Instance.PlayerController.transform.position;
     }
 
@@ -38,15 +44,24 @@ public class BuddyController : MonoBehaviour, ISwitchable
             transform.position = GameController.Instance.PlayerController.transform.position;
         }
 
-        character.HandleUpdate();
+        if (Vector3.Distance(transform.position, GameController.Instance.PlayerController.transform.position) > 15f)
+        {
+
+            CharecterSwap.istogether= true;
+        }
+
+
+        charecter.HandleUpdate();
     }
 
     public void OnSwitch(bool state)
     {
         player.playerActive = state;
         GetComponent<Party>().enabled = state;
+        GetComponent<PlayerController>().enabled = state;
         GetComponent<BuddyController>().enabled = !state;
-    }
+    } 
+
 
  
     public void IsSeperated()
@@ -56,10 +71,10 @@ public class BuddyController : MonoBehaviour, ISwitchable
 
     public void IsTogether()
     {
-        
+        isActive = true;
     }
 
-    
+    public Charecter Charecter => charecter;
 
     Transform ISwitchable.thecurrentChar => this.transform;
 }

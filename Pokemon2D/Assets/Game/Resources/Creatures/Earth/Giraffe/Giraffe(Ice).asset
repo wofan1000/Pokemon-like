@@ -30,7 +30,9 @@ MonoBehaviour:
   expGain: 0
   growthRate: 0
   catchRate: 255
-  learnableMoves: []
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
+    level: 0
   learnableByItems: []
   evolutions:
   - evolveInto: {fileID: 11400000, guid: a57ab19ccfb3a6e49bb2432494410674, type: 2}
@@ -39,6 +41,6 @@ MonoBehaviour:
   - evolveInto: {fileID: 11400000, guid: 5dbff6c054ba46242a554e71b126ebc6, type: 2}
     requiredLevel: 0
     requiredItem: {fileID: 11400000, guid: 924becdb7c2e3554c981c91b75bf215e, type: 2}
-  - evolveInto: {fileID: 11400000, guid: 5dbff6c054ba46242a554e71b126ebc6, type: 2}
+  - evolveInto: {fileID: 11400000, guid: f8b500c88f373bd46aac2f33ab523959, type: 2}
     requiredLevel: 0
-    requiredItem: {fileID: 11400000, guid: 35cb0c39c45d5e24dab5be1360d8709d, type: 2}
+    requiredItem: {fileID: 11400000, guid: 40379601959249e4f9d4fdd561d7312b, type: 2}

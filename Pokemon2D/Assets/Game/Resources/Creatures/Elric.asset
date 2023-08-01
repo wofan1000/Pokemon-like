@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6ed3a8a2404674f9a38f2a818aa0e0, type: 3}
+  m_Name: Elric
+  m_EditorClassIdentifier: 
+  name: Elric
+  description: A Boi
+  leftSprite: {fileID: 345453148, guid: e614bad97d6aaf240a63224e91079e14, type: 3}
+  rightSprite: {fileID: 1763352404, guid: e614bad97d6aaf240a63224e91079e14, type: 3}
+  type1: 0
+  type2: 0
+  creatureHabitates: 3
+  attack: 500
+  defense: 999
+  maxhp: 9999
+  spAttack: 1
+  spDefense: 0
+  speed: 0
+  maxMp: 850
+  currentmp: 0
+  expGain: 73
+  growthRate: 1
+  catchRate: 255
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: b36dd519c242a47479d67fc1a109c39e, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: be2d0f10dd4ee2648b625dc097df2853, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: 40ae033b91b9fb54bb8db19f6f76d9b4, type: 2}
+    level: 0
+  learnableByItems:
+  - {fileID: 0}
+  evolutions:
+  - evolveInto: {fileID: 11400000}
+    requiredLevel: 0
+    requiredItem: {fileID: 11400000, guid: 924becdb7c2e3554c981c91b75bf215e, type: 2}
+  instance: {fileID: 11400000}

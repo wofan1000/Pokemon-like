@@ -1,0 +1,478 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7048811539324636256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7048811539324636258}
+  - component: {fileID: 7048811539324636257}
+  - component: {fileID: 7048811539324636259}
+  m_Layer: 0
+  m_Name: KillQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7048811539324636258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7048811539324636256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -73.7, y: 312.7, z: -0.018280199}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7048811540353954938}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7048811539324636257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7048811539324636256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aeed77f750a58d42b0dcb348917371c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 932369792880284573}
+  - {fileID: 932369791069060486}
+  - {fileID: 932369790789176017}
+  - {fileID: 932369791011405844}
+  objToSpawn: {fileID: 0}
+--- !u!114 &7048811539324636259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7048811539324636256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: 3f363009-fa5d-493f-a561-ed5b65f444e9
+--- !u!1 &7048811540353954937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7048811540353954938}
+  m_Layer: 0
+  m_Name: QuestEnemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7048811540353954938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7048811540353954937}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -69.02933, y: -132.39499, z: -0.2551608}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 932369792880284548}
+  - {fileID: 932369791069060511}
+  - {fileID: 932369790789176008}
+  - {fileID: 932369791011405837}
+  m_Father: {fileID: 7048811539324636258}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7048811538732174471
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7048811540353954938}
+    m_Modifications:
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: killQuest
+      value: 
+      objectReference: {fileID: 7048811539324636257}
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: isKillQuest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149785149864060984, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: uniqueId
+      value: 4f0752a1-cfce-445d-9352-39b696e24d48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 99.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 124.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.27344102
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595862, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_Name
+      value: Snowball Enemy (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+--- !u!4 &932369790789176008 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+  m_PrefabInstance: {fileID: 7048811538732174471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &932369790789176017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7863876336547595862, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+  m_PrefabInstance: {fileID: 7048811538732174471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7048811538732174491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932369790789176017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f3f17816a855d4f9da5cf1cfaff408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objToRemove: {fileID: 0}
+  killQuest: {fileID: 7048811539324636257}
+  enemyPuzzle: {fileID: 0}
+--- !u!1001 &7048811538971313730
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7048811540353954938}
+    m_Modifications:
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: killQuest
+      value: 
+      objectReference: {fileID: 7048811539324636257}
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: isKillQuest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149785149864060984, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: uniqueId
+      value: 3859e680-5957-45b4-a2bf-80bd6c6bb970
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 86.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 116.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.27344102
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595862, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_Name
+      value: Snowball Enemy (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+--- !u!4 &932369791011405837 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+  m_PrefabInstance: {fileID: 7048811538971313730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &932369791011405844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7863876336547595862, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+  m_PrefabInstance: {fileID: 7048811538971313730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7048811538971313750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932369791011405844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f3f17816a855d4f9da5cf1cfaff408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objToRemove: {fileID: 0}
+  killQuest: {fileID: 7048811539324636257}
+  enemyPuzzle: {fileID: 0}
+--- !u!1001 &7048811538995280848
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7048811540353954938}
+    m_Modifications:
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: killQuest
+      value: 
+      objectReference: {fileID: 7048811539324636257}
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: isKillQuest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149785149864060984, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: uniqueId
+      value: 364fb11c-f8e8-44cc-8416-0b4bc93fafc2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 86.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 133.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.27344102
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595862, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_Name
+      value: Snowball Enemy (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+--- !u!1 &932369791069060486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7863876336547595862, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+  m_PrefabInstance: {fileID: 7048811538995280848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7048811538995280804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932369791069060486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f3f17816a855d4f9da5cf1cfaff408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objToRemove: {fileID: 0}
+  killQuest: {fileID: 7048811539324636257}
+  enemyPuzzle: {fileID: 0}
+--- !u!4 &932369791069060511 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+  m_PrefabInstance: {fileID: 7048811538995280848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7048811540403328459
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7048811540353954938}
+    m_Modifications:
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: killQuest
+      value: 
+      objectReference: {fileID: 7048811539324636257}
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: isKillQuest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149785149864060984, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: uniqueId
+      value: ba946238-4bed-4d72-bb16-67b8e4769860
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 73.68932
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 125.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.27344102
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863876336547595862, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: m_Name
+      value: Snowball Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+--- !u!4 &932369792880284548 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7863876336547595855, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+  m_PrefabInstance: {fileID: 7048811540403328459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &932369792880284573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7863876336547595862, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+  m_PrefabInstance: {fileID: 7048811540403328459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7048811540520514807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932369792880284573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f3f17816a855d4f9da5cf1cfaff408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objToRemove: {fileID: 0}
+  killQuest: {fileID: 7048811539324636257}
+  enemyPuzzle: {fileID: 0}

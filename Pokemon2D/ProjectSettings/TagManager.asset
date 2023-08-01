@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Teleporter
+  - Buddy
+  - Block
+  - Torch
+  - Snowball
+  - Revivable
+  - waterPipe
+  - LavaRock
+  - BreakableRock
   layers:
   - Default
   - TransparentFX
@@ -22,13 +30,13 @@ TagManager:
   - Portal
   - Triggers
   - Ledges
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Grabbable
+  - MoveableObjects
+  - PuzzleTrigger
+  - Lava
+  - LavaRock
+  - BreakableRock
+  - AutoProjectile
   - 
   - 
   - 
@@ -56,4 +64,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3688158499
+    locked: 0
+  - name: Overhead
+    uniqueID: 2632281719
     locked: 0

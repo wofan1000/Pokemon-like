@@ -38,3 +38,9 @@ MonoBehaviour:
   - evolveInto: {fileID: 11400000, guid: a57ab19ccfb3a6e49bb2432494410674, type: 2}
     requiredLevel: 0
     requiredItem: {fileID: 11400000, guid: 35cb0c39c45d5e24dab5be1360d8709d, type: 2}
+  - evolveInto: {fileID: 11400000, guid: b05ff0bb9fa36a84c9ef9d763a30512f, type: 2}
+    requiredLevel: 0
+    requiredItem: {fileID: 11400000, guid: d6d0f6a2f63008e4db9c2049ce2c16b9, type: 2}
+  - evolveInto: {fileID: 11400000, guid: f8b500c88f373bd46aac2f33ab523959, type: 2}
+    requiredLevel: 0
+    requiredItem: {fileID: 11400000, guid: 40379601959249e4f9d4fdd561d7312b, type: 2}

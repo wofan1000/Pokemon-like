@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6ed3a8a2404674f9a38f2a818aa0e0, type: 3}
+  m_Name: Salachar
+  m_EditorClassIdentifier: 
+  name: Salachar
+  description: 
+  leftSprite: {fileID: 905100139, guid: a150b321f96e5814cb34067c6c6e2cd9, type: 3}
+  rightSprite: {fileID: 905100139, guid: a150b321f96e5814cb34067c6c6e2cd9, type: 3}
+  type1: 2
+  type2: 3
+  creatureHabitates: 0
+  attack: 100
+  defense: 50
+  maxhp: 999
+  spAttack: 2
+  spDefense: 2
+  speed: 3
+  maxMp: 200
+  currentmp: 5
+  expGain: 6
+  growthRate: 0
+  catchRate: 255
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: 713322303f51bc44a8b475d06f8a89e1, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: ecf143b2565103644af614675c2feb54, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: edc6a3b7634cf98478a69dff6b5f850e, type: 2}
+    level: 0
+  learnableByItems: []
+  evolutions: []

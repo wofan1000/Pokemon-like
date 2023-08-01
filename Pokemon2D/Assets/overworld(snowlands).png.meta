@@ -66,10 +66,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1776,7 +1776,6 @@ TextureImporter:
       overworld(snowlands)_50: 525309213
       overworld(snowlands)_12: -1580179950
       overworld(snowlands)_67: -506117766
-      overworld(snowlands)_60: -1101201356
       overworld(snowlands)_52: -715699998
       overworld(snowlands)_39: -1481938046
       overworld(snowlands)_8: -751041030
@@ -1784,6 +1783,7 @@ TextureImporter:
       overworld(snowlands)_40: 472782282
       overworld(snowlands)_14: -175579563
       overworld(snowlands)_18: 1529658166
+      overworld(snowlands)_60: -1101201356
       overworld(snowlands)_23: 187994393
       overworld(snowlands)_44: 336559603
       overworld(snowlands)_22: -1352297036

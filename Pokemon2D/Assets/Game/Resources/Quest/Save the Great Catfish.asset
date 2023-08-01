@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57634b27e32e67240b94a92dd473b0b3, type: 3}
+  m_Name: Save the Great Catfish
+  m_EditorClassIdentifier: 
+  name: Save the Great Catfish
+  desctription: 
+  startDialogue:
+    lines:
+    - Welcome to our town traveler. Is there anything I can do your you, Child? You
+      seem a long way from home.
+    - A Strange man? Well there was one.
+    - a strange man in a rope and a glowing crystal on his head.
+    - Ever since that strange man arrived, strange monsters have appeared.
+    - He made his way to the water Temple for a reason only he knows.
+    - Our Gaurdian, The Great Catfish has sealed itself inside the water temple,
+      to try and stop him.
+    - If your Gaurdian is struggeling, what makes you think a child can defeat him?
+    - And yet... You have a weapon and are dressed for battle...
+    - I will not stop you if that is what you truly wish to do, but be warned....
+    - If you truly think you have what it takes, Take the key behind me.
+  inProgressDialogue:
+    lines:
+    - You are a brave child for taking on a task as great as this.
+    - I wish you luck.
+  completedDialogue:
+    lines:
+    - So, it is as I feard. The Great Catfish has...
+    - No, now is not the time. This sacred object was being held her for generations.
+      Please, take it.
+  requiredItem: {fileID: 11400000, guid: 40d93731727b96c40b4285d8bb6a3075, type: 2}
+  rewardItem: {fileID: 11400000, guid: 376ad810ca3072447b633887b4876a28, type: 2}

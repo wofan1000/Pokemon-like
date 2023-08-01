@@ -20,6 +20,11 @@ GameObject:
   - component: {fileID: 1726022541907575327}
   - component: {fileID: 4993727312802470971}
   - component: {fileID: 7067677316131450461}
+  - component: {fileID: 238131423215865537}
+  - component: {fileID: 1793422380027453795}
+  - component: {fileID: 4181678674416019740}
+  - component: {fileID: 5430081107108921083}
+  - component: {fileID: 6053002017542939397}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -59,8 +64,11 @@ MonoBehaviour:
   worldCamera: {fileID: 0}
   partyScreen: {fileID: 0}
   inventoryUI: {fileID: 0}
+  beastieryUI: {fileID: 0}
   buddy: {fileID: 0}
   evoMan: {fileID: 2286569498451312330}
+  player: {fileID: 0}
+  thebuddy: {fileID: 0}
 --- !u!114 &8411297020339630857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +124,12 @@ MonoBehaviour:
   waterLayer:
     serializedVersion: 2
     m_Bits: 16
+  digLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  moveableObjects:
+    serializedVersion: 2
+    m_Bits: 131072
 --- !u!114 &6196138500146832838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,3 +237,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuComtroller: {fileID: 0}
+--- !u!114 &238131423215865537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411297020339630858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65b71e5bfb42604f8f62cf981449b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1793422380027453795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411297020339630858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba301b4c2aeb8b94cb72e9cb1aacd9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partyScreen: {fileID: 0}
+  inventoryUI: {fileID: 0}
+--- !u!114 &4181678674416019740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411297020339630858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f823f835ec86bbc438361f28575fa54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleSystem: {fileID: 0}
+--- !u!114 &5430081107108921083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411297020339630858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223e307186e1fae47bbfc71b506481f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6053002017542939397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411297020339630858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebca68539a7563e4ba6ead2108079344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charecterstoSwap:
+  - {fileID: 0}
+  - {fileID: 0}
+  whichCharecter: 1
+  cam: {fileID: 0}

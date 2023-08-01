@@ -6,13 +6,20 @@ using UnityEngine;
 public class DoorSwitch : MonoBehaviour
 {
     [SerializeField]
+
     public GameObject switchUp;
     [SerializeField]
-     public GameObject switchDown;
+    public GameObject switchDown;
+
+   // GameObject switchUp;
+    [SerializeField]
+   // GameObject switchDown;
+
 
     public bool isPressed = false;
 
     public bool ispresuresensative = false;
+
 
     private DoorSetActive theDoor;
 
@@ -22,23 +29,25 @@ public class DoorSwitch : MonoBehaviour
 
     private void Awake()
     {
-        instance= this;
+        instance = this;
     }
     private void Update()
     {
-        
+
     }
+
+
     void Start()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = switchUp.GetComponent<SpriteRenderer>().sprite;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {  
+    {
         gameObject.GetComponent<SpriteRenderer>().sprite = switchDown.GetComponent<SpriteRenderer>().sprite;
         isPressed = true;
 
-        
+
     }
 
     private void OnTriggerExit2D(Collider2D other)

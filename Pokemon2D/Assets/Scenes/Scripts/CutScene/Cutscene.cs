@@ -20,7 +20,9 @@ public class Cutscene : MonoBehaviour, IPlayerTriggerable
             if (isStoryscene)
             {
                 Destroy(gameObject);
+
                 GameController.Instance.StateMachine.Pop();
+
             }
         }
         GameController.Instance.StateMachine.Pop();

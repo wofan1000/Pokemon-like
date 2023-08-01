@@ -28,9 +28,6 @@ public class CharecterAnimator : MonoBehaviour
 
     public bool IsSHoldingTorch{ get; set; }
 
-    
-
-
 
 
 

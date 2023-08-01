@@ -167,6 +167,12 @@ MonoBehaviour:
   - creature: {fileID: 11400000, guid: 1551be37e86f2714ab2034c70fbf6c19, type: 2}
     levelRange: {x: 4, y: 5}
     chance: 50
+<<<<<<< HEAD
+=======
+  - creature: {fileID: 11400000, guid: b05ff0bb9fa36a84c9ef9d763a30512f, type: 2}
+    levelRange: {x: 4, y: 5}
+    chance: 50
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
   creaturesInWater: []
 --- !u!212 &447931978
 SpriteRenderer:
@@ -15459,6 +15465,7 @@ CompositeCollider2D:
   m_EdgeRadius: 0
   m_ColliderPaths:
   - m_Collider: {fileID: 3413382081087270141}
+<<<<<<< HEAD
     m_ColliderPaths:
     - - X: 139999900
         Y: 80000041
@@ -15482,6 +15489,11 @@ CompositeCollider2D:
       - {x: 17.999975, y: 8.00001}
       - {x: 13.99999, y: 7.9999747}
       - {x: 14.000026, y: 4.99999}
+=======
+    m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!1839735485 &3413382081087270131
@@ -15767,6 +15779,7 @@ Tilemap:
   m_TileMatrixArray:
   - m_RefCount: 12
     m_Data:
+<<<<<<< HEAD
       e00: 1
       e01: 0
       e02: 0
@@ -15786,6 +15799,27 @@ Tilemap:
   m_TileColorArray:
   - m_RefCount: 12
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+=======
+      e00: 0
+      e01: 0
+      e02: 1.3959018e-38
+      e03: 1.3959018e-38
+      e10: 0
+      e11: 0
+      e12: 7.89e-43
+      e13: 7.89e-43
+      e20: -7.613645e-31
+      e21: 1e-45
+      e22: -1.1405945e-28
+      e23: -8.738701e+9
+      e30: 4.5904e-41
+      e31: 0
+      e32: 7.89e-43
+      e33: 7.92e-43
+  m_TileColorArray:
+  - m_RefCount: 0
+    m_Data: {r: 2.88295e-40, g: 2.88295e-40, b: 2.88295e-40, a: 2.88295e-40}
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}

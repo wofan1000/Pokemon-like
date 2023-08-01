@@ -3,16 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Teleporter
-  - Buddy
-  - Block
-  - Torch
-  - Snowball
-  - Revivable
-  - waterPipe
-  - LavaRock
-  - BreakableRock
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -22,21 +13,21 @@ TagManager:
   - UI
   - 
   - 
-  - SolidObjects
-  - BattleZone
-  - Interactable
-  - Player
-  - FovLayer
-  - Portal
-  - Triggers
-  - Ledges
-  - Grabbable
-  - MoveableObjects
-  - PuzzleTrigger
-  - Lava
-  - LavaRock
-  - BreakableRock
-  - AutoProjectile
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -49,22 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Backround
-    uniqueID: 2835716837
-    locked: 0
-  - name: BattleZone
-    uniqueID: 3500584961
-    locked: 0
-  - name: Objects
-    uniqueID: 508338283
-    locked: 0
-  - name: Battle
-    uniqueID: 709995359
-    locked: 0
-  - name: Foreground
-    uniqueID: 3688158499
-    locked: 0
-  - name: Overhead
-    uniqueID: 2632281719
     locked: 0

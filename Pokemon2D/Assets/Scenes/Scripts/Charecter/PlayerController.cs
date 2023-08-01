@@ -31,11 +31,16 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
 
     public GameObject torch;
 
+
     public GameObject tileEraser;
 
     public CharecterAnimator theanim;
 
     private HoldItem holdItem;
+
+
+    //public CharecterAnimator theanim;
+
 
     private void Awake()
     {
@@ -48,8 +53,12 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
 
     private void Start()
     {
+
      holdItem = gameObject.GetComponent<HoldItem>();
         holdItem.dir = new Vector2(0, -1);
+
+     
+
        // controllerScript.enabled = true;
     }
 
@@ -61,12 +70,14 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
+
             var change = Vector3.zero;
 
             if(change.sqrMagnitude > .1f)
             {
                 holdItem.dir = change.normalized;
             }
+
 
             // remove diagonal movement
            // if (input.x != 0) input.y = 0;
@@ -110,8 +121,9 @@ public class PlayerController : MonoBehaviour, ISavable,ISwitchable
                 collider.gameObject.SetActive(false);
                 torch = collider.gameObject;
                 torch.transform.parent = this.transform;
-                theanim.IsSHoldingTorch= true;
+                //theanim.IsSHoldingTorch= true;
              }
+
 
             
 

@@ -5,13 +5,15 @@ using UnityEngine.TextCore.Text;
 
 public class BuddyController : MonoBehaviour, ISwitchable
 {
-    private Charecter charecter;
+    private Charecter character;
 
     [SerializeField] private PlayerController player;
     
     public static BuddyController instance;
 
     public bool isActive { get; set; }
+
+    public Transform thecurrentChar => throw new System.NotImplementedException();
 
     private void Awake()
     {
@@ -23,15 +25,15 @@ public class BuddyController : MonoBehaviour, ISwitchable
         Vector2 moveVector = movePosition - this.transform.position;
         moveVector = moveVector.Generalize();
 
-        if (!charecter.IsMoving)
+        if (!character.IsMoving)
         {
-            StartCoroutine(this.charecter.Move(moveVector, null, true));
+            StartCoroutine(this.character.Move(moveVector, null, true));
         }
     }
 
     private void Start()
     {
-        charecter = GetComponent<Charecter>();
+        character = GetComponent<Charecter>();
         this.transform.position = GameController.Instance.PlayerController.transform.position;
     }
 
@@ -50,35 +52,35 @@ public class BuddyController : MonoBehaviour, ISwitchable
             CharecterSwap.istogether= true;
         }
 
-
-        charecter.HandleUpdate();
+        character.HandleUpdate();
     }
-
     public void OnSwitch(bool state)
     {
         player.playerActive = state;
         GetComponent<Party>().enabled = state;
         GetComponent<PlayerController>().enabled = state;
         GetComponent<BuddyController>().enabled = !state;
-    } 
+    }
 
+   
 
- 
     public void IsSeperated()
     {
-        isActive= false;
+        throw new System.NotImplementedException();
     }
 
     public void IsTogether()
     {
-        isActive = true;
+        throw new System.NotImplementedException();
     }
 
-    public Charecter Charecter => charecter;
+   
+    }
 
-    Transform ISwitchable.thecurrentChar => this.transform;
-}
+   
 
+
+ 
 
 
 

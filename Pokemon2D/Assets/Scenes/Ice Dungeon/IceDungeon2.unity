@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &8860874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -188,6 +189,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d30d60b614d97140847012795a58fb5, type: 3}
+=======
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
 --- !u!1 &354692575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7863876336547595862, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
@@ -322,7 +325,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objToRemove: {fileID: 2098634883}
+<<<<<<< HEAD
   killQuest: {fileID: 0}
+=======
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
 --- !u!1 &621002478
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +451,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objToRemove: {fileID: 2098634883}
+<<<<<<< HEAD
   killQuest: {fileID: 0}
+=======
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
 --- !u!1001 &945212535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -453,7 +462,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 0}
+=======
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
       propertyPath: enemies
       value: 
       objectReference: {fileID: 2098634883}
@@ -616,7 +629,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 0}
+=======
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
       propertyPath: enemies
       value: 
       objectReference: {fileID: 2098634883}
@@ -702,11 +719,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 0}
       propertyPath: enemies
       value: 
       objectReference: {fileID: 2098634883}
     - target: {fileID: 0}
+=======
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+      propertyPath: enemies
+      value: 
+      objectReference: {fileID: 2098634883}
+    - target: {fileID: 354692586, guid: 91ea975c20d7c09459d00626384e46f7, type: 3}
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
       propertyPath: objToRemove
       value: 
       objectReference: {fileID: 2098634883}

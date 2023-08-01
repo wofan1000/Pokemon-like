@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fad7397e3f62140a39cedb075df987, type: 3}
   m_Name: BeachArea11
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   connectedScenes:
   - {fileID: 11400000, guid: 11842e184f8b6594288f9df0e6a30372, type: 2}
   - {fileID: 11400000, guid: 79f8cdeb00cd2c84ba640ee45078b2e4, type: 2}
@@ -29,4 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6a0341c380e25e443a874b99e413cc05, type: 2}
   - {fileID: 11400000, guid: 6a0341c380e25e443a874b99e413cc05, type: 2}
   - {fileID: 11400000, guid: 8b3845c89ba00e6438cbd0e5275b02c5, type: 2}
+=======
+  connectedScenes: []
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
   sceneName: 

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Pokemon2D/Assets/Animations/Water Pipes Anims.meta
 guid: 4ca2dd031dfe5094dab5298c14d41b28
+========
+guid: dcf124ae00de3854e8ecc347aea68056
+>>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f:Pokemon2D/Assets/Beach Area.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

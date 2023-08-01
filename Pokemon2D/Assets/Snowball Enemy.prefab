@@ -18,6 +18,10 @@ GameObject:
   - component: {fileID: 2149785149864060984}
   - component: {fileID: 7863876336547595843}
   - component: {fileID: 354692576}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 354692586}
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
   m_Layer: 10
   m_Name: Snowball Enemy
   m_TagString: Untagged
@@ -182,10 +186,13 @@ MonoBehaviour:
   - {fileID: 2020597410, guid: 243c442ce0668c048bd1ca25be2c1797, type: 3}
   - {fileID: -586582876, guid: 243c442ce0668c048bd1ca25be2c1797, type: 3}
   - {fileID: 155814696, guid: 243c442ce0668c048bd1ca25be2c1797, type: 3}
+<<<<<<< HEAD
   torchDownSprites: []
   torchUpSprites: []
   torchRightSprites: []
   torchLeftSprites: []
+=======
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
   surfSprites: []
   defaultDir: 2
 --- !u!114 &7863876336547595854
@@ -255,6 +262,22 @@ MonoBehaviour:
   - {x: 0, y: 2}
   - {x: 0, y: -2}
   timeBetweenPattern: 1
+<<<<<<< HEAD
+=======
+--- !u!114 &354692586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863876336547595862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f3f17816a855d4f9da5cf1cfaff408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: {fileID: 0}
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
 --- !u!1001 &5405271678602702564
 PrefabInstance:
   m_ObjectHideFlags: 0

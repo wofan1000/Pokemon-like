@@ -32,6 +32,12 @@ public class GameController : MonoBehaviour
 
 
 
+
+    [SerializeField] GameObject player;
+
+    [SerializeField] GameObject thebuddy;
+
+
     GameState state;
     GameState prevState;
     GameState stateBeforeEvolution;
@@ -69,7 +75,7 @@ public class GameController : MonoBehaviour
       
         StateMachine.ChangeState(FreeRoamState.i);
 
-        battleSystem.OnBattleOver += EndBattle;
+        //battleSystem.OnBattleOver += EndBattle;
 
 
 
@@ -77,7 +83,13 @@ public class GameController : MonoBehaviour
 
         DialogueManager.Instance.OnShowDialogue += () =>
         {
+
            StateMachine.Push(DialogueState.i);
+
+            prevState = state;
+            state = GameState.Dialog;
+           
+
         };
 
         DialogueManager.Instance.OnCloseDialogue += () =>

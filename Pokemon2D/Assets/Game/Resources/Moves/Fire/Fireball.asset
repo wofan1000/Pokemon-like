@@ -21,11 +21,19 @@ MonoBehaviour:
   speed: 0
   alwaysHits: 1
   isSpecial: 0
+<<<<<<< HEAD
   catagory: 2
   effects:
     boosts: []
     status: 2
     volitileStatus: 2
+=======
+  catagory: 0
+  effects:
+    boosts: []
+    status: 0
+    volitileStatus: 0
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
   attackVisualEffect: {fileID: 3528754412870217544, guid: c81186c5bd58e864dba74694905a53ed, type: 3}
   secondaries: []
   target: 0

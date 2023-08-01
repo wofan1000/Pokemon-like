@@ -8,11 +8,19 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<<< HEAD:Pokemon2D/Assets/Game/Prefabs/door types/Enemy Door.prefab
   - component: {fileID: 2122697839663968187}
   - component: {fileID: 2122697839663968186}
   - component: {fileID: 2122697839663968189}
   - component: {fileID: 2122697839663968166}
   - component: {fileID: 2122697839663968133}
+========
+  - component: {fileID: 7550599319879424638}
+  - component: {fileID: 7550599319879424639}
+  - component: {fileID: 7550599319879424632}
+  - component: {fileID: 7550599319879424637}
+  - component: {fileID: 7550599319879424611}
+>>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f:Pokemon2D/Assets/Game/Prefabs/door types/Key Door.prefab
   m_Layer: 0
   m_Name: Enemy Door
   m_TagString: Untagged
@@ -113,7 +121,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9957366}
   m_EdgeRadius: 0
+<<<<<<<< HEAD:Pokemon2D/Assets/Game/Prefabs/door types/Enemy Door.prefab
 --- !u!61 &2122697839663968166
+========
+--- !u!114 &7550599319879424637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550599319879424633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a6581b2f4f7424d87a3168c7a7380b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switches: []
+  door: {fileID: 0}
+--- !u!61 &7550599319879424611
+>>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f:Pokemon2D/Assets/Game/Prefabs/door types/Key Door.prefab
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -18,6 +18,7 @@ MonoBehaviour:
   rightSprite: {fileID: 1763352404, guid: e614bad97d6aaf240a63224e91079e14, type: 3}
   type1: 0
   type2: 0
+<<<<<<< HEAD
   creatureHabitates: 3
   attack: 500
   defense: 999
@@ -26,6 +27,16 @@ MonoBehaviour:
   spDefense: 0
   speed: 0
   maxMp: 850
+=======
+  creatureHabitates: 0
+  attack: 5
+  defense: 0
+  maxhp: 100
+  spAttack: 1
+  spDefense: 0
+  speed: 0
+  maxMp: 100
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
   currentmp: 0
   expGain: 73
   growthRate: 1
@@ -33,9 +44,15 @@ MonoBehaviour:
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 1833ccb57ad40fe44b82e6443db36d73, type: 2}
     level: 0
+<<<<<<< HEAD
   - moveBase: {fileID: 11400000, guid: b36dd519c242a47479d67fc1a109c39e, type: 2}
     level: 0
   - moveBase: {fileID: 11400000, guid: be2d0f10dd4ee2648b625dc097df2853, type: 2}
+=======
+  - moveBase: {fileID: 11400000, guid: d81a38abcbef3a44cb60a7aee4df8b51, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: d81a38abcbef3a44cb60a7aee4df8b51, type: 2}
+>>>>>>> 1b2703dec81b573d153c659f281e7ad768ab159f
     level: 0
   - moveBase: {fileID: 11400000, guid: 40ae033b91b9fb54bb8db19f6f76d9b4, type: 2}
     level: 0
